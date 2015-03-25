@@ -1,0 +1,84 @@
+<!doctype html>
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Admin.io - AngularJS theme</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,700,600,400'
+        rel='stylesheet' type='text/css'>
+
+  <!-- Include Jquery in the vendor folder -->
+  <script src="dist/js/jquery.min.js"></script>
+
+  <!-- Theme's own CSS file -->
+  <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="dist/css/angular-material.min.css">
+  <link rel="stylesheet" href="dist/css/main.css">
+
+  <!--[if lte IE 9]>
+  <script src="dist/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+</head>
+<body data-ng-app="app" id="app" data-custom-background="" data-off-canvas-nav="" data-ng-controller="AdminAppCtrl">
+
+<div class="page-wrapper nav-style--alternative">
+  <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
+    <aside data-ng-include=" 'app/views/navigation.html' " id="nav-container"></aside>
+  </div>
+
+  <div class="view-container">
+
+    <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
+      <section data-ng-include=" 'app/views/header.html' " id="header" class="top-header"></section>
+    </div>
+    <section data-ng-view="" id="content" class="animate-fade-up"></section>
+  </div>
+
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="rightmessages">
+    <div data-ng-include=" 'app/views/right-navbar.html' ">
+
+    </div>
+  </md-sidenav>
+
+</div>
+
+<div class="page-loading-overlay">
+  <div class="loader-2"></div>
+</div>
+
+<div class="load_circle_wrapper">
+
+  <div class="loading_spinner">
+    <div id="wrap_spinner">
+      <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+    </div>
+  </div>
+</div>
+
+<!--Uncomment for deployment using Grunt-->
+<script type="text/javascript" src="dist/js/app.js"></script>
+<script src="app/app.js"></script>
+<script src="app/config.js"></script>
+<script src="app/controllers.js"></script>
+<script src="app/directives.js"></script>
+<script src="app/services.js"></script>
+<!-- Firebase -->
+<script src="app/views/charts/directives/sparkTest.js"></script>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+</svg>
+</body>
+</html>

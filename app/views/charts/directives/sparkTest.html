@@ -1,0 +1,38 @@
+
+<!--    <div class="title"><h5>Statistics</h5>
+               <i class="mdi-content-clear"></i>
+               <a class="minimize" href="#"><i class="mdi-navigation-expand-less"></i></a></div>-->
+<div class="container">
+<div class="row">
+    <div class="col-md-3">
+<div class="md-whiteframe-z1" >
+{{spark}}
+<div style="float:right" ng-init="showSettings=false">
+    <md-icon class="glyphicon glyphicon-wrench" alt="android" ng-click="showSettings=!showSettings"></md-icon>
+    <md-icon class="glyphicon glyphicon-chevron-down" ng-click="isCollapsed = !isCollapsed;"></md-icon>
+</div>
+</div>
+
+<div id="slide" class="md-whiteframe-z1 body" style="background-color:white">
+    <div class="small-box-icon text-center">
+        <div class="">
+            <strong class="color-danger">90% </strong>
+            <md-icon class="color-danger" md-svg-src="dist/img/icons/ic_access_alarms_24px.svg"></md-icon>
+            <p>
+                Critical issues
+            </p>
+        </div>
+        <div >
+                <span data-sparkline
+                      data-spark-data="simpleChart2danger.sparkData"
+                      data-spark-options="simpleChart2danger.sparkOptions"
+                        ></span>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+

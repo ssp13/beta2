@@ -1,0 +1,20 @@
+
+<md-toolbar class="md-accent">
+    <div class="md-toolbar-tools" ng-click="toggleContent()">
+<div style="width:100%">
+     <span >
+         {{title}}
+
+     </span>
+    <a class="" ng-click="toggleContent()" ><i style="cursor:pointer;color:white" class="expand glyphicon glyphicon-chevron-up close" ng-click="toggleContent()"></i></a>
+    <md-icon class="glyphicon glyphicon-wrench" alt="android" ng-click="showSettings=!showSettings"></md-icon>
+</div>
+
+    </div>
+</md-toolbar>
+<md-card> 
+    <div  collapse="isCollapsed" ng-transclude></div>
+</md-card>
+
+
+

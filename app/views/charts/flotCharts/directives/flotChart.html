@@ -1,0 +1,53 @@
+<section>
+
+    <div class="row">
+
+        <div class="col-sm-8">
+
+          <section class="md-content-section">
+
+            <md-content>
+              <div class="md-content__body">
+
+                <div>
+
+                  <div class="choices">
+
+                  </div>
+
+                  <div class="choice-switches">
+
+                    <div layout="row" layout-wrap>
+
+                      <div flex>
+                        <md-switch ng-model="new_visitors" ng-change="switchClick(0)" name="0" class="md-primary" aria-label="New visitors">
+                          New visitors
+                        </md-switch>
+                      </div>
+
+                      <div flex>
+                        <md-switch ng-model="returning_visitors" ng-change="switchClick(1)" name="1" class="md-warning" aria-label="Returning visitors">
+                          Returning visitors
+                        </md-switch>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div data-flot-chart
+                       data-data="line1.data"
+                       data-options="line1.options"
+                       style="width: 100%; height: 300px;"
+                          ></div>
+                </div>
+
+              </div>
+            </md-content>
+
+          </section>
+
+        </div>
+
+
+    </div>
+</section>

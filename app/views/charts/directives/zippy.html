@@ -1,18 +1,27 @@
+<style>
+    .hov{
 
+    }
+</style>
 <md-toolbar class="md-accent">
     <div class="md-toolbar-tools" ng-click="toggleContent()">
 <div style="width:100%">
      <span >
          {{title}}
-
+lkjlkj
      </span>
-    <a class="" ng-click="toggleContent()" ><i style="cursor:pointer;color:white" class="expand glyphicon glyphicon-chevron-up close" ng-click="toggleContent()"></i></a>
+
+        <i style="opacity:.7" class="icon-action-black-ic_account_balance_black_24dp"></i>
+        <i style="opacity:0.5" class="glyphicon glyphicon-phone"></i>
+    </div>
+    <a class="" ng-click="toggleContent()" ><i style="cursor:pointer;color:white" class="expand glyphicon glyphicon-chevron-up close" ></i></a>
     <md-icon class="glyphicon glyphicon-wrench" alt="android" ng-click="showSettings=!showSettings"></md-icon>
+    <i class="glyphicon glyphicon-option-horizontal" ng-click="showOptions=!showOptions"></i>
 </div>
 
     </div>
 </md-toolbar>
-<md-card> 
+<md-card> sdasd
     <div  collapse="isCollapsed" ng-transclude></div>
 </md-card>
 

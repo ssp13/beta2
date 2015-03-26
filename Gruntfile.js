@@ -199,6 +199,7 @@ module.exports = function(grunt) {
                     'scripts/audio_widget.js',
                     'app/views/charts/directives/sparkDanger.js',
                     'app/views/charts/flotCharts/directives/*.js',
+                    'app/views/sensors/**/*.js',
                     'app/*.js' ],
                 dest: 'dist/js/app.js'
             }
@@ -219,7 +220,7 @@ module.exports = function(grunt) {
 
         watch: {
             dev: {
-                files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss','app/views/charts/directives/*.js' ],
+                files: [ 'Gruntfile.js', 'app/**/*.js', '*.html','styles/*.scss','app/views/charts/directives/*.js' ],
                 tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp','cssmin' ],
                 options: {
                     atBegin: true

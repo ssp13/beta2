@@ -1,0 +1,68 @@
+<!-- Breadcrumbs -->
+<div class="region-breadcrumbs">
+    <ol class="breadcrumb">
+        <li ><a href="/#"><i class="fa fa-home"></i></a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</div>
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <h2>Sensor Details</h2>
+        <div class="col-md-12">
+
+        </div>
+        <div class="col-md-12">
+
+                <zippy>
+            <div flot-line-chart>
+
+            </div>
+                </zippy>
+        </div>
+    </div>
+    <div class="row">
+        <div class="page page-charts" data-ng-controller="morrisChartCtrl">
+
+            <section data-ng-controller="chartjsCtrl">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <section class="md-content-section">
+                            <md-toolbar class="md-accent">
+                                <div class="md-toolbar-tools">
+                                    Line Chart js
+                                </div>
+                            </md-toolbar>
+
+                            <md-content>
+                                <div class="md-content__body">
+                                    <chart class="chartjs" data-data="chartjsLine" data-type="Line" value="myChart"></chart>
+                                </div>
+                            </md-content>
+
+                        </section>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <section class="md-content-section">
+                            <md-toolbar class="md-accent">
+                                <div class="md-toolbar-tools">
+                                    Bar Chart js
+                                </div>
+                            </md-toolbar>
+
+                            <md-content>
+                                <div class="md-content__body">
+                                    <chart class="chartjs" data-data="chartjsBar" data-type="Bar" value="myChart"></chart>
+                                </div>
+                            </md-content>
+
+                        </section>
+                    </div>
+                </div>
+    </div>
+</div>
+    </div>
+</div>

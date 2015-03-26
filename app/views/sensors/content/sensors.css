@@ -1,0 +1,6 @@
+.sensors tr:hover {
+  box-shadow: 10px 10px 5px #888888;
+}
+.sensors tr:first-child:hover {
+  background-color: white;
+}

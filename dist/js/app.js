@@ -11142,7 +11142,8 @@ custom.directive("zippy-light",function(){
  */
 angular.module("app.custom").directive("flotLineChart",function(){
   return{
-    restrict:"E",
+    restrict:"AE",
+      replace:false,
     
     
     templateUrl:"app/views/charts/flotCharts/directives/flotChart.html",
@@ -11333,12 +11334,104 @@ angular.module("app.custom").directive("flotLineChart",function(){
         };
     }
 ;
-});  ;
+});  ;/**
+ * Created by ssp on 25/3/2015.
+ */
+
+var sensors = angular.module("sensors.module",[]);
+
+
+
+sensors.controller("sensorsController",['$scope',
+    function($scope){
+console.log("sensorsController")
+        $scope.hello="hello";
+}]);
+
+//var phonecatControllers = angular.module('phonecatControllers', []);
+//
+//phonecatControllers.controller('PhoneListCtrl', ['$scope', '$http',
+//    function ($scope, $http) {
+//        $http.get('phones/phones.json').success(function(data) {
+//            $scope.phones = data;
+//        });
+//
+//        $scope.orderProp = 'age';
+//    }]);
+//
+sensors.controller('sensorDetailsController', ['$scope', '$routeParams',
+    function($scope, $routeParams) {
+        $scope.sensorId = $routeParams.sensorId;
+        console.log($routeParams);
+    }]);;/**
+ * Created by ssp on 25/3/2015.
+ */
+
+sensors.directive("sensorDetailsGraphs",function(){
+    return{
+        scope:{
+
+        },
+        templateUrl:"app/views/sensors/directives/sensorsList.html",
+        controller:['$scope',Controller],
+        link:Link
+    };
+    function Controller ($scope){
+        $scope.sensors=[{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"}];
+
+    }
+    function Link (scope,elem,attrs){
+
+    }
+});/**
+ * Created by ssp on 25/3/2015.
+ */
+
+sensors.directive("sensorDetails",function(){
+    return{
+        scope:{
+
+        },
+        templateUrl:"app/views/sensors/directives/sensorDetails.html",
+        controller:['$scope',Controller],
+        link:Link
+    };
+    function Controller ($scope){
+        console.log("sensorDetails");
+    }
+    function Link (scope,elem,attrs){
+
+    }
+});/**
+ * Created by ssp on 25/3/2015.
+ */
+
+sensors.directive("sensorsList",function(){
+    return{
+        scope:{
+
+        },
+        templateUrl:"app/views/sensors/directives/sensorsList.html",
+        controller:['$scope',Controller],
+        link:Link
+    };
+    function Controller ($scope){
+     $scope.sensors=[{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"}];
+
+    }
+     function Link (scope,elem,attrs){
+
+    }
+});
 /**************************
  Initialize the Angular App
  **************************/
 
-var app = angular.module("app", ["ngRoute", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree", "ngMap", "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
+var app = angular.module("app", ["ngRoute", "ngAnimate","ngAria","ngMessages",
+    "ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree", "ngMap",
+    "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation",
+    "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map",
+    "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music","sensors.module"]).run(["$rootScope", "$location",
     function ($rootScope, $location) {
 
         $(document).ready(function(){
@@ -11436,6 +11529,9 @@ var app = angular.module("app", ["ngRoute", "ngAnimate","ngAria","ngMessages","n
                 templateUrl: "app/views/tasks/tasks.html"
             }).when("/test", {
                 templateUrl: "app/views/test.html"
+            }).when("/sensor/:id",{
+                templateUrl:"app/views/sensors/views/sensorDetails.html",
+            controller:'sensorDetailsController'
             }).otherwise({
                 redirectTo: "/404"
             });

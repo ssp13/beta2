@@ -5,8 +5,8 @@
  Provides custom directives for charting elements
  */
 
-angular.module("app.chart.directives", []).directive("gaugeChart", [
-        function() {
+angular.module("app.chart.directives", []).directive("gaugeChart", ['$timeout',
+        function($timeout) {
             return {
                 scope: {
                     gaugeData: "=",
@@ -21,7 +21,16 @@ angular.module("app.chart.directives", []).directive("gaugeChart", [
                         gauge = new Gauge(ele[0]).setOptions(options);
                         gauge.maxValue = data.maxValue;
                         gauge.animationSpeed = data.animationSpeed;
+                    scope.$watch(function(){
+                        return scope.gaugeData.val;
+                    },function(nV,oV){
+                        console.log(scope.gaugeData);
                         gauge.set(data.val);
+                        $timeout(function(){
+                            scope.$apply();
+                        })
+                    })
+
                 }
             };
         }

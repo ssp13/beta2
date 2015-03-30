@@ -6,11 +6,24 @@ var sensors = angular.module("sensors.module",[]);
 
 
 
-sensors.controller("sensorsController",['$scope',
-    function($scope){
-console.log("sensorsController")
+sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location',
+    function($scope,sensorsDao,$route, $routeParams, $location){
+        console.log("sensorsController")
         $scope.hello="hello";
-}]);
+        $scope.sensors={
+            location:{
+                latitude:37.956512,
+                longitude:23.803622
+            }
+        }
+
+        $scope.$route = $route;
+        $scope.$location = $location;
+        $scope.$routeParams = $routeParams;
+        console.log($scope.$route);
+       // $scope.sensors = sensorsDao.getSensors();
+        console.log($scope.sensors);
+    }]);
 
 //var phonecatControllers = angular.module('phonecatControllers', []);
 //

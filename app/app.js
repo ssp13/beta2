@@ -3,17 +3,13 @@
  Initialize the Angular App
  **************************/
 
-var app = angular.module("app", ["ngRoute", "ngAnimate","ngAria","ngMessages",
-    "ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree", "ngMap",
-    "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation",
-    "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map",
-    "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music","sensors.module"]).run(["$rootScope", "$location",
+var app = angular.module("app", ["ngRoute", "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree", "ngMap", "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
     function ($rootScope, $location) {
 
         $(document).ready(function(){
 
             //WidgetAudio.init();
-
+            //TODO loading overlay
             setTimeout(function(){
                 $('.page-loading-overlay').addClass("loaded");
                 $('.load_circle_wrapper').addClass("loaded");
@@ -105,9 +101,12 @@ var app = angular.module("app", ["ngRoute", "ngAnimate","ngAria","ngMessages",
                 templateUrl: "app/views/tasks/tasks.html"
             }).when("/test", {
                 templateUrl: "app/views/test.html"
+            }).when("/sensors/",{
+            templateUrl:"app/views/sensors/views/sensorsView.html",
+            controller:'sensorsController'
             }).when("/sensor/:id",{
                 templateUrl:"app/views/sensors/views/sensorDetails.html",
-            controller:'sensorDetailsController'
+                controller:'sensorDetailsController'
             }).otherwise({
                 redirectTo: "/404"
             });

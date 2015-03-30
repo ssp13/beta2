@@ -5,8 +5,7 @@
  */
 angular.module("app.custom").directive("flotLineChart",function(){
   return{
-    restrict:"AE",
-      replace:false,
+    restrict:"E",
     
     
     templateUrl:"app/views/charts/flotCharts/directives/flotChart.html",

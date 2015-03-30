@@ -112,17 +112,17 @@ module.exports = function(grunt) {
             }
         },
 
-        uglify: {
-            dist: {
-                files: {
-                    'dist/js/app.js': [ 'dist/js/app.js' ]
-                },
-                options: {
-                    mangle: false,
-                    preserveComments: 'some'
-                }
-            }
-        },
+        //uglify: {
+        //    dist: {
+        //        files: {
+        //            'dist/js/app.js': [ 'dist/js/app.js' ]
+        //        },
+        //        options: {
+        //            mangle: false,
+        //            preserveComments: 'some'
+        //        }
+        //    }
+        //},
         cssmin: {
             combine: {
                 files: {
@@ -164,7 +164,7 @@ module.exports = function(grunt) {
                 src: ['bower_components/bootstrap/dist/js/bootstrap.min.js',
                     'scripts/gmap.js',
                     'bower_components/slimScroll/jquery.slimscroll.min.js',
-                    'bower_components/angular/angular.min.js',
+                    'bower_components/angular/angular.js',
                     'bower_components/angular-animate/angular-animate.min.js',
                     'bower_components/angular-route/angular-route.min.js',
                     'bower_components/angular-sanitize/angular-sanitize.min.js',
@@ -199,8 +199,7 @@ module.exports = function(grunt) {
                     'scripts/audio_widget.js',
                     'app/views/charts/directives/sparkDanger.js',
                     'app/views/charts/flotCharts/directives/*.js',
-                    'app/views/sensors/**/*.js',
-                    'app/*.js' ],
+                    'app/**/*.js' ],
                 dest: 'dist/js/app.js'
             }
         },
@@ -220,51 +219,51 @@ module.exports = function(grunt) {
 
         watch: {
             dev: {
-                files: [ 'Gruntfile.js', 'app/**/*.js', '*.html','styles/*.scss','app/views/charts/directives/*.js' ],
+                files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss','app/views/charts/directives/*.js' ],
                 tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp','cssmin' ],
                 options: {
                     atBegin: true
                 }
-            },
-            min: {
-                files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss' ],
-                tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp', 'uglify:dist','cssmin' ],
-                options: {
-                    atBegin: true
-                }
             }
-        },
-
-        compress: {
-            dist: {
-                options: {
-                    archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.zip'
-                },
-                files: [{
-                    src: [ 'index.html' ],
-                    dest: '/'
-                }, {
-                    src: [ 'app/**' ],
-                    dest: 'app/'
-                }, {
-                    src: [ 'app/**' ],
-                    dest: 'app/'
-                }, {
-                    src: [ 'app/**' ],
-                    dest: 'app/'
-                }]
-            }
+            //min: {
+            //    files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss' ],
+            //    tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp', 'uglify:dist','cssmin' ],
+            //    options: {
+            //        atBegin: true
+            //    }
+            //}
         }
+
+        //compress: {
+        //    dist: {
+        //        options: {
+        //            archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.zip'
+        //        },
+        //        files: [{
+        //            src: [ 'index.html' ],
+        //            dest: '/'
+        //        }, {
+        //            src: [ 'app/**' ],
+        //            dest: 'app/'
+        //        }, {
+        //            src: [ 'app/**' ],
+        //            dest: 'app/'
+        //        }, {
+        //            src: [ 'app/**' ],
+        //            dest: 'app/'
+        //        }]
+        //    }
+        //}
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-compress');
+    //grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    //grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-bower-task');

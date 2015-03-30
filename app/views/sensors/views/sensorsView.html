@@ -1,0 +1,182 @@
+<!-- Breadcrumbs -->
+<div class="region-breadcrumbs">
+    <ol class="breadcrumb">
+        <li><a href="/#"><i class="fa fa-home"></i></a></li>
+        <li class="active">Dashboard</li>
+        <li ng-repeat="bread in breads">{{page}}</li>
+    </ol>
+</div>
+<div class="page page-dashboard">
+<div class="row">
+    <div class="col-md-6">
+        <zippy>
+            <section class="md-content-section">
+                <md-content>
+                    <div class="md-content__body">
+                        <map class="ui-map" zoom="15" center="[38.031619, 23.866715]" scrollwheel="false">
+                            <!--<marker position="[, ]" title="marker" animation="Animation.DROP"></marker>-->
+                            <marker position="[37.979918, 23.726172]" title="drag me" draggable="true"></marker>
+                        </map>
+                    </div>
+                </md-content>
+            </section>
+        </zippy>
+     </div>
+    <div class="col-md-6">
+        <section data-ng-controller="sparklineCtrl">
+            <div class="row">
+            <div class="col-md-6">
+                <section class="md-content-section">
+                    <md-content class="md-content--primary">
+                        <div class="small-box-icon text-center">
+                            <div class="pull-left">
+              <span data-sparkline
+                    data-spark-data="simpleChart1.sparkData"
+                    data-spark-options="simpleChart1.sparkOptions"
+                      ></span>
+                            </div>
+                            <div class="pull-right text-right">
+                                <strong class="color-primary">80% </strong>
+                                <md-icon class="color-primary"
+                                         md-svg-src="dist/img/icons/ic_trending_up_24px.svg"></md-icon>
+                                <p>
+                                    Sales
+                                </p>
+                            </div>
+                        </div>
+                    </md-content>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="md-content-section">
+                    <md-content class="md-content--warning">
+                        <div class="small-box-icon text-center">
+                            <div class="pull-left">
+                <span data-sparkline
+                      data-spark-data="simpleChart2.sparkData"
+                      data-spark-options="simpleChart2.sparkOptions"
+                        ></span>
+                            </div>
+                            <div class="pull-right text-right">
+                                <strong class="color-warning">183 </strong>
+                                <md-icon class="color-warning"
+                                         md-svg-src="dist/img/icons/ic_security_24px.svg"></md-icon>
+                                <p>
+                                    Warnings
+                                </p>
+                            </div>
+                        </div>
+                    </md-content>
+                </section>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                <section class="md-content-section">
+                    <md-content class="md-content--danger">
+                        <div class="small-box-icon text-center">
+                            <div class="pull-left">
+                <span data-sparkline
+                      data-spark-data="simpleChart2danger.sparkData"
+                      data-spark-options="simpleChart2danger.sparkOptions"
+                        ></span>
+                            </div>
+                            <div class="pull-right text-right">
+                                <strong class="color-danger">90% </strong>
+                                <md-icon class="color-danger"
+                                         md-svg-src="dist/img/icons/ic_access_alarms_24px.svg"></md-icon>
+                                <p>
+                                    Critical issues
+                                </p>
+                            </div>
+                        </div>
+                    </md-content>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="md-content-section">
+                    <md-content class="md-content--info">
+                        <div class="small-box-icon text-center">
+                            <div class="pull-left">
+               <span data-sparkline
+                     data-spark-data="tristateChart1.sparkData"
+                     data-spark-options="tristateChart1.sparkOptions"
+                       ></span>
+                            </div>
+                            <div class="pull-right text-right">
+                                <strong class="color-info">40% </strong>
+                                <md-icon class="color-info" md-svg-src="dist/img/icons/ic_memory_24px.svg"></md-icon>
+                                <p>
+                                    Memory usage
+                                </p>
+                            </div>
+                        </div>
+                    </md-content>
+                </section>
+            </div>
+    </div>
+    </section>
+    </div>
+</div>
+<!-- TODO make map component?-->
+    <div class="row">
+
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <zippy title="RealTimeSensors">
+                <section class="md-content-section">
+                    <md-content>
+                        <div class="md-content__body">
+
+                            <div data-ng-controller="flotChartCtrl.realtime">
+                                <div data-flot-chart-realtime
+                                     data-type="realtime"
+                                     style="width: 100%; height: 300px;"
+                                        ></div>
+                            </div>
+                        </div>
+                    </md-content>
+                </section>
+            </zippy>
+        </div>
+
+
+
+        <div class="col-md-4">
+            <div spark-danger></div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <zippy>
+                <section class="md-content-section">
+                    <md-content>
+                        <div class="md-content__body" style="height: 140px">
+                            <map class="ui-map"  zoom="11" center="[38.73, -9.14]" scrollwheel="false">
+                                <marker position="[38.72, -9.20]" title="marker" animation="Animation.DROP"></marker>
+                                <marker position="[38.73, -9.19]" title="drag me" draggable="true"></marker>
+                            </map>
+                        </div>
+                    </md-content>
+                </section>
+            </zippy>
+        </div>
+    </div>
+
+    <div sensor-list></div>
+
+</div>
+<div class="row">
+
+
+            <temp-widget></temp-widget>
+
+
+
+</div>

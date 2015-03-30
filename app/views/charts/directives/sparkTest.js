@@ -3,21 +3,19 @@
  */
 angular.module("app.custom").directive("sparkTest",['fireSvc','loggit',function(fireSvc,loggit){
     return{
+        scope:{
+        },
+
         templateUrl:"app/views/charts/directives/sparkTest.html",
         controller:['$scope','config',function($scope,config){
             console.log("spark")
-            loggit.log("sdsd");
+            loggit.log("sdsd")
             $scope.isCollapsed=false;
             $scope.coll = function (){
 
             }
 
-            $scope.$watch('isCollapsed',function(nV,oV){
-                if(nV!=oV){
-                    if(nV)$('#slide').slideUp();
-                    else $('#slide').slideDown();
-                }
-            })
+
             $scope.spark="hello";
 
             $scope.simpleChart2danger = {
@@ -29,25 +27,23 @@ angular.module("app.custom").directive("sparkTest",['fireSvc','loggit',function(
                     height: "50px"
                 }
             };
-            $scope.change=function(){
-                $scope.simpleChart2danger.sparkData=_.shuffle([0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3]);
-            }
-
             window.setInterval(function(){
                 $scope.simpleChart2danger.sparkData=_.shuffle([0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3,67]);
                 $scope.$apply();
             },1000)
-            $.ajax('https://cross.firebaseio.com/posts.json',
-                {
-                    dataType: "jsonp",
-                    type: "GET",
-                    success: function(data) { console.log(data); },
-                    error: function(request, textStatus, errorThrown) { console.log("error " + textStatus + ": " + errorThrown);}
-                });
-            //prom.success(function(data){
-            //    console.log(data);
-            //})
-        }]
+            var prom= fireSvc.getData();
+            prom.success(function(data){
+                console.log(data);
+            })
+        }],
+        link:function(scope,elem){
+            scope.$watch('isCollapsed',function(nV,oV){
+                if(nV!=oV){
+                    if(nV)elem.find('#slide').slideUp();
+                    else elem.find('#slide').slideDown();
+                }
+            })
+        }
     };
 
 }]);
@@ -69,9 +65,8 @@ custom.factory('fireSvc',["$http",function($http){
 
     return{
         getData:function(){
-
-            //var promise = $http.get('https://cross.firebaseio.com/posts.json');
-            return data;
+            var promise = $http.get('https://cross.firebaseio.com/posts.json');
+            return promise;
         }
     }
 }])

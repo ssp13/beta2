@@ -219,7 +219,7 @@ module.exports = function(grunt) {
 
         watch: {
             dev: {
-                files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss','app/views/charts/directives/*.js' ],
+                files: [ 'Gruntfile.js', 'app/*.js',"app/views/sensors/**/*.js",'*.html','styles/*.scss','app/views/charts/directives/*.js' ],
                 tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp','cssmin' ],
                 options: {
                     atBegin: true
@@ -270,6 +270,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('dev', [ 'bower', 'connect:server', 'watch:dev' ]);
     grunt.registerTask('test', [ 'bower', 'jshint' ]);
-    grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
+    //grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
     grunt.registerTask('copy-icons', [ 'copy:copyicons' ]);
 };

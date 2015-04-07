@@ -4,7 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+        .sortable-ghost > .card, .sortable-ghost > .card-panel {
+            opacity: 0.2;
+            margin-top: -2px;
+            margin-bottom: -2px;
+            border: 2px dashed #000; }
+        .sortable .card > .title, .sortable-ghost {
+            cursor: -webkit-grab;
+            cursor: -moz-grab;
+            cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAABwSURBVEjH7ZJBEsAgCAMT/v/n9NCOSqe2oD2yNx1JggB4BCEFWyFASP2KMQE7ywWhe/tTRGCGogLk02tFctiW/SUgaMyQG4PdPzDn31rQbMb8FiAXgvsEJNax1yVlVGAjA93apP3HFhZTGIqiKH7iADB6HxPlHdNVAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTA3LTA3VDEzOjQ5OjEwKzAyOjAwm7WiFAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNy0wN1QxMzo0OToxMCswMjowMOroGqgAAAAASUVORK5CYII="), move; }
 
+
+    </style>
   <title>Admin.io - AngularJS theme</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -22,7 +34,11 @@
   <link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="dist/css/angular-material.min.css">
   <link rel="stylesheet" href="dist/css/main.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/css/materialize.min.css">
 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/js/materialize.min.js"></script>
   <!--[if lte IE 9]>
   <script src="dist/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -63,9 +79,11 @@
     </div>
   </div>
 </div>
+<script src="//cdn.jsdelivr.net/sortable/latest/Sortable.min.js"></script>
 
 <!--Uncomment for deployment using Grunt-->
 <script type="text/javascript" src="dist/js/app.js"></script>
+<script src=""
 
 <!-- Firebase -->
 <script src="app/views/charts/directives/sparkTest.js"></script>

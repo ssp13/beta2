@@ -1,35 +1,13 @@
 
+    <zippy title="Temperature">
+        <md-content style="padding:10px">
+            <p><i class="pull-right wi wi-thermometer text-large"> </i>
+                <strong class="color-primary" style="font-size:x-large">current:{{gaugeData.val}} </strong>°C
+                <br>min:
+                <br>max:
+                <br>
+            </p>
+        </md-content>
+    </zippy>
 
 
-
-
-
-<div class="col-md-4">
-    <md-card>
-
-        <input type="text" ng-model="gaugeData.val">
-        <zippy>
-            <md-content>
-                <div class="pull-right text-right">
-                    <strong class="color-danger">{{gaugeData.val}} °C </strong>
-                    <md-icon class="color-danger" md-svg-src="dist/img/icons/"></md-icon>
-                    <p>
-                        Temp
-
-                    </p>
-                </div>
-
-                <div class="md-content__body text-center">
-                    <canvas data-gauge-chart
-                            data-gauge-data="gaugeData"
-                            data-gauge-options="gaugeOptions"
-                            style="width: 100px; height: 50px; "
-                            ></canvas>
-                </div>
-            </md-content>
-        </zippy>
-
-
-    </section>
-    </md-card>
-</div>

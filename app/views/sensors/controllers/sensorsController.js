@@ -9,6 +9,9 @@ var sensors = angular.module("sensors.module",[]);
 sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location',
     function($scope,sensorsDao,$route, $routeParams, $location){
         console.log("sensorsController")
+        $scope.items = ['learn Sortable',
+            'use gn-sortable',
+            'Enjoy'];
         $scope.hello="hello";
         $scope.sensors={
             location:{

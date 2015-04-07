@@ -5828,11 +5828,11 @@ md-toolbar.md-default-theme {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   font-size: inherit;
-  min-height: 50px;
+  min-height: 30px;
   display: block; }
   md-toolbar.md-default-theme .md-toolbar-tools {
     max-height: 50px;
-    height: 50px; }
+    height: 30px; }
 
 md-content.md-default-theme {
   -webkit-border-radius: 3px;
@@ -7971,5 +7971,14 @@ label {
 
 .page-invoice .table .bg-dark > th {
   border: 0; }
+.sortable-ghost > .card, .sortable-ghost > .card-panel {
+    opacity: 0.2;
+    margin-top: -2px;
+    margin-bottom: -2px;
+    border: 2px dashed #000; }
+.sortable .card > .title, .sortable-ghost {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAABwSURBVEjH7ZJBEsAgCAMT/v/n9NCOSqe2oD2yNx1JggB4BCEFWyFASP2KMQE7ywWhe/tTRGCGogLk02tFctiW/SUgaMyQG4PdPzDn31rQbMb8FiAXgvsEJNax1yVlVGAjA93apP3HFhZTGIqiKH7iADB6HxPlHdNVAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTA3LTA3VDEzOjQ5OjEwKzAyOjAwm7WiFAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNy0wN1QxMzo0OToxMCswMjowMOroGqgAAAAASUVORK5CYII="), move; }
 
 /*# sourceMappingURL=styles.css.map */

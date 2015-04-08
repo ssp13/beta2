@@ -20,7 +20,7 @@ var app = angular.module("app", ["ngRoute", "sensors.module", "ngAnimate","ngAri
     }] ).config(["$routeProvider",
     function($routeProvider) {
         return $routeProvider.when("/", {
-            redirectTo: "/dashboard"
+            redirectTo: "/sensors"
         }).when("/dashboard", {
                 templateUrl: "app/views/dashboards/dashboard.html"
             }).when("/dashboard/dashboard", {

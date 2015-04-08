@@ -42,5 +42,30 @@ All files will be concatenated in the dist/app.js file
 
 Website will be deployed on http://localhost:8080 (path can be configured in the Gruntfile.js)
 
-
+//{
+//  "name": "angular-ioadmin",
+//  "version": "0.0.1",
+//  "devDependencies": {
+//    "grunt": "~0.4.5",
+//    "grunt-bower-task": "~0.3.4",
+//    "grunt-cli": "~0.1.13",
+//    "grunt-contrib-clean": "~0.5.0",
+//    "grunt-contrib-compress": "~0.9.1",
+//    "grunt-contrib-concat": "~0.4.0",
+//    "grunt-contrib-connect": "~0.8.0",
+//    "grunt-contrib-copy": "^0.8.0",
+//    "grunt-contrib-cssmin": "^0.10.0",
+//    "grunt-contrib-jshint": "~0.10.0",
+//    "grunt-contrib-uglify": "~0.5.0",
+//    "grunt-contrib-watch": "~0.6.1",
+//    "grunt-file-blocks": "^0.3.3",
+//    "grunt-html2js": "~0.2.7",
+//    "grunt-include-source": "^0.5.1",
+//    "grunt-karma": "~0.8.0",
+//    "karma": "~0.12.0",
+//    "karma-jasmine": "~0.1.0",
+//    "karma-ng-html2js-preprocessor": "~0.1.0",
+//    "karma-phantomjs-launcher": "~0.1.4"
+//  }
+//}
 

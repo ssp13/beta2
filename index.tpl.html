@@ -1,26 +1,98 @@
 <!doctype html>
-<html>
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Index</title>
+    <style>
+        .sortable-ghost > .card, .sortable-ghost > .card-panel {
+            opacity: 0.2;
+            margin-top: -2px;
+            margin-bottom: -2px;
+            border: 2px dashed #000; }
+        .sortable .card > .title, .sortable-ghost {
+            cursor: -webkit-grab;
+            cursor: -moz-grab;
+            cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAABwSURBVEjH7ZJBEsAgCAMT/v/n9NCOSqe2oD2yNx1JggB4BCEFWyFASP2KMQE7ywWhe/tTRGCGogLk02tFctiW/SUgaMyQG4PdPzDn31rQbMb8FiAXgvsEJNax1yVlVGAjA93apP3HFhZTGIqiKH7iADB6HxPlHdNVAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTA3LTA3VDEzOjQ5OjEwKzAyOjAwm7WiFAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNy0wN1QxMzo0OToxMCswMjowMOroGqgAAAAASUVORK5CYII="), move; }
+
+
+    </style>
+    <title>Admin.io - AngularJS theme</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <!-- 
-      Automatically include Bower components. Use the "sources" object in your bower.json
-      to specify which source files are which.
-    -->
-    <!-- include: "type": "css", "bower": "yourComponent" -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,700,600,400'
+          rel='stylesheet' type='text/css'>
 
-    <!--
-      Include CSS files from a "tmp" directory, put there by another task.
-      This shows how to override the default "basePath" set in the options.
-    -->
-    <!-- include: "type": "css", "basePath": "tmp", "files": "styles/**/*.css" -->
+    <!-- Include Jquery in the vendor folder -->
+    <script src="dist/js/jquery.min.js"></script>
+
+    <!-- Theme's own CSS file -->
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="dist/css/angular-material.min.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/js/materialize.min.js"></script>
+    <!--[if lte IE 9]>
+  <script src="dist/js/html5shiv.min.js"></script>
+  <![endif]-->
+
 </head>
-<body>
-<!-- include: "type": "js", "bower": "yourComponent" -->
-<!-- include: "type": "js", "files": "scripts/**/*.js" -->
+<body data-ng-app="app" id="app" data-custom-background="" data-off-canvas-nav="" data-ng-controller="AdminAppCtrl">
+
+<div class="page-wrapper nav-style--alternative">
+    <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
+        <aside data-ng-include=" 'app/views/navigation.html' " id="nav-container"></aside>
+    </div>
+
+    <div class="view-container">
+
+        <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
+            <section data-ng-include=" 'app/views/header.html' " id="header" class="top-header"></section>
+        </div>
+        <section data-ng-view="" id="content" class="animate-fade-up"></section>
+    </div>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="rightmessages">
+        <div data-ng-include=" 'app/views/right-navbar.html' ">
+
+        </div>
+    </md-sidenav>
+
+</div>
+
+<div class="page-loading-overlay">
+    <div class="loader-2"></div>
+</div>
+
+<div class="load_circle_wrapper">
+
+    <div class="loading_spinner">
+        <div id="wrap_spinner">
+            <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+        </div>
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/sortable/latest/Sortable.min.js"></script>
+
+<!--Uncomment for deployment using Grunt-->
+<script type="text/javascript" src="dist/js/app.js"></script>
+<script src=""
+
+<!-- Firebase -->
+<script src="app/views/charts/directives/sparkTest.js"></script>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="blur">
+            <feGaussianBlur stdDeviation="5"/>
+        </filter>
+    </defs>
+</svg>
 </body>
 </html>

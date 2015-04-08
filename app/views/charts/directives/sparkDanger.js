@@ -40,8 +40,8 @@ custom.directive("zippy",function(){
           console.log("sad");
         scope.isCollapsed = !scope.isCollapsed;
        if(scope.isCollapsed)
-           element.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-       else  element.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+           element.find('.expand').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+       else  element.find('.expand').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
       };
           scope.showAdvanced = function(ev) {
               $mdDialog.show({

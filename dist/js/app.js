@@ -37035,8 +37035,8 @@ custom.directive("zippy",function(){
           console.log("sad");
         scope.isCollapsed = !scope.isCollapsed;
        if(scope.isCollapsed)
-           element.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-       else  element.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+           element.find('.expand').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+       else  element.find('.expand').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
       };
           scope.showAdvanced = function(ev) {
               $mdDialog.show({
@@ -37309,7 +37309,7 @@ var app = angular.module("app", ["ngRoute", "sensors.module", "ngAnimate","ngAri
     }] ).config(["$routeProvider",
     function($routeProvider) {
         return $routeProvider.when("/", {
-            redirectTo: "/dashboard"
+            redirectTo: "/sensors"
         }).when("/dashboard", {
                 templateUrl: "app/views/dashboards/dashboard.html"
             }).when("/dashboard/dashboard", {

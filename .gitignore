@@ -1,0 +1,9 @@
+#Ignore dis folder and node_modules folder
+.idea/*
+dist/
+node_modules
+bower_components
+styles/*/*.css
+bower.json
+Gruntfile.js
+index.tpl.html

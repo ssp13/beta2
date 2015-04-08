@@ -1,50 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aba3b423-d23f-4e5a-bf85-4ea0a0f11e61" name="Default" comment="s">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._team1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._team2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._team3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._team4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._team5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._team6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/._user.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/background/._bg_music1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/background/._bg_music2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/background/._bg_music3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/background/._bg_weather1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/background/._bg_weather2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/__MACOSX/ioadmin/images/background/._bg_weather3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ioadmin/ioadmin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/.finished-upgraders" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/.id" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/packages" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/platforms" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/release" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/.meteor/versions" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/myapp.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/myapp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/myapp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/private/private.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/project.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/project.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ProcFile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app.js" afterPath="$PROJECT_DIR$/dist/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.tpl.html" afterPath="$PROJECT_DIR$/index.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/main.css" afterPath="$PROJECT_DIR$/dist/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sensors/views/sensorsView.html" afterPath="$PROJECT_DIR$/app/views/sensors/views/sensorsView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/charts/directives/sparkDanger.js" afterPath="$PROJECT_DIR$/app/views/charts/directives/sparkDanger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/styles.css" afterPath="$PROJECT_DIR$/styles/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="aba3b423-d23f-4e5a-bf85-4ea0a0f11e61" name="Default" comment="s" />
     <ignored path="beta2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,20 +24,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.48" vertical-offset="0" max-vertical-offset="270">
+            <state vertical-scroll-proportion="0.26865673" vertical-offset="0" max-vertical-offset="603">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08163265" vertical-offset="114" max-vertical-offset="702">
+            <state vertical-scroll-proportion="-1.7777778" vertical-offset="114" max-vertical-offset="702">
               <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding />
             </state>
@@ -415,10 +382,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2255025" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2255025" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -700,14 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8334">
@@ -768,14 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.48" vertical-offset="0" max-vertical-offset="270">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.68" vertical-offset="675" max-vertical-offset="1386">
@@ -786,8 +737,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08163265" vertical-offset="114" max-vertical-offset="702">
+        <state vertical-scroll-proportion="-1.7777778" vertical-offset="114" max-vertical-offset="702">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26865673" vertical-offset="0" max-vertical-offset="603">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>

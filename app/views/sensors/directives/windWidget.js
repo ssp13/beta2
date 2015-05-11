@@ -40,18 +40,7 @@ sensors.directive("windWidget",function(){
             $scope.simpleChart2danger.sparkData=_.shuffle([24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34]);
             $scope.$apply();
         },7000)
-        $scope.showAdvanced = function(ev) {
-            $mdDialog.show({
-                controller: DialogController,
-                templateUrl: 'dialog1.tmpl.html',
-                targetEvent: ev,
-            })
-                .then(function(answer) {
-                    $scope.alert = 'You said the information was "' + answer + '".';
-                }, function() {
-                    $scope.alert = 'You cancelled the dialog.';
-                });
-        };
+
         //$scope.gaugeData= {
         //    maxValue: 3e3,
         //    animationSpeed: 100,

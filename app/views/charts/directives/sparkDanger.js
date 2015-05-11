@@ -1,4 +1,4 @@
-var custom = angular.module("app.custom", []);
+var custom = angular.module("app.custom", ['ngMaterial','ui.bootstrap']);
 
 custom.directive("sparkDanger",function($timeout){
     return{
@@ -26,16 +26,17 @@ custom.directive("sparkDanger",function($timeout){
     };
     
 });
-custom.directive("zippy",function(){
+custom.directive("zippy",function($mdDialog,$modal){
   return{
     restrict:"E",
     transclude: true,
     scope:{
       title:'@'
+
     },
     templateUrl:"app/views/charts/directives/zippy.html",
       link:function(scope,element,attrs){
-        
+        scope.visible=true;
       scope.toggleContent = function(){
           console.log("sad");
         scope.isCollapsed = !scope.isCollapsed;
@@ -46,14 +47,33 @@ custom.directive("zippy",function(){
           scope.showAdvanced = function(ev) {
               $mdDialog.show({
                   controller: DialogController,
-                  templateUrl: 'dialog1.tmpl.html',
+                  templateUrl: 'app/views/charts/directives/dialog1.tmpl.html',
                   targetEvent: ev
               })
                   .then(function(answer) {
-                      $scope.alert = 'You said the information was "' + answer + '".';
+                      scope.alert = 'You said the information was "' + answer + '".';
                   }, function() {
-                      $scope.alert = 'You cancelled the dialog.';
+                      scope.alert = 'You cancelled the dialog.';
                   });
+          };
+          scope.open = function (size) {
+
+              var modalInstance = $modal.open({
+                  templateUrl: 'myModalContent.html',
+                  controller: 'ModalInstanceCtrl',
+                  size: size,
+                  resolve: {
+                      items: function () {
+                          return $scope.items;
+                      }
+                  }
+              });
+
+              modalInstance.result.then(function (selectedItem) {
+                  scope.selected = selectedItem;
+              }, function () {
+
+              });
           };
           function DialogController($scope, $mdDialog) {
               $scope.hide = function () {

@@ -1,11 +1,14 @@
 
-    <zippy title="Temperature">
+    <zippy title="Temperature" visible="true">
         <md-content style="padding:10px">
+            <a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>
             <p><i class="pull-right wi wi-thermometer text-large"> </i>
                 <strong class="color-primary" style="font-size:x-large">current:{{gaugeData.val}} </strong>°C
                 <br>min:
                 <br>max:
                 <br>
+<span >IFTTT</span>
+
             </p>
         </md-content>
     </zippy>

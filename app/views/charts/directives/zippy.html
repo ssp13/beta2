@@ -1,5 +1,6 @@
+<section ng-show="visible">
 
-<md-toolbar class="md-accent" style="margin-top:10px">
+<md-toolbar class="md-accent" style="margin-top:10px;box-shadow: none;">
     <div class="md-toolbar-tools" style="
     padding-right: 5px;
 " ng-click="toggleContent()">
@@ -8,13 +9,26 @@
          {{title}}
 
      </span>
-    <md-icon style="cursor:pointer;color:white;margin-right:4px"  class="fa fa-times close" alt="android" ng-click="showSettings=!showSettings"></md-icon>
+    <md-icon style="cursor:pointer;color:white;margin-right:4px"  class="fa fa-times close" alt="android" ng-click="visible=false"></md-icon>
 
     <md-icon style="cursor:pointer;color:white;margin-right:4px" class="expand glyphicon glyphicon-chevron-up close" ng-click="toggleContent()"></md-icon>
 
-    <md-icon style="cursor:pointer;color:white;margin-right:4px"  class="fa fa-cog close" alt="android" ng-click="showSettings=!showSettings"></md-icon>
+    <md-icon style="cursor:pointer;color:white;margin-right:4px"  class="fa fa-cog close" alt="android" ng-click="open()"></md-icon>
 
-
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            if this then that
+            Selected: <b>{{ selected.item }}</b>
+            <button class="btn btn-primary"></button>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
 </div>
     </div>
 </md-toolbar>
@@ -26,3 +40,4 @@
     <div  collapse="isCollapsed" ng-transclude></div>
 </md-card>
 
+</section>

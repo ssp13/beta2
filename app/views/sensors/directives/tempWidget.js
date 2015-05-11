@@ -14,7 +14,7 @@ sensors.directive("tempWidget",function(){
         link:Link
     };
     function Controller ($scope,config){
-        $scope.sensors={temp:10}
+        $scope.sensor={id:12,temp:10}
         console.log("loadingSensorList")
         $scope.gaugeData= {
                 maxValue: 3e3,

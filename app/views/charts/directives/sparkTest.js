@@ -1,7 +1,7 @@
 /**
  * Created by e76956 on 23/3/2015.
  */
-angular.module("app.custom").directive("sparkTest",['fireSvc','loggit',function(fireSvc,loggit){
+angular.module("app.custom").directive("sparkTest",['fireSvc','loggit','$modal',function(fireSvc,loggit,$modal){
     return{
         scope:{
         },
@@ -15,6 +15,25 @@ angular.module("app.custom").directive("sparkTest",['fireSvc','loggit',function(
 
             }
 
+            $scope.open = function (size) {
+
+                var modalInstance = $modal.open({
+                    templateUrl: 'myModalContent.html',
+                    controller: 'ModalInstanceCtrl',
+                    size: size,
+                    resolve: {
+                        items: function () {
+                            return $scope.items;
+                        }
+                    }
+                });
+
+                modalInstance.result.then(function (selectedItem) {
+                    $scope.selected = selectedItem;
+                }, function () {
+
+                });
+            };
 
             $scope.spark="hello";
 

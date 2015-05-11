@@ -45,21 +45,21 @@ module.exports = function(grunt) {
                   expand: true,
                   dot: true,
                   cwd: 'bower_components/bootstrap/dist/css',
-                  src: ['bootstrap.min.css'],
+                  src: ['bootstrap.css'],
                   dest: 'dist/css'
                 },{
                   //for Bootstrap theme stylesheet files
                   expand: true,
                   dot: true,
                   cwd: 'bower_components/bootstrap/dist/css',
-                  src: ['bootstrap-theme.min.css'],
+                  src: ['bootstrap-theme.css'],
                   dest: 'dist/css'
                 },{
                   //for Angular Material stylesheet files
                   expand: true,
                   dot: true,
                   cwd: 'bower_components/angular-material',
-                  src: ['angular-material.min.css'],
+                  src: ['angular-material.css'],
                   dest: 'dist/css'
                 },{
                     //for bootstrap fonts

@@ -23,8 +23,8 @@ var app = angular.module("app", ["ngRoute",'ui.bootstrap', "sensors.module", "ng
     }] ).config(["$routeProvider",
     function($routeProvider) {
         return $routeProvider.when("/", {
-            redirectTo: "pages/signin.html",
-            Controller:"signIn"
+            templateUrl:"app/views/sensors/views/sensorsView.html",
+            controller:'sensorsController'
         }).when("/dashboard", {
             templateUrl: "app/views/dashboards/dashboard.html"
         }).when("/dashboard/dashboard", {

@@ -1,7 +1,7 @@
 /**
  * Created by e76956 on 24/3/2015.
  */
-sensors.directive("sensorList",function(){
+sensors.directive("sensorList",function($location){
     return{
         scope:{
 
@@ -15,6 +15,8 @@ sensors.directive("sensorList",function(){
         console.log("loadingSensorList")
     }
     function Link (scope,elem,attrs){
-
+        scope.goto=function(param){
+            $location.path("/sensor"+param)
+        }
     }
 })

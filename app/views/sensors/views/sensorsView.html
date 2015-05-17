@@ -6,118 +6,114 @@
         <li ng-repeat="bread in breads">{{page}}</li>
     </ol>
 </div>
-<md-button class="md-primary" ng-click="open()">
-    Alert Dialog
-</md-button>
+<!--<md-button class="md-primary" ng-click="open()">-->
+<!--Alert Dialog-->
+<!--</md-button>-->
 
 
-<div
-     style="background:url('app/views/sensors/views/wxbkb_default_clear_day_1_mezz_light%20.jpg');background-size: cover;padding:20px;">
-<zippy visible="zippyVisible">
+<div style="background:url('app/views/sensors/views/wxbkb_default_clear_day_1_mezz_light%20.jpg');background-size: cover;padding:20px;">
+    <zippy visible="zippyVisible">
         <iframe style="
   width: 100%;
   height: 504px;"src="/app/views/clima/index.html"></iframe>
-</zippy>
+    </zippy>
     <div class="row ">
         <div class="col-md-6">
-            <zippy visible="zippyVisible">
-                <md-content>
-                    <div class="md-content__body">
-                        <map class="ui-map" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
-                            <!--<marker position="[, ]" title="marker" animation="Animation.DROP"></marker>-->
-                            <info-window id="bar" position="38.031619, 23.866715" >
-                                <div ng-non-bindable>
+            <!--<zippy visible="zippyVisible">-->
+                <!--<md-content>-->
+                    <!--<div class="md-content__body">-->
+                        <!--<map class="ui-map" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">-->
+                            <!--&lt;!&ndash;<marker position="[, ]" title="marker" animation="Animation.DROP"></marker>&ndash;&gt;-->
+                            <!--<info-window id="bar" position="38.031619, 23.866715" >-->
+                                <!--<div ng-non-bindable>-->
 
-                                    <div id="siteNotice"></div>
-                                </div>
-                            </info-window>
-                            <marker position="[38.031619, 23.866715]"   data-on-click='showInfoWindow("bar")'></marker>
+                                    <!--<div id="siteNotice"></div>-->
+                                <!--</div>-->
+                            <!--</info-window>-->
+                            <!--<marker position="[38.031619, 23.866715]"   data-on-click='showInfoWindow("bar")'></marker>-->
 
 
-                        </map>
-                    </div>
-                </md-content>
-                </section>
-            </zippy>
+                        <!--</map>-->
+                    <!--</div>-->
+                <!--</md-content>-->
+                <!--</section>-->
+            <!--</zippy>-->
         </div>
-
-
-
         <div class="col-md-6">
             <section data-ng-controller="sparklineCtrl">
                 <div class="row sortable">
                     <div class="col-md-6">
                         <temp-widget></temp-widget>
                     </div>
-                    <div class="col-md-6">
-                        <zippy title="sparkdanger" visible="true">
-                            <div spark-danger></div>
+                    <!--<div class="col-md-6">-->
+                        <!--<zippy title="sparkdanger" visible="true">-->
+                            <!--<div spark-danger></div>-->
 
-                            <div soil-temperature-widget></div>
-                            <div rainmeter-widget></div>
-                        </zippy>
-                    </div>
+                            <!--<div soil-temperature-widget></div>-->
+                            <!--<div rainmeter-widget></div>-->
+                        <!--</zippy>-->
+                    <!--</div>-->
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                    <div wind-widget></div>
-                        </div>
-                </div>
-                <div class="row sortable">
-                    <div class="col-md-6">
-                        <zippy visible="true">
-                            <div spark-danger></div>
-                        </zippy>
+                        <div wind-widget></div>
                     </div>
                     <div class="col-md-6">
-                        <zippy visible="true">
-                            <div spark-danger></div>
-                        </zippy>
+                        <div wind-widget></div>
                     </div>
                 </div>
+                <!--<div class="row sortable">-->
+                <!--<div class="col-md-6">-->
+                <!--<zippy visible="true">-->
+                <!--<div spark-danger></div>-->
+                <!--</zippy>-->
+                <!--</div>-->
+                <!--<div class="col-md-6">-->
+                <!--<zippy visible="true">-->
+                <!--<div spark-danger></div>-->
+                <!--</zippy>-->
+                <!--</div>-->
+                <!--</div>-->
             </section>
         </div>
     </div>
-    <div class="row sortable">
-        <div class="col-md-7">
-            <zippy title="RealTimeSensors" visible="true" >
-                <section class="md-content-section">
-                    <md-content>
-                        <div class="md-content__body">
-                            <div data-ng-controller="flotChartCtrl.realtime">
-                                <div data-flot-chart-realtime
-                                         data-type="realtime"
-                                         style="width: 100%; height: 300px;">
-                                </div>
-                                </div>
-                            </div>
-                        </md-content>
-                    </section>
-                </zippy>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-7">
-                <zippy>
-                    <div sensor-list></div>
-                </zippy>
-            </div>
-            <div class="col-md-5">
-            <a href="http://www.accuweather.com/el/gr/athens/182536/weather-forecast/182536" class="aw-widget-legal">
-                <!--
-                By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
-                -->
-            </a><div id="awcc1428700955479" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="el" data-useip="true" data-uid="awcc1428700955479"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-        </div>
-            </div>
-
+    <!--<div class="row sortable">-->
+        <!--<div class="col-md-7">-->
+            <!--<zippy title="RealTimeSensors" visible="true" >-->
+                <!--<section class="md-content-section">-->
+                    <!--<md-content>-->
+                        <!--<div class="md-content__body">-->
+                            <!--<div data-ng-controller="flotChartCtrl.realtime">-->
+                                <!--<div data-flot-chart-realtime-->
+                                     <!--data-type="realtime"-->
+                                     <!--style="width: 100%; height: 300px;">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</md-content>-->
+                <!--</section>-->
+            <!--</zippy>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-7">-->
+            <!--<zippy>-->
+                <!--<div sensor-list></div>-->
+            <!--</zippy>-->
+        <!--</div>-->
+        <!--<div class="col-md-5">-->
+        <!--<a href="http://www.accuweather.com/el/gr/athens/182536/weather-forecast/182536" class="aw-widget-legal">-->
+        <!--&lt;!&ndash;-->
+        <!--By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.-->
+        <!--&ndash;&gt;-->
+        <!--</a><div id="awcc1428700955479" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="el" data-useip="true" data-uid="awcc1428700955479"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>-->
+        <!--</div>-->
     </div>
+
+</div>
 
 <zippy title="Κάμερες">
     <img height="410" width="415" style="z-index:100;width:715px;height:400px;left:800px" src="http://194.248.190.92/mjpg/video.mjpg">
-    <img height="410" width="415" style="z-index:100;width:715px;height:400px;float:right" src="http://popa.datacom.bg/mjpg/video.mjpg">
-
-
 </zippy>
 </div>
 <script>

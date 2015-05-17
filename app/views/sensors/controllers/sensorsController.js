@@ -2,7 +2,7 @@
  * Created by ssp on 25/3/2015.
  */
 
-var sensors = angular.module("sensors.module",['ngMap','ngMaterial','ui.bootstrap']);
+var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap']);
 
 
 

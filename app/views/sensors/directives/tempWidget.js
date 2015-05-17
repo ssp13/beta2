@@ -10,12 +10,58 @@ sensors.directive("tempWidget",function(){
 
         },
         templateUrl:"app/views/sensors/directives/tempWidget.html",
-        controller:['$scope','config',Controller],
+        controller:['$scope','config','sensorsDao',Controller],
         link:Link
     };
-    function Controller ($scope,config){
-        $scope.sensor={id:12,temp:10}
-        console.log("loadingSensorList")
+    function Controller ($scope,config,sensorsDao){
+        $scope.temperatures=[];
+        $scope.sensor={id:12,temp:0};
+
+        function getTemp() {
+            var promise = sensorsDao.getTemp();
+            promise.then(function success(resp) {
+                console.log(resp.data)
+                $scope.sensor.temp = resp.data.value;
+                $scope.temperatures.push(resp.data.value);
+                $scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
+
+                console.log($scope.temperatures);
+            }, function error(error) {
+                console.log(error);
+            });
+        }
+        getTemp();
+
+
+        $scope.$watch(function(){return $scope.temperatures;},function(nV,oV){
+            console.log(nV,oV)
+
+                $scope.min= _.min(nV);
+                $scope.max= _.max(nV);
+
+        },true)
+
+       var counter=0;
+        window.setInterval(function(){
+            getTemp()
+            counter=counter+4;
+            $scope.temperatures.push($scope.sensor.temp+counter)
+
+            $scope.tempChart.sparkData=($scope.temperatures);
+            $scope.$apply();
+        },1000)
+
+        $scope.tempChart = {
+            sparkData:  $scope.temperatures,
+            sparkOptions: {
+                type: "line",
+                lineColor:  config.primary_color,
+                width: "150px",
+                height: "50px"
+            }
+        };
+
+
         $scope.gaugeData= {
                 maxValue: 3e3,
                 animationSpeed: 100,

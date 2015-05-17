@@ -1,0 +1,21 @@
+
+<zippy title="RainFall" visible="true">
+    <md-content style="padding:10px">
+        <a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>
+        <p><i class="pull-right wi wi-thermometer text-large"> </i>
+            <strong  style="font-size:x-large">0.00 </strong><sup>in</sup>
+            7 day total:
+
+            <br>
+        <div class="pull-left">
+                <span data-sparkline
+                      data-spark-data="tempChart.sparkData"
+                      data-spark-options="tempChart.sparkOptions"
+                        ></span>
+        </div>
+
+        </p>
+    </md-content>
+</zippy>
+
+

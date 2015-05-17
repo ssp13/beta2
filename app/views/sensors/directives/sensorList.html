@@ -18,7 +18,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="sensor in sensors" ng-click="" class="selectable">
+                        <tr ng-repeat="sensor in sensors" ng-click="goto(sensor.id)" class="selectable" style="cursor: pointer">
                             <td><a href="#/sensor/{{sensor.id}}">{{sensor.id}}</a></td>
                             <td><span class="color-success"><i class="fa fa-level-up"></i></span>{{sensor.property1}} TWLT</td>
                             <td><span class="label label-info">{{sensor.status}}</span></td>

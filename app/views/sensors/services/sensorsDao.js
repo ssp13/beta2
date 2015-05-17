@@ -8,7 +8,24 @@ sensors.service('sensorsDao',['$http',function($http){
         getSensors:function(){
             var prom;
             var data=[{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"}];
-            return data
+            return data;
+        },
+        getTemp:function(){
+           var data=$http.get("/api/getTemp");
+            return data;
+        },
+        getRain:function(){
+            var data=$http.get("/api/getRain");
+            return data;
+        },
+        getPluvio:function(){
+            var data=$http.get("/api/getTemp");
+            return data;
+        },
+        getAir:function(){
+            var data=$http.get("/api/getAir");
+            return data;
         }
-    }
-}])
+
+    };
+}]);

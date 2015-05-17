@@ -3,14 +3,26 @@
         <md-content style="padding:10px">
             <a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>
             <p><i class="pull-right wi wi-thermometer text-large"> </i>
-                <strong class="color-primary" style="font-size:x-large">current:{{gaugeData.val}} </strong>°C
-                <br>min:
-                <br>max:
+                <strong class="color-primary" style="font-size:x-large">{{sensor.temp}} </strong><sup>°C</sup>
+                <br>min:{{min}}
+                <br>max:{{max}}
+                <br>Average:{{mean}}
+                <!--weekly change:<svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">-->
+                    <!--<path d="M7 14l5-5 5 5z"/>-->
+                    <!--<path d="M0 0h24v24h-24z" fill="none"/>-->
+                    <!--</svg>-->
                 <br>
-<span >IFTTT</span>
+            <div class="pull-left">
+                <span data-sparkline
+                      data-spark-data="tempChart.sparkData"
+                      data-spark-options="tempChart.sparkOptions"
+                        ></span>
+            </div>
+
 
             </p>
         </md-content>
+
     </zippy>
 
 

@@ -163,6 +163,7 @@ module.exports = function(grunt) {
             dist: {
                 src: ['bower_components/bootstrap/dist/js/bootstrap.min.js',
                     'scripts/gmap.js',
+                    'bower_components/jquery/dist/jquery.js',
                     'bower_components/slimScroll/jquery.slimscroll.min.js',
                     'bower_components/angular/angular.js',
                     'bower_components/angular-animate/angular-animate.min.js',

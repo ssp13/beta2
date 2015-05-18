@@ -54236,12 +54236,12 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
 //        $scope.orderProp = 'age';
 //    }]);
 //
-sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao'
-    function($scope, $routeParams,sensorsDao) {
+sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao',
+    function($scope, $routeParams, sensorsDao) {
         $scope.sensorId = $routeParams.sensorId;
-        console.log($routeParams);
+       
         $scope.sensorDetails=[{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"},{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"}];
-        $scope.data={};
+       
         
         
 

@@ -11,7 +11,7 @@
 <!--</md-button>-->
 
 
-<div style="background:url('app/views/sensors/views/wxbkb_default_clear_day_1_mezz_light%20.jpg');background-size: cover;padding:20px;">
+<div style="padding:20px;">
   <!--  <zippy visible="zippyVisible">-->
   <!--      <iframe style="-->
   <!--width: 100%;-->
@@ -22,7 +22,7 @@
             <zippy visible="zippyVisible">
                 <md-content>
                     <div class="md-content__body">
-                        <map class="ui-map" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
+                        <map class="ui-map" style="height:205px" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
                             <marker position="[, ]" title="marker" animation="Animation.DROP"></marker>
                             <info-window id="bar" position="38.031619, 23.866715" >
                                 <div ng-non-bindable>
@@ -57,14 +57,7 @@
                         </zippy>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div wind-widget></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div wind-widget></div>
-                    </div>
-                </div>
+                
                 <!--<div class="row sortable">-->
                 <!--<div class="col-md-6">-->
                 <!--<zippy visible="true">-->
@@ -80,6 +73,14 @@
             </section>
         </div>
     </div>
+    <div class="row">
+                    <div class="col-md-6">
+                        <div wind-widget></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div wind-widget></div>
+                    </div>
+                </div>
     <!--<div class="row sortable">-->
         <!--<div class="col-md-7">-->
             <!--<zippy title="RealTimeSensors" visible="true" >-->
@@ -114,6 +115,7 @@
     </div>
 
 </div>
+
 
 <zippy title="Κάμερες">
     <img height="410" width="415" style="z-index:100;width:715px;height:400px;left:800px" src="http://194.248.190.92/mjpg/video.mjpg">

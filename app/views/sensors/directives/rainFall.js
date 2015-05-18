@@ -3,9 +3,7 @@
  */
 sensors.directive("rainFall",function(){
     return{
-        scope:{
-
-        },
+        
         templateUrl:"app/views/sensors/directives/rainFall.html",
         controller:['$scope','config','sensorsDao',Controller],
         link:Link
@@ -48,10 +46,10 @@ sensors.directive("rainFall",function(){
             $scope.$apply();
         },1000)
 
-        $scope.tempChart = {
+        $scope.rainChart = {
             sparkData:  $scope.temperatures,
             sparkOptions: {
-                type: "line",
+                type: "bar",
                 lineColor:  config.primary_color,
                 width: "150px",
                 height: "50px"

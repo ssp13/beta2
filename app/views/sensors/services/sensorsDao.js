@@ -25,6 +25,10 @@ sensors.service('sensorsDao',['$http',function($http){
         getAir:function(){
             var data=$http.get("/api/getAir");
             return data;
+        },
+        getVane:function(){
+            var data=$http.get("api/getVane");
+            return data;
         }
 
     };

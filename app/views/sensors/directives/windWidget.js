@@ -13,11 +13,83 @@ sensors.directive("windWidget",function(){
 
         },
         templateUrl:"app/views/sensors/directives/windWidget.html",
-        controller:['$scope','config',Controller],
+        controller:['$scope','config','sensorsDao','$interval',Controller],
         link:Link
     };
-    function Controller ($scope,config){
-        $scope.sensors={wind:{speed:10,windDirection:"NW"}};
+    function Controller ($scope,config,sensorsDao,$interval){
+
+        $scope.sensor={speed:null,vane:null,airSpeeds:[]};
+
+        $scope.rotate=270;
+
+        var base=270;
+        var shift=22.5;
+        $scope.$watch(function(){
+                return $scope.sensor.vane;
+            }, function(nV,oV){
+            switch(nV){
+
+                case "N":$scope.rotate=base;
+                    break;
+                case "NNE":$scope.rotate=base + 22.5;
+                    break;
+                case "NE":$scope.rotate=base + (2 * shift);
+                    break;
+                case "ENE":$scope.rotate=base + (3*shift);
+                    break;
+                case "E":$scope.rotate=360;
+                    break;
+                case "ESE":$scope.rotate=base + (5*shift);
+                    break;
+                case "SE":$scope.rotate=$scope.rotate + (6*shift);
+                    break;
+                case "SSE":$scope.rotate=$scope.rotate + (7*shift);
+                    break;
+                case "S":$scope.rotate=450;
+                    break;
+                case "SSW":$scope.rotate=$scope.rotate + (8*shift);
+                    break;
+                case "SW":$scope.rotate=$scope.rotate +(9*shift);
+                    break;
+                case "WSW":$scope.rotate=$scope.rotate+ (10*shift);
+                    break;
+                case "W":$scope.rotate=$scope.rotate+ ((11*shift));
+                    break;
+                case "WNW":$scope.rotate=$scope.rotate+ (12*shift);
+                    break;
+                case "WN":$scope.rotate=$scope.rotate+(13*shift);
+                    break;
+                case "NNW":$scope.rotate=$scope.rotate+ ((14*shift));
+                    break;
+
+            }
+        });
+
+
+
+        function getAir() {
+            var promise = sensorsDao.getAir();
+            promise.then(function success(resp) {
+
+                $scope.sensor.speed = resp.data.value;
+                $scope.sensor.airSpeeds.push(parseFloat(resp.data.value));
+                $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.speed));
+            }, function error(error) {
+                console.log(error);
+            });
+        }
+        function getVane() {
+            var promise = sensorsDao.getVane();
+            promise.then(function success(resp) {
+
+                $scope.sensor.vane = resp.data.value;
+                console.log($scope.sensor.vane);
+                $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.vane));
+            }, function error(error) {
+                console.log(error);
+            });
+        }
+
         $scope.simpleChart2danger = {
             sparkData: [24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34],
             sparkOptions: {
@@ -32,10 +104,12 @@ sensors.directive("windWidget",function(){
                 height: "50px"
             }
         };
-        $scope.change=function(){
-            $scope.simpleChart2danger.sparkData=_.shuffle([24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34]);
-        }
-
+        getAir();
+        getVane();
+        $interval(function() {
+            getAir();
+            getVane();
+        }, 20000);
         window.setInterval(function(){
             $scope.simpleChart2danger.sparkData=_.shuffle([24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34]);
             $scope.$apply();

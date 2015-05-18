@@ -6,10 +6,10 @@ var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap','ngMa
 
 
 
-sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location','$mdDialog','$modal',
-    function($scope,sensorsDao,$route, $routeParams, $location,$mdDialog,$modal){
+sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location','$mdDialog','$modal','breadcrumbs',
+    function($scope,sensorsDao,$route, $routeParams, $location,$mdDialog,$modal,breadcrumbs){
         console.log("sensorsController")
-        
+        $scope.breadcrumbs = breadcrumbs;
         $scope.items = ['learn Sortable',
             'use gn-sortable',
             'Enjoy'];
@@ -52,74 +52,21 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
         console.log($scope.$route);
        // $scope.sensors = sensorsDao.getSensors();
         console.log($scope.sensors);
-        $(function () {
 
-            Highcharts.setOptions({
-                global : {
-                    useUTC : false
-                }
-            });
+        $('.sortable').each(function () {
+            var options = {
+                group: 'widgets',
+                ghostClass: "ghost"
+            }
 
-            // Create the chart
-            $('#container').highcharts('StockChart', {
-                chart : {
-                    events : {
-                        load : function () {
+            // if widget has title - use it for dragplace
+            if ($(this).find('.title')[0]) {
+                options.handle = ".title"
+            }
 
-                            // set up the updating of the chart each second
-                            var series = this.series[0];
-                            setInterval(function () {
-                                var x = (new Date()).getTime(), // current time
-                                    y = Math.round(Math.random() * 100);
-                                series.addPoint([x, y], true, true);
-                            }, 100000);
-                        }
-                    }
-                },
-
-                rangeSelector: {
-                    buttons: [{
-                        count: 1,
-                        type: 'minute',
-                        text: '1M'
-                    }, {
-                        count: 5,
-                        type: 'minute',
-                        text: '5M'
-                    }, {
-                        type: 'all',
-                        text: 'All'
-                    }],
-                    inputEnabled: false,
-                    selected: 0
-                },
-
-                title : {
-                    text : 'Live random data'
-                },
-
-                exporting: {
-                    enabled: false
-                },
-
-                series : [{
-                    name : 'Random data',
-                    data : (function () {
-                        // generate an array of random data
-                        var data = [], time = (new Date()).getTime(), i;
-
-                        for (i = -999; i <= 0; i += 1) {
-                            data.push([
-                                time + i * 1000,
-                                Math.round(Math.random() * 100)
-                            ]);
-                        }
-                        return data;
-                    }())
-                }]
-            });
-
+            Sortable.create(this, options);
         });
+
     }]);
 
 //var phonecatControllers = angular.module('phonecatControllers', []);
@@ -133,10 +80,10 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
 //        $scope.orderProp = 'age';
 //    }]);
 //
-sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao',
-    function($scope, $routeParams, sensorsDao) {
+sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs',
+    function($scope, $routeParams, sensorsDao,breadcrumbs) {
         $scope.sensorId = $routeParams.sensorId;
-       
+        $scope.breadcrumbs = breadcrumbs;
         $scope.sensorDetails=[{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"},{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"}];
        
         

@@ -1,46 +1,36 @@
-
-<zippy title="Wind" visible="true">
+<zippy title="Wind" visible="true" link="/sensor/rain/{{sensor.id}}">
     <md-content style="padding:10px;min-height:260px;">
-        <a href="#/sensor/rain/{{sensor.id}}">Sensor ID {{sensor.id}}</a>
+        <p>
+        <img class="center" style="webkit-transform-origin: 50% 50%;
+  -webkit-transform: rotate({{rotate}}deg);position:relative;
+  width: 36px;transform: rotate({{rotate}}deg);
+                transform-origin: 50% 50% 0;" src="//ssl.gstatic.com/m/images/weather/wind_unselected.svg"/>
+        <span style="font-size: 30px;text-align: center" class="pull-right wi wi-beafort-0 text-large" ></span>{{sensor.vane}}
         <br>
-            <img class="center" style="webkit-transform-origin: 50% 50%;
-  -webkit-transform: rotate(267deg);position:relative;
-  width: 34px;" src="//ssl.gstatic.com/m/images/weather/wind_unselected.svg"/>
-            <span style="font-size: 27px;text-align: center" class="pull-right wi wi-beafort-0 "></span>NEAST
-        
-       
-            
+        <strong style="font-size:x-large">{{sensor.speed | number : 3}}</strong>&nbsp;<sup>Km/h</sup>
+
+            <br>min:
+            <br>max:
+            <svg
+                    xmlns="http://www.w3.org/2000/svg" height="24"
+                    style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
+                <path d="M7 14l5-5 5 5z"/>
+                <path d="M0 0h24v24h-24z" fill="none"/>
+            </svg>
             <br>
-                <strong  style="font-size:x-large">14</strong>&nbsp;
-                
-                <sup>Km/h</sup>
-                <p>
-                    <br>min:
-                        
-                        <br>max:
-                            
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
-                                <path d="M7 14l5-5 5 5z"/>
-                                <path d="M0 0h24v24h-24z" fill="none"/>
-                            </svg>
-                            <br>
-            Weekly change:
-                                
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
-                                    <path d="M7 14l5-5 5 5z"/>
-                                    <path d="M0 0h24v24h-24z" fill="none"/>
-                                </svg>
-                            </p>
-                            <div class="pull-left" style="margin-left:20px">
-                                <span data-sparkline
-                      data-spark-data="simpleChart2danger.sparkData"
-                      data-spark-options="simpleChart2danger.sparkOptions"
-                        ></span>
-                            </div>
-                        </md-content>
-                    </zippy>
+            Weekly change:<svg xmlns="http://www.w3.org/2000/svg" height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
+                <path d="M7 14l5-5 5 5z"/>
+                <path d="M0 0h24v24h-24z" fill="none"/>
+            </svg>
+        </p>
+        <div class="pull-left" style="margin-left:20px">
+            <span data-sparkline
+                  data-spark-data="simpleChart2danger.sparkData"
+                  data-spark-options="simpleChart2danger.sparkOptions"
+                    ></span>
+        </div>
+    </md-content>
+</zippy>
 
 
 

@@ -6,9 +6,10 @@
  Initialize the Angular App
  **************************/
 
-var app = angular.module("app", ["ngRoute",'ui.bootstrap', "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree",  "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
+var app = angular.module("app", ['ng-breadcrumbs',"ngRoute",'ui.bootstrap', "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree",  "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
     function ($rootScope, $location) {
-    
+
+
         $(document).ready(function(){
 
             //WidgetAudio.init();
@@ -24,7 +25,9 @@ var app = angular.module("app", ["ngRoute",'ui.bootstrap', "sensors.module", "ng
     function($routeProvider) {
         return $routeProvider.when("/", {
             templateUrl:"app/views/sensors/views/sensorsView.html",
-            controller:'sensorsController'
+            controller:'sensorsController',
+            reloadOnSearch: false,
+            label: 'Main'
         }).when("/dashboard", {
             templateUrl: "app/views/dashboards/dashboard.html"
         }).when("/dashboard/dashboard", {
@@ -107,18 +110,24 @@ var app = angular.module("app", ["ngRoute",'ui.bootstrap', "sensors.module", "ng
             templateUrl: "app/views/test.html"
         }).when("/sensors/",{
             templateUrl:"app/views/sensors/views/sensorsView.html",
-            controller:'sensorsController'
+            controller:'sensorsController',
+            reloadOnSearch: false
         }).when("/sensor/:id",{
             templateUrl:"app/views/sensors/views/sensorDetails.html",
-            controller:'sensorDetailsController'
+            controller:'sensorDetailsController',
+            reloadOnSearch: false,
+            label: 'More Detail'
         }).when("/sensor/rain/:id",{
             templateUrl:"app/views/sensors/views/sensorRainDetails.html",
-            controller:"sensorDetailsController"
+            controller:"sensorDetailsController",
+            label: 'More Detail'
         }).otherwise({
             redirectTo: "/404"
         });
     }
-]).config(function($mdThemingProvider,$httpProvider) {
+]).config(function($mdThemingProvider,$httpProvider,$locationProvider) {
+
+
     $mdThemingProvider.theme('default')
         .primaryPalette('cyan',{
             'default': '800'

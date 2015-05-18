@@ -6,25 +6,27 @@
  */
 sensors.directive("tempWidget", function() {
 	return {
+        scope:{
 
+        },
 		templateUrl: "app/views/sensors/directives/tempWidget.html",
-		controller: ['$scope', 'config', 'sensorsDao', Controller],
+		controller: ['$scope', 'config', 'sensorsDao','$interval', Controller],
 		link: Link
 	};
 
-	function Controller($scope, config, sensorsDao) {
+	function Controller($scope, config, sensorsDao,$interval) {
 		$scope.temperatures = [];
 		$scope.sensor = {
 			id: 12,
-			temp: 0
+			temp: null
 		};
 
 		function getTemp() {
 			var promise = sensorsDao.getTemp();
 			promise.then(function success(resp) {
-				console.log(resp.data)
+
 				$scope.sensor.temp = resp.data.value;
-				$scope.temperatures.push(resp.data.value);
+				$scope.temperatures.push(parseFloat(resp.data.value));
 				$scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
 			}, function error(error) {
 				console.log(error);
@@ -33,31 +35,29 @@ sensors.directive("tempWidget", function() {
 
 
 
-		$scope.$watch(function() {
-			return $scope.temperatures;
-		}, function(nV, oV) {
-			$scope.min = _.min(nV);
-			$scope.max = _.max(nV);
-
-		}, true)
+		//$scope.$watch(function() {
+		//	return $scope.temperatures;
+		//}, function(nV, oV) {
+		//	$scope.min = _.min(nV);
+		//	$scope.max = _.max(nV);
+        //
+		//}, true);
 
 		var counter = 0;
-		window.setInterval(function() {
-			getTemp()
-			counter = counter + 4;
-			$scope.temperatures.push($scope.sensor.temp + counter)
 
-			$scope.tempChart.sparkData = ($scope.temperatures);
-			$scope.$apply();
-		}, 200000)
+		$interval(function() {
+			getTemp();
+
+		}, 20000);
 
 		$scope.tempChart = {
-			sparkData: [3, 1, 2, 3, 5, 3, 4, 2, 3, 1, 2, 3],
+			sparkData: [],
 			sparkOptions: {
 				type: "line",
 				lineColor: config.primary_color,
 				width: "100px",
 				height: "50px"
+
 			}
 		};
 

@@ -5,14 +5,16 @@
     padding-right: 5px;
 " ng-click="toggleContent()">
 <div style="width:100%" ng-click="toggleContent()">
-     <span class="title">
+     <span class="title" style="color:black">
          {{title}}
 
      </span>
+         <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right"  class="fa fa-times " alt="android" ng-click="visible=false"></md-icon>
+
+         <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right" class="expand glyphicon glyphicon-chevron-up " ng-click="toggleContent()"></md-icon>
+
     <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right"  class="fa fa-cog" alt="android" ng-click="open()"></md-icon>
 
-    <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right" class="expand glyphicon glyphicon-chevron-up " ng-click="toggleContent()"></md-icon>
-    <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right"  class="fa fa-times " alt="android" ng-click="visible=false"></md-icon>
 
 
 

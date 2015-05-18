@@ -26,7 +26,7 @@ app.get('/api/getTemp',function(req,res){
       if (!error && response.statusCode == 200) {
        var info = JSON.parse(body);
        res.send(body)
-      }else  res.send('sended ac_channel-turnoff');
+      }
     })
 });
 
@@ -35,7 +35,7 @@ app.get('/api/getRain',function(req,res){
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body);
             res.send(body)
-        }else  res.send('sended ac_channel-turnoff');
+        }
     })
 });
 
@@ -44,7 +44,7 @@ app.get('/api/getAir',function(req,res){
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body);
             res.send(body)
-        }else  res.send('sended ac_channel-turnoff');
+        }
     })
 });
 
@@ -53,7 +53,24 @@ app.get('/api/getPluvio',function(req,res){
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body);
             res.send(body)
-        }else  res.send('sended ac_channel-turnoff');
+        }
+    })
+});
+
+app.get('/api/getPluvio',function(req,res){
+    request('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/PLUVIO', function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var info = JSON.parse(body);
+            res.send(body)
+        }
+    })
+});
+app.get('/api/getAll',function(req,res){
+    request('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByStation/2/', function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var info = JSON.parse(body);
+            res.send(body)
+        }
     })
 });
 app.use(express.static(__dirname + '/'));

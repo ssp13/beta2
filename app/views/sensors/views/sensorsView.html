@@ -12,32 +12,32 @@
 
 
 <div style="background:url('app/views/sensors/views/wxbkb_default_clear_day_1_mezz_light%20.jpg');background-size: cover;padding:20px;">
-    <zippy visible="zippyVisible">
-        <iframe style="
-  width: 100%;
-  height: 504px;"src="/app/views/clima/index.html"></iframe>
-    </zippy>
+  <!--  <zippy visible="zippyVisible">-->
+  <!--      <iframe style="-->
+  <!--width: 100%;-->
+  <!--height: 504px;"src="/app/views/clima/index.html"></iframe>-->
+  <!--  </zippy>-->
     <div class="row ">
         <div class="col-md-6">
-            <!--<zippy visible="zippyVisible">-->
-                <!--<md-content>-->
-                    <!--<div class="md-content__body">-->
-                        <!--<map class="ui-map" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">-->
-                            <!--&lt;!&ndash;<marker position="[, ]" title="marker" animation="Animation.DROP"></marker>&ndash;&gt;-->
-                            <!--<info-window id="bar" position="38.031619, 23.866715" >-->
-                                <!--<div ng-non-bindable>-->
+            <zippy visible="zippyVisible">
+                <md-content>
+                    <div class="md-content__body">
+                        <map class="ui-map" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
+                            <marker position="[, ]" title="marker" animation="Animation.DROP"></marker>
+                            <info-window id="bar" position="38.031619, 23.866715" >
+                                <div ng-non-bindable>
 
-                                    <!--<div id="siteNotice"></div>-->
-                                <!--</div>-->
-                            <!--</info-window>-->
-                            <!--<marker position="[38.031619, 23.866715]"   data-on-click='showInfoWindow("bar")'></marker>-->
+                                    <div id="siteNotice"></div>
+                                </div>
+                            </info-window>
+                            <marker position="[38.031619, 23.866715]"   data-on-click='showInfoWindow("bar")'></marker>
 
 
-                        <!--</map>-->
-                    <!--</div>-->
-                <!--</md-content>-->
-                <!--</section>-->
-            <!--</zippy>-->
+                        </map>
+                    </div>
+                </md-content>
+                </section>
+            </zippy>
         </div>
         <div class="col-md-6">
             <section data-ng-controller="sparklineCtrl">
@@ -45,14 +45,17 @@
                     <div class="col-md-6">
                         <temp-widget></temp-widget>
                     </div>
-                    <!--<div class="col-md-6">-->
-                        <!--<zippy title="sparkdanger" visible="true">-->
-                            <!--<div spark-danger></div>-->
+                    <div class="col-md-6">
+                        <rain-fall></rain-fall>
+                    </div>
+                    <div class="col-md-6">
+                        <zippy title="sparkdanger" visible="true">
+                            <div spark-danger></div>
 
-                            <!--<div soil-temperature-widget></div>-->
-                            <!--<div rainmeter-widget></div>-->
-                        <!--</zippy>-->
-                    <!--</div>-->
+                            <div soil-temperature-widget></div>
+                            <div rainmeter-widget></div>
+                        </zippy>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">

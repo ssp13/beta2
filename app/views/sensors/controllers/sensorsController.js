@@ -2,13 +2,14 @@
  * Created by ssp on 25/3/2015.
  */
 
-var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap']);
+var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap','ngMap']);
 
 
 
 sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location','$mdDialog','$modal',
     function($scope,sensorsDao,$route, $routeParams, $location,$mdDialog,$modal){
         console.log("sensorsController")
+        
         $scope.items = ['learn Sortable',
             'use gn-sortable',
             'Enjoy'];
@@ -132,12 +133,14 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
 //        $scope.orderProp = 'age';
 //    }]);
 //
-sensors.controller('sensorDetailsController', ['$scope', '$routeParams',
-    function($scope, $routeParams) {
+sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao'
+    function($scope, $routeParams,sensorsDao) {
         $scope.sensorId = $routeParams.sensorId;
         console.log($routeParams);
         $scope.sensorDetails=[{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"},{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"}];
-
+        $scope.data={};
+        
+        
 
 
 

@@ -34,7 +34,7 @@ sensors.directive("tempWidget",function(){
 
 
         $scope.$watch(function(){return $scope.temperatures;},function(nV,oV){
-            console.log(nV,oV)
+          
 
                 $scope.min= _.min(nV);
                 $scope.max= _.max(nV);
@@ -49,7 +49,7 @@ sensors.directive("tempWidget",function(){
 
             $scope.tempChart.sparkData=($scope.temperatures);
             $scope.$apply();
-        },1000)
+        },200000)
 
         $scope.tempChart = {
             sparkData:  $scope.temperatures,

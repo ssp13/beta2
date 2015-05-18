@@ -4,10 +4,10 @@
 /**
  * Created by e76956 on 24/3/2015.
  */
-sensors.directive("soilMoisture", function() {
+sensors.directive("soilTemperatureWidget", function() {
 	return {
 
-		templateUrl: "app/views/sensors/directives/soilMoisture.html",
+		templateUrl: "app/views/sensors/directives/soilTemperatureWidget.html",
 		controller: ['$scope', 'config', 'sensorsDao', Controller],
 		link: Link
 	};

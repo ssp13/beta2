@@ -22,7 +22,7 @@
             <zippy visible="zippyVisible">
                 <md-content>
                     <div class="md-content__body">
-                        <map class="ui-map" style="height:205px" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
+                        <map class="ui-map" style="height:230px" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
                             <marker position="[, ]" title="marker" animation="Animation.DROP"></marker>
                             <info-window id="bar" position="38.031619, 23.866715" >
                                 <div ng-non-bindable>
@@ -48,14 +48,14 @@
                     <div class="col-md-6">
                         <rain-fall></rain-fall>
                     </div>
-                    <div class="col-md-6">
-                        <zippy title="sparkdanger" visible="true">
-                            <div spark-danger></div>
+                    <!--<div class="col-md-6">-->
+                    <!--    <zippy title="sparkdanger" visible="true">-->
+                            
 
-                            <div soil-temperature-widget></div>
-                            <div rainmeter-widget></div>
-                        </zippy>
-                    </div>
+                    <!--        <div soil-temperature-widget></div>-->
+                    <!--        <div rainmeter-widget></div>-->
+                    <!--    </zippy>-->
+                    <!--</div>-->
                 </div>
                 
                 <!--<div class="row sortable">-->
@@ -74,10 +74,14 @@
         </div>
     </div>
     <div class="row">
-                    <div class="col-md-6">
-                        <div wind-widget></div>
+                   
+                    <div class="col-md-3">
+                        <soil-moisture></soil-moisture>
                     </div>
-                    <div class="col-md-6">
+                      <div class="col-md-3">
+                        <div soil-temperature-widget></div>
+                    </div>
+                     <div class="col-md-3">
                         <div wind-widget></div>
                     </div>
                 </div>

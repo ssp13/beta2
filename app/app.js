@@ -111,6 +111,9 @@ var app = angular.module("app", ["ngRoute",'ui.bootstrap', "sensors.module", "ng
         }).when("/sensor/:id",{
             templateUrl:"app/views/sensors/views/sensorDetails.html",
             controller:'sensorDetailsController'
+        }).when("/sensor/rain/:id",{
+            templateUrl:"app/views/sensors/views/sensorRainDetails.html",
+            controller:"sensorDetailsController"
         }).otherwise({
             redirectTo: "/404"
         });

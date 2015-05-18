@@ -1,20 +1,27 @@
 
 <zippy title="RainFall" visible="true">
     <md-content style="padding:10px">
-        <a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>
+        <a style="pull-right" href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>
         <p><i class="pull-right wi wi-sprinkles text-large"> </i>
             <strong  style="font-size:x-large">0.00 </strong><sup>in</sup>
             <br>
             7 day total:0.00 </strong><sup>in</sup>
-             <br>
-      weekly avg change:<svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
+            <br>
+            <br>min: {{min}}
+            <br>max: {{max}}
+            <br>
+            Weekly change:
+    <svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
             <path d="M7 14l5-5 5 5z"/>
             <path d="M0 0h24v24h-24z" fill="none"/>
         </svg>
+        <br>
+         <div class="small-box-icon text-center card-content">
          <span data-sparkline
-                      data-spark-data="rainChart.sparkData"
-                      data-spark-options="rainChart.sparkOptions"
+                      data-spark-data="simpleChart2danger.sparkData"
+                      data-spark-options="simpleChart2danger.sparkOptions"
                         ></span>
+                        </div>
 
         </p>
     </md-content>

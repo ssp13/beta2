@@ -46520,9 +46520,9 @@ angular.module("app.custom").directive("flotLineChart",function(){
  Initialize the Angular App
  **************************/
 
-var app = angular.module("app", ["ngRoute",'$locationProvider','ui.bootstrap', "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree",  "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
-    function ($rootScope, $location,$locationProvider) {
-    $locationProvider.html5Mode(true).hashPrefix('!');
+var app = angular.module("app", ["ngRoute",'ui.bootstrap', "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree",  "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
+    function ($rootScope, $location) {
+    
         $(document).ready(function(){
 
             //WidgetAudio.init();

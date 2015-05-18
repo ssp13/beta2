@@ -220,7 +220,7 @@ module.exports = function(grunt) {
 
         watch: {
             dev: {
-                files: [ 'Gruntfile.js', 'app/*.js',"app/views/sensors/**/*.js",'*.html','styles/*.scss','app/views/charts/directives/*.js','app/views/sensors/directives/*.js','app/views/sensors/views/*.html' ],
+                files: [ 'Gruntfile.js', 'app/*.js',"app/views/charts/directives/zippy.html","app/views/sensors/**/*.js",'*.html','styles/*.scss','app/views/charts/directives/*.js','app/views/sensors/directives/*.js','app/views/sensors/views/*.html' ],
                 tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp','cssmin' ],
                 options: {
                     atBegin: true

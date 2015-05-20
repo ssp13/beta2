@@ -18,7 +18,7 @@ sensors.directive("windWidget",function(){
     };
     function Controller ($scope,config,sensorsDao,$interval){
 
-        $scope.sensor={speed:null,vane:null,airSpeeds:[]};
+        $scope.sensor={id:"12",speed:null,vane:null,airSpeeds:[]};
 
         $scope.rotate=270;
 
@@ -74,6 +74,7 @@ sensors.directive("windWidget",function(){
                 $scope.sensor.speed = resp.data.value;
                 $scope.sensor.airSpeeds.push(parseFloat(resp.data.value));
                 $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.speed));
+                if($scope.sensor.speed>0)$scope.beafort=0;
             }, function error(error) {
                 console.log(error);
             });

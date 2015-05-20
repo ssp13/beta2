@@ -15,6 +15,10 @@ sensors.directive("sensorDetails",function(){
         console.log("sensorDetails");
     }
     function Link (scope,elem,attrs){
+        scope.sensor={id:12,insertedOn:'1431988821573',value:''};
+
+
+
 
     }
 })

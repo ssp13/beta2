@@ -1,13 +1,13 @@
-<zippy title="Wind" visible="true" link="/sensor/rain/{{sensor.id}}">
+<zippy title="Wind" visible="true" link="#/sensor/rain/{{sensor.id}}">
     <md-content style="padding:10px;min-height:260px;">
         <p>
         <img class="center" style="webkit-transform-origin: 50% 50%;
   -webkit-transform: rotate({{rotate}}deg);position:relative;
   width: 36px;transform: rotate({{rotate}}deg);
                 transform-origin: 50% 50% 0;" src="//ssl.gstatic.com/m/images/weather/wind_unselected.svg"/>
-        <span style="font-size: 30px;text-align: center" class="pull-right wi wi-beafort-0 text-large" ></span>{{sensor.vane}}
+        <span style="font-size: 30px;text-align: center" class="pull-right wi wi-beafort-{{beafort}} text-large" ></span>{{sensor.vane}}
         <br>
-        <strong style="font-size:x-large">{{sensor.speed | number : 3}}</strong>&nbsp;<sup>Km/h</sup>
+        <strong style="font-size:x-large">{{(sensor.speed | number : 3) || "--"}}</strong>&nbsp;<sup>Km/h</sup>
 
             <br>min:
             <br>max:

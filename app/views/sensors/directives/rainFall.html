@@ -1,9 +1,9 @@
 
-<zippy title="RainFall" visible="true">
+<zippy title="RainFall" visible="true" link="#/sensor/rain/{{sensor.id}}">
     <md-content style="padding:10px;min-height:260px;border-bottom: 1px solid rgb(219, 215, 215);">
-        <!--<a style="pull-right" href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>-->
+        <!--<a style="pull-right" href="#/sensor/rain/{{sensor.id}}">{{sensor.id}} Sensor ID </a>-->
         <p><i class="pull-right wi wi-sprinkles text-large"> </i>
-            <strong  style="font-size:x-large">0.00 </strong><sup>in</sup>
+            <strong  style="font-size:x-large">{{sensor.rain || "--" }} </strong><sup>in</sup>
             <br>  
             7 day total: 0.00 </strong><sup>in</sup>
             <br>min: {{min}}

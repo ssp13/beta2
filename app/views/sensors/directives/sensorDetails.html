@@ -41,7 +41,7 @@
                             <td><a href="#/sensor/{{sensor.id}}">{{sensor.id}}</a></td>
                             <td><span class="color-success"><i class="fa fa-level-up"></i></span>{{sensor.property1}} TWLT</td>
                             <td><span class="label label-info">{{sensor.status}}</span></td>
-                            <td>{{sensor.name}}time of measurement</td>
+                            <td>{{sensor.insertedOn | date:'medium'}}</td>
                             <td>{{sensor.name}}change %</td>
                             <td>{{sensor.name}}value</td>
                             <td>{{sensor.name}}</td>

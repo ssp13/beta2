@@ -6,7 +6,9 @@
  */
 sensors.directive("soilMoisture", function() {
 	return {
+        scope:{
 
+        },
 		templateUrl: "app/views/sensors/directives/soilMoisture.html",
 		controller: ['$scope', 'config', 'sensorsDao', Controller],
 		link: Link
@@ -32,7 +34,15 @@ sensors.directive("soilMoisture", function() {
 		}
 
 
-
+        $scope.simpleChartlong = {
+            sparkData: [1, 3, 2, 5, 4, 2, 1, 7, 1, 8, 4, 3, 5, 2, 4, 5, 1, 7, 1, 8],
+            sparkOptions: {
+                type: "bar",
+                barColor: config.primary_color,
+                width: "250px",
+                height: "60px"
+            }
+        }
 		$scope.$watch(function() {
 			return $scope.temperatures;
 		}, function(nV, oV) {
@@ -56,8 +66,8 @@ sensors.directive("soilMoisture", function() {
 			sparkOptions: {
 				type: "line",
 				lineColor: config.primary_color,
-				width: "100px",
-				height: "50px"
+				width: "150px",
+				height: "80px"
 			}
 		};
 

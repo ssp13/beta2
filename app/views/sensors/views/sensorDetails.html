@@ -1,12 +1,15 @@
 <!-- Breadcrumbs -->
 <div class="region-breadcrumbs">
-    <ol class="breadcrumb">
-        <li ><a href="/#"><i class="fa fa-home"></i></a></li>
-        <li class="active">Dashboard</li>
+    <ol class="ab-nav breadcrumb">
+        <li><a href="/#"><i class="fa fa-home"></i></a></li>
+        <li ng-repeat="breadcrumb in breadcrumbs.get() track by breadcrumb.path" ng-class="{ active: $last }">
+            <a ng-if="!$last" ng-href="#{{ breadcrumb.path }}" ng-bind="breadcrumb.label" class="margin-right-xs"></a>
+            <span ng-if="$last" ng-bind="breadcrumb.label"></span>
+        </li>
     </ol>
 </div>
-<script src="http://code.highcharts.com/stock/highstock.js"></script>
-<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+
 <div class="container" style="margin-top:20px">
 <div class="row">
     <h4>Sensor Details</h4>

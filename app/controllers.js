@@ -10,7 +10,12 @@ angular.module("app.controllers", []).controller("AdminAppCtrl", ["$scope", "$lo
             return _.contains(["/404", "/pages/500", "/pages/login", "/pages/signin", "/pages/signin1", "/pages/signin2", "/pages/signup", "/pages/signup1", "/pages/signup2", "/pages/forgot", "/pages/lock-screen"], $location.path());
 
         };
-
+        console.log($location);
+        $scope.$watch(function(){
+            return $location.path();
+        },function(v){
+            console.log(v)
+        });
         $scope.info = {
             theme_name: "Kimono",
             user_name: "John Doe"
@@ -826,7 +831,7 @@ angular.module("app.chart.ctrls", []).controller("chartingCtrl", ["$scope", 'con
                 type: "bar",
                 barColor: config.primary_color,
                 width: "250px",
-                height: "30px"
+                height: "80px"
             }
         }, $scope.simpleChart2long = {
             sparkData: [3, 1, 2, 3, 5, 3, 4, 2, 5, 4, 2, 6, 2, 4, 3, 1],

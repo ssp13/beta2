@@ -31,12 +31,15 @@ custom.directive("zippy",function($mdDialog,$modal){
     restrict:"E",
     transclude: true,
     scope:{
-      title:'@'
-
+      title:'@',
+      link:'@'
     },
     templateUrl:"app/views/charts/directives/zippy.html",
       link:function(scope,element,attrs){
-        scope.visible=true;
+          if(scope.link==="map"){
+              $(".fa-bars").remove();
+          }
+          scope.visible=true;
       scope.toggleContent = function(){
           console.log("sad");
         scope.isCollapsed = !scope.isCollapsed;

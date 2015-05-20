@@ -57,8 +57,8 @@ app.get('/api/getPluvio',function(req,res){
     })
 });
 
-app.get('/api/getPluvio',function(req,res){
-    request('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/PLUVIO', function (error, response, body) {
+app.get('/api/getVane',function(req,res){
+    request('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/VANE', function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body);
             res.send(body)

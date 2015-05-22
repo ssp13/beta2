@@ -1,7 +1,7 @@
 <!-- Breadcrumbs -->
 <div class="region-breadcrumbs">
     <ol class="ab-nav breadcrumb">
-        <li><a href="/#"><i class="fa fa-home"></i></a></li>
+        <li><a href="/#/"><i class="fa fa-home"></i></a></li>
         <li ng-repeat="breadcrumb in breadcrumbs.get() track by breadcrumb.path" ng-class="{ active: $last }">
             <a ng-if="!$last" ng-href="#{{ breadcrumb.path }}" ng-bind="breadcrumb.label" class="margin-right-xs"></a>
             <span ng-if="$last" ng-bind="breadcrumb.label"></span>
@@ -14,7 +14,7 @@
 <div class="row">
     <h4>Sensor Details</h4>
     <div class="col-md-8">
-        <zippy>
+      
         <div class="panel panel-default">
             <!--<div class="panel-heading"><strong><i class="fa fa-list panel-ico"></i>Table</strong></div>-->
 
@@ -74,53 +74,54 @@
         </div>
     </div>
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-    
+   
+</div
 
 
-    <script>
+    <!--<script>-->
 
 
-                $(function () {
-            $('#container').highcharts({
-                title: {
-                    text: 'Monthly Average Temperature',
-                    x: -20 //center
-                },
-                subtitle: {
-                    text: 'Source: Temp sensor Id 12',
-                    x: -20
-                },
-                xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-                },
-                yAxis: {
-                    title: {
-                        text: 'Temperature (°C)'
-                    },
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#808080'
-                    }]
-                },
-                tooltip: {
-                    valueSuffix: '°C'
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-                },
-                series: [ {
-                    name: 'Sensor ID 12',
-                    data: [27, 25, 26, 28, 25.4, 26.8, 24.8, 24.1, 20.1, 28.78,27,75]
-                }]
-            });
-        });
+    <!--            $(function () {-->
+    <!--        $('#container').highcharts({-->
+    <!--            title: {-->
+    <!--                text: 'Monthly Average Temperature',-->
+    <!--                x: -20 //center-->
+    <!--            },-->
+    <!--            subtitle: {-->
+    <!--                text: 'Source: Temp sensor Id 12',-->
+    <!--                x: -20-->
+    <!--            },-->
+    <!--            xAxis: {-->
+    <!--                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',-->
+    <!--                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']-->
+    <!--            },-->
+    <!--            yAxis: {-->
+    <!--                title: {-->
+    <!--                    text: 'Temperature (°C)'-->
+    <!--                },-->
+    <!--                plotLines: [{-->
+    <!--                    value: 0,-->
+    <!--                    width: 1,-->
+    <!--                    color: '#808080'-->
+    <!--                }]-->
+    <!--            },-->
+    <!--            tooltip: {-->
+    <!--                valueSuffix: '°C'-->
+    <!--            },-->
+    <!--            legend: {-->
+    <!--                layout: 'vertical',-->
+    <!--                align: 'right',-->
+    <!--                verticalAlign: 'middle',-->
+    <!--                borderWidth: 0-->
+    <!--            },-->
+    <!--            series: [ {-->
+    <!--                name: 'Sensor ID 12',-->
+    <!--                data: [27, 25, 26, 28, 25.4, 26.8, 24.8, 24.1, 20.1, 28.78,27,75]-->
+    <!--            }]-->
+    <!--        });-->
+    <!--    });-->
 
-    </script>
+    <!--</script>-->
 
     <!--<div class="row">-->
         <!--<div class="page page-charts" data-ng-controller="morrisChartCtrl">-->

@@ -72,6 +72,7 @@ sensors.directive("windWidget",function(){
             promise.then(function success(resp) {
 
                 $scope.sensor.speed = resp.data.value;
+                $scope.lastMeasurement=resp.data.insertedOn;
                 $scope.sensor.airSpeeds.push(parseFloat(resp.data.value));
                 $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.speed));
                 if($scope.sensor.speed>0)$scope.beafort=0;
@@ -92,7 +93,7 @@ sensors.directive("windWidget",function(){
         }
 
         $scope.simpleChart2danger = {
-            sparkData: [24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34],
+            sparkData: [],
             sparkOptions: {
                 type: "line",
 
@@ -110,11 +111,8 @@ sensors.directive("windWidget",function(){
         $interval(function() {
             getAir();
             getVane();
-        }, 20000);
-        window.setInterval(function(){
-            $scope.simpleChart2danger.sparkData=_.shuffle([24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34]);
-            $scope.$apply();
-        },7000)
+        }, 500000);
+
 
         //$scope.gaugeData= {
         //    maxValue: 3e3,

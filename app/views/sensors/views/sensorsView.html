@@ -22,7 +22,7 @@
   <!--  </zippy>-->
     <div class="row sortable" >
         <div class="col-md-6">
-            <zippy visible="zippyVisible" link="map">
+            <zippy visible="zippyVisible" link="map" title="Χάρτης">
                 <md-content>
                     <div class="md-content__body">
                         <map class="ui-map" style="heigth:300px" zoom="15" center="[38.031619, 23.866715]" scrollwheel="true">
@@ -43,26 +43,27 @@
             </zippy>
         </div>
         <div class="col-md-6">
-            <section data-ng-controller="sparklineCtrl">
+
                 <div class="row sortable">
-                    <div class="col-md-6">
-                        <temp-widget></temp-widget>
+                    <div class="col-md-6 my-handle" >
+
+                        <temp-widget ></temp-widget>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 my-handle">
                         <rain-fall></rain-fall>
                     </div>
 
                 </div>
                 <div class="row sortable">
-                    <div class="col-md-6">
+                    <div class="col-md-6" my-handle>
                         <soil-moisture></soil-moisture>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" my-handle>
                         <div wind-widget></div>
                     </div>
                 </div>
 
-            </section>
+
         </div>
     </div>
     </div>
@@ -73,4 +74,21 @@
     <img height="410" width="415" style="z-index:100;width:715px;height:400px;left:800px" src="http://194.248.190.92/mjpg/video.mjpg">
 </zippy>
 </div>
+<script>
+    $('.sortable').each(function () {
+        var options = {
+            group: 'widgets',
+            ghostClass: "ghost",
+            handle: '.drag'
+        }
 
+        // if widget has title - use it for dragplace
+
+        if ($(this).find('.drag')[0]) {
+            options.handle = ".drag"
+        }
+
+        Sortable.create(this, options);
+    });
+
+</script>

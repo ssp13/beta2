@@ -8,7 +8,8 @@ var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap','ngMa
 
 sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location','$mdDialog','$modal','breadcrumbs',
     function($scope,sensorsDao,$route, $routeParams, $location,$mdDialog,$modal,breadcrumbs){
-        console.log("sensorsController")
+
+
         $scope.breadcrumbs = breadcrumbs;
         $scope.items = ['learn Sortable',
             'use gn-sortable',
@@ -49,23 +50,10 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
         $scope.$route = $route;
         $scope.$location = $location;
         $scope.$routeParams = $routeParams;
-        console.log($scope.$route);
+
        // $scope.sensors = sensorsDao.getSensors();
-        console.log($scope.sensors);
 
-        $('.sortable').each(function () {
-            var options = {
-                group: 'widgets',
-                ghostClass: "ghost"
-            }
 
-            // if widget has title - use it for dragplace
-            if ($(this).find('.title')[0]) {
-                options.handle = ".title"
-            }
-
-            Sortable.create(this, options);
-        });
 
     }]);
 
@@ -80,13 +68,38 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
 //        $scope.orderProp = 'age';
 //    }]);
 //
-sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs',
-    function($scope, $routeParams, sensorsDao,breadcrumbs) {
-        $scope.sensorId = $routeParams.sensorId;
+sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs','$interval',
+    function($scope, $routeParams, sensorsDao,breadcrumbs, $interval) {
+        $scope.tempSensor=[];
+        $scope.sensorTest=sensorsDao.getSensorTest();
+
+        console.log(  $scope.sensorTest);
+        sensorsDao.getTempSensor().then(function(response){
+            $scope.tempSensor=response.data;
+
+        });
+        var temperatures=[];
+        sensorsDao.getTempValuesDirect(10).then(function(response){
+            console.log(response);
+            temperatures=_.map(response.data.listOfT,function(elem){
+                return parseFloat(elem.value)
+            });
+            runHighChart();
+            console.log(temperatures)
+        },function error(error){
+            console.log(error);
+        })
+        $scope.$watch('sensorTest',function(nV,oV){
+            console.log($scope.sensorTest);
+           if(nV!=oV){
+               var length=$scope.sensorTest.length;
+               $scope.tempSensor.push($scope.sensorTest[length-1]);
+               temperatures.push($scope.sensorTest.value);
+           }
+        },true);
+
         $scope.breadcrumbs = breadcrumbs;
-        $scope.sensorDetails=[{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"},{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"}];
-        
-        
+
         $scope.barChart = {}, $scope.barChart.data = [
             {
                 color: '#fbfbfb',
@@ -176,7 +189,7 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
                 color: '#f3f3f3',
                 tickFormatter: function(val, axis) {
                     return "";
-                },
+                }
             },
             grid: {
                 hoverable: true,
@@ -189,10 +202,69 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
             tooltip: true,
             tooltipOpts: {
                 defaultTheme: false,
-                content: " <b>%x May</b> , <b>%s</b> : <span>%y</span>",
+                content: " <b>%x May</b> , <b>%s</b> : <span>%y</span>"
             }
         }
-        
+
+        $scope.dataSum = [];
+        $scope.timeStamps=[];
+        var prom=sensorsDao.getTempAll();
+        prom.then(function success(response){
+
+            $scope.temperatures=response.data;
+            $scope.dataSum = [];
+
+            $scope.dataSum.push( parseFloat(response.data));
+            runHighChart();
+        });
+        $interval(function() {
+            var prom=sensorsDao.getTempAll();
+            prom.then(function success(response){
+                $scope.temperatures=response.data;
+                $scope.timeStamps.push(response.data.insertedOn);
+
+                $scope.dataSum.push( parseFloat(response.data));
+                runHighChart()
+            })
+        }, 200000);
+        var runHighChart=function () {
+            $('#container').highcharts({
+                title: {
+                    text: '5 minute Temperature',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: 'Source: Temp sensor Id 12',
+                    x: -20
+                },
+                xAxis: {
+                    categories:  $scope.timeStamps
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature (°C)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 0.5,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '°C'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [ {
+                    name: 'Sensor ID 12',
+                    data:  temperatures
+                }]
+            });
+        };
 
 
 

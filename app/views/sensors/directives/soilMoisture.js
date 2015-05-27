@@ -59,7 +59,7 @@ sensors.directive("soilMoisture", function() {
 
 			$scope.tempChart.sparkData = ($scope.temperatures);
 			$scope.$apply();
-		}, 200000)
+		}, 500000)
 
 		$scope.tempChart = {
 			sparkData: [3, 1, 2, 3, 5, 3, 4, 2, 3, 1, 2, 3],

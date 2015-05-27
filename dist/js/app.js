@@ -50139,37 +50139,110 @@ angular.module("app.chart.ctrls", []).controller("chartingCtrl", ["$scope", 'con
             [2011, 19],
             [2012, 13],
             [2013, 20]
-        ], $scope.barChart = {}, $scope.barChart.data = [{
-            label: "Value A",
-            data: barChart.data1
-        }, {
-            label: "Value B",
-            data: barChart.data2
-        }, {
-            label: "Value C",
-            data: barChart.data3
-        }], $scope.barChart.options = {
-            series: {
-                stack: !0,
+        ], $scope.barChart = {}, $scope.barChart.data = [
+            {
+                color: '#fbfbfb',
+                label: "Direct Visits",
+                data: [
+                    [3, 2], [4, 5], [5, 4], [6, 11], [7, 12], [8, 11], [9, 8], [10, 14], [11, 12], [12, 16], [13, 9],
+                    [14, 10], [15, 14], [16, 15], [17, 9]
+                ],
+
+                lines: {
+                    show: true,
+                    fill: true,
+                    lineWidth: .1,
+                    fillColor: {
+                        colors: [
+                            {
+                                opacity: 0
+                            }, {
+                                opacity: 0.4
+                            }
+                        ]
+                    }
+                },
+                points: {
+                    show: false
+                },
+                shadowSize: 0
+            },
+            {
+                color: '#fbfbfb',
+                label: "Referral Visits",
+                data: [
+                    [3, 10], [4, 13], [5, 12], [6, 16], [7, 19], [8, 19], [9, 24], [10, 19], [11, 18], [12, 21], [13, 17],
+                    [14, 14], [15, 12], [16, 14], [17, 15]
+                ],
                 bars: {
-                    show: !0,
-                    fill: 1,
-                    barWidth: 0.3,
-                    align: "center",
-                    horizontal: !1,
-                    order: 1
+                    order: 1,
+                    show: true,
+                    borderWidth: 0,
+                    barWidth: 0.4,
+                    lineWidth: .5,
+                    fillColor: {
+                        colors: [
+                            {
+                                opacity: 0.4
+                            }, {
+                                opacity: 1
+                            }
+                        ]
+                    }
                 }
             },
+            {
+                color:'#fbfbfb',
+                label: "Search Engines",
+                data: [
+                    [3, 14], [4, 11], [5, 10], [6, 9], [7, 5], [8, 8], [9, 5], [10, 6], [11, 4], [12, 7], [13, 4],
+                    [14, 3], [15, 4], [16, 6], [17, 4]
+                ],
+                lines: {
+                    show: true,
+                    fill: false,
+                    fillColor: {
+                        colors: [
+                            {
+                                opacity: 0.3
+                            }, {
+                                opacity: 0
+                            }
+                        ]
+                    }
+                },
+                points: {
+                    show: true
+                }
+            }]
+        , $scope.barChart.options = {
+            legend: {
+                show: false
+            },
+            xaxis: {
+                tickDecimals: 0,
+                color: '#f3f3f3'
+            },
+            yaxis: {
+                min: 0,
+                color: '#f3f3f3',
+                tickFormatter: function(val, axis) {
+                    return "";
+                },
+            },
             grid: {
-                hoverable: !0,
-                borderWidth: 1,
-                borderColor: "#f5f5f5"
+                hoverable: true,
+                clickable: false,
+                borderWidth: 0,
+                aboveData: false,
+                color: '#fbfbfb'
+
             },
-            tooltip: !0,
+            tooltip: true,
             tooltipOpts: {
-                defaultTheme: !1
-            },
-            colors: [config.primary_color, config.secondary_color, config.third_color]
+                defaultTheme: false,
+                content: " <b>%x May</b> , <b>%s</b> : <span>%y</span>",
+            }
         }, $scope.pieChart = {}, $scope.pieChart.data = [{
             label: "Download Sales",
             data: 12
@@ -56616,7 +56689,8 @@ var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap','ngMa
 
 sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location','$mdDialog','$modal','breadcrumbs',
     function($scope,sensorsDao,$route, $routeParams, $location,$mdDialog,$modal,breadcrumbs){
-        console.log("sensorsController")
+
+
         $scope.breadcrumbs = breadcrumbs;
         $scope.items = ['learn Sortable',
             'use gn-sortable',
@@ -56657,23 +56731,10 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
         $scope.$route = $route;
         $scope.$location = $location;
         $scope.$routeParams = $routeParams;
-        console.log($scope.$route);
+
        // $scope.sensors = sensorsDao.getSensors();
-        console.log($scope.sensors);
 
-        $('.sortable').each(function () {
-            var options = {
-                group: 'widgets',
-                ghostClass: "ghost"
-            }
 
-            // if widget has title - use it for dragplace
-            if ($(this).find('.title')[0]) {
-                options.handle = ".title"
-            }
-
-            Sortable.create(this, options);
-        });
 
     }]);
 
@@ -56688,14 +56749,193 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
 //        $scope.orderProp = 'age';
 //    }]);
 //
-sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs',
-    function($scope, $routeParams, sensorsDao,breadcrumbs) {
+sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs','$interval',
+    function($scope, $routeParams, sensorsDao,breadcrumbs, $interval) {
+        $scope.tempSensor=[];
+        $scope.sensorTest=sensorsDao.getSensorTest();
+
+        console.log(  $scope.sensorTest);
+        sensorsDao.getTempSensor().then(function(response){
+            $scope.tempSensor=response.data;
+
+        });
+
+        $scope.$watch('sensorTest',function(nV,oV){
+            console.log($scope.sensorTest);
+           if(nV!=oV){
+               var length=$scope.sensorTest.length;
+               $scope.tempSensor.push($scope.sensorTest[length-1]);
+           }
+        },true);
         $scope.sensorId = $routeParams.sensorId;
         $scope.breadcrumbs = breadcrumbs;
         $scope.sensorDetails=[{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"},{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"}];
-       
-        
-        
+
+        $scope.barChart = {}, $scope.barChart.data = [
+            {
+                color: '#fbfbfb',
+                label: "Direct Visits",
+                data: [
+                    [3, 2], [4, 5], [5, 4], [6, 11], [7, 12], [8, 11], [9, 8], [10, 14], [11, 12], [12, 16], [13, 9],
+                    [14, 10], [15, 14], [16, 15], [17, 9]
+                ],
+
+                lines: {
+                    show: true,
+                    fill: true,
+                    lineWidth: .1,
+                    fillColor: {
+                        colors: [
+                            {
+                                opacity: 0
+                            }, {
+                                opacity: 0.4
+                            }
+                        ]
+                    }
+                },
+                points: {
+                    show: false
+                },
+                shadowSize: 0
+            },
+            {
+                color: '#fbfbfb',
+                label: "Referral Visits",
+                data: [
+                    [3, 10], [4, 13], [5, 12], [6, 16], [7, 19], [8, 19], [9, 24], [10, 19], [11, 18], [12, 21], [13, 17],
+                    [14, 14], [15, 12], [16, 14], [17, 15]
+                ],
+                bars: {
+                    order: 1,
+                    show: true,
+                    borderWidth: 0,
+                    barWidth: 0.4,
+                    lineWidth: .5,
+                    fillColor: {
+                        colors: [
+                            {
+                                opacity: 0.4
+                            }, {
+                                opacity: 1
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                color:'#fbfbfb',
+                label: "Search Engines",
+                data: [
+                    [3, 14], [4, 11], [5, 10], [6, 9], [7, 5], [8, 8], [9, 5], [10, 6], [11, 4], [12, 7], [13, 4],
+                    [14, 3], [15, 4], [16, 6], [17, 4]
+                ],
+                lines: {
+                    show: true,
+                    fill: false,
+                    fillColor: {
+                        colors: [
+                            {
+                                opacity: 0.3
+                            }, {
+                                opacity: 0
+                            }
+                        ]
+                    }
+                },
+                points: {
+                    show: true
+                }
+            }];
+         $scope.barChart.options = {
+            legend: {
+                show: false
+            },
+            xaxis: {
+                tickDecimals: 0,
+                color: '#f3f3f3'
+            },
+            yaxis: {
+                min: 0,
+                color: '#f3f3f3',
+                tickFormatter: function(val, axis) {
+                    return "";
+                }
+            },
+            grid: {
+                hoverable: true,
+                clickable: false,
+                borderWidth: 0,
+                aboveData: false,
+                color: '#fbfbfb'
+
+            },
+            tooltip: true,
+            tooltipOpts: {
+                defaultTheme: false,
+                content: " <b>%x May</b> , <b>%s</b> : <span>%y</span>"
+            }
+        }
+
+        $scope.dataSum = [];
+        $scope.timeStamps=[];
+        var prom=sensorsDao.getTempAll();
+        prom.then(function success(response){
+
+            $scope.temperatures=response.data;
+            $scope.dataSum = [];
+
+            $scope.dataSum.push( parseFloat(response.data));
+            runHighChart();
+        });
+        $interval(function() {
+            var prom=sensorsDao.getTempAll();
+            prom.then(function success(response){
+                $scope.temperatures=response.data;
+                $scope.timeStamps.push(response.data.insertedOn);
+
+                $scope.dataSum.push( parseFloat(response.data));
+                runHighChart()
+            })
+        }, 200000);
+        var runHighChart=function () {
+            $('#container').highcharts({
+                title: {
+                    text: '5 minute Temperature',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: 'Source: Temp sensor Id 12',
+                    x: -20
+                },
+                xAxis: {
+                    categories:  $scope.timeStamps
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature (°C)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 0.5,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '°C'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [ {
+                    name: 'Sensor ID 12',
+                    data:  $scope.temperatures
+                }]
+            });
+        };
 
 
 
@@ -56850,14 +57090,15 @@ sensors.directive("rainFall",function(){
         link:Link
     };
     function Controller ($scope,config,sensorsDao,$interval){
-        $scope.sensor={rain:""};
+        $scope.sensor={id:"12",rain:"",insertedOn:null};
         function getRain() {
-            var promise = sensorsDao.getRain();
+            var promise = sensorsDao.getPluvio();
             promise.then(function success(resp) {
                 console.log(resp.data)
+                $scope.sensor.insertedOn=resp.data.insertedOn;
                 $scope.sensor.rain = resp.data.value;
 
-                $scope.tempChart.sparkData.push(parseFloat($scope.sensor.rain));
+                //$scope.tempChart.sparkData.push(parseFloat($scope.sensor.rain));
             }, function error(error) {
                 console.log(error);
             });
@@ -56872,11 +57113,12 @@ sensors.directive("rainFall",function(){
             height: "50px"
             }
         };
-        getRain();
+
         $scope.sumRainFall=[0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3,67];
         $interval(function(){
+            getRain();
             $scope.simpleChart2danger.sparkData=_.shuffle([0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3,67]);
-        },100000);
+        },500000);
     
     $scope.rainChart = {
         sparkData:  $scope.sumRainFall,
@@ -56928,6 +57170,10 @@ sensors.directive("sensorDetails",function(){
         console.log("sensorDetails");
     }
     function Link (scope,elem,attrs){
+        scope.sensor={id:12,insertedOn:'1431988821573',value:''};
+
+
+
 
     }
 });/**
@@ -57035,7 +57281,7 @@ sensors.directive("soilMoisture", function() {
 
 			$scope.tempChart.sparkData = ($scope.temperatures);
 			$scope.$apply();
-		}, 200000)
+		}, 500000)
 
 		$scope.tempChart = {
 			sparkData: [3, 1, 2, 3, 5, 3, 4, 2, 3, 1, 2, 3],
@@ -57189,18 +57435,27 @@ sensors.directive("tempWidget", function() {
 	};
 
 	function Controller($scope, config, sensorsDao,$interval) {
-		$scope.temperatures = [];
+        $scope.temperatures = [0];
 		$scope.sensor = {
 			id: 12,
 			temp: null
 		};
-
+        var last;
+        $scope.sensorTest=[];
 		function getTemp() {
 			var promise = sensorsDao.getTemp();
 			promise.then(function success(resp) {
 
+                $scope.sensorTest.push(resp.data);
+
+                $scope.lastMeasurement=resp.data.insertedOn;
 				$scope.sensor.temp = resp.data.value;
-				$scope.temperatures.push(parseFloat(resp.data.value));
+
+                if(resp.data.insertedOn!=last){
+                    $scope.temperatures.push(parseFloat(resp.data.value));
+                    sensorsDao.setSensorTest( $scope.sensorTest);
+                }
+                last=resp.data.insertedOn;
 				$scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
 			}, function error(error) {
 				console.log(error);
@@ -57208,7 +57463,7 @@ sensors.directive("tempWidget", function() {
 		}
 
 
-
+        getTemp();
 		//$scope.$watch(function() {
 		//	return $scope.temperatures;
 		//}, function(nV, oV) {
@@ -57222,10 +57477,10 @@ sensors.directive("tempWidget", function() {
 		$interval(function() {
 			getTemp();
 
-		}, 20000);
+		}, 200000);
 
 		$scope.tempChart = {
-			sparkData: [],
+			sparkData: $scope.temperatures,
 			sparkOptions: {
 				type: "line",
 				lineColor: config.primary_color,
@@ -57235,7 +57490,7 @@ sensors.directive("tempWidget", function() {
 			}
 		};
 
-		getTemp();
+
 		$scope.gaugeData = {
 			maxValue: 3e3,
 			animationSpeed: 100,
@@ -57286,7 +57541,7 @@ sensors.directive("windWidget",function(){
     };
     function Controller ($scope,config,sensorsDao,$interval){
 
-        $scope.sensor={speed:null,vane:null,airSpeeds:[]};
+        $scope.sensor={id:"12",speed:null,vane:null,airSpeeds:[]};
 
         $scope.rotate=270;
 
@@ -57340,6 +57595,7 @@ sensors.directive("windWidget",function(){
             promise.then(function success(resp) {
 
                 $scope.sensor.speed = resp.data.value;
+                $scope.lastMeasurement=resp.data.insertedOn;
                 $scope.sensor.airSpeeds.push(parseFloat(resp.data.value));
                 $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.speed));
                 if($scope.sensor.speed>0)$scope.beafort=0;
@@ -57360,7 +57616,7 @@ sensors.directive("windWidget",function(){
         }
 
         $scope.simpleChart2danger = {
-            sparkData: [24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34],
+            sparkData: [],
             sparkOptions: {
                 type: "line",
 
@@ -57378,11 +57634,8 @@ sensors.directive("windWidget",function(){
         $interval(function() {
             getAir();
             getVane();
-        }, 20000);
-        window.setInterval(function(){
-            $scope.simpleChart2danger.sparkData=_.shuffle([24, 25, 21, 27, 23, 27, 24, 2,33, 33, 32, 21,2,12,12,12,34,34]);
-            $scope.$apply();
-        },7000)
+        }, 500000);
+
 
         //$scope.gaugeData= {
         //    maxValue: 3e3,
@@ -57419,6 +57672,7 @@ sensors.directive("windWidget",function(){
 
 
 sensors.service('sensorsDao',['$http',function($http){
+    var sensorTest=[];
     return {
         getSensors:function(){
             var prom;
@@ -57429,12 +57683,8 @@ sensors.service('sensorsDao',['$http',function($http){
            var data=$http.get("/api/getTemp");
             return data;
         },
-        getRain:function(){
-            var data=$http.get("/api/getRain");
-            return data;
-        },
         getPluvio:function(){
-            var data=$http.get("/api/getTemp");
+            var data=$http.get("/api/getPluvio");
             return data;
         },
         getAir:function(){
@@ -57444,7 +57694,22 @@ sensors.service('sensorsDao',['$http',function($http){
         getVane:function(){
             var data=$http.get("api/getVane");
             return data;
+        },
+        getTempAll:function(){
+            var data=$http.get('api/getTempAll');
+            return data;
+        },
+        setSensorTest:function(param){
+            sensorTest=param;
+        },
+        getSensorTest:function(){
+            return sensorTest;
+        },
+        getTempSensor:function(){
+            var data=$http.get('api/getTempSensor');
+            return data;
         }
+
 
     };
 }]);

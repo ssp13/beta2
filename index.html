@@ -61,11 +61,11 @@
     <section data-ng-view="" id="content" class="animate-fade-up"></section>
   </div>
 
-  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="rightmessages">
-    <div data-ng-include=" 'app/views/right-navbar.html' ">
+  <!--<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="rightmessages">-->
+    <!--<div data-ng-include=" 'app/views/right-navbar.html' ">-->
 
-    </div>
-  </md-sidenav>
+    <!--</div>-->
+  <!--</md-sidenav>-->
 
 </div>
 
@@ -89,14 +89,13 @@
 <!--Uncomment for deployment using Grunt-->
 <script type="text/javascript" src="dist/js/app.js"></script>
 
-<script src="//rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>
-<script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+<script src="scripts/ng-map.js"></script>
+<!--<script src="bower_components/ngmap/build/scripts/ng-map.js"></script>-->
 <script src="/app/ui-bootstrap-tpls-0.12.1.js"></script>
 <!-- Firebase -->
 <!--<script src="app/views/charts/directives/sparkTest.js"></script>-->
 
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
 <!-- JS files for highstock (graphs) -->
 <script src="app/app.js"></script>
 <script src="app/config.js"></script>
@@ -104,7 +103,11 @@
 <script src="app/directives.js"></script>
 <Script src="app/services.js"></Script>
 <script src="bower_components/ng-breadcrumbs/dist/ng-breadcrumbs.js"></script>
+<!--<script src="http://code.highcharts.com/highcharts.js"></script>-->
+<!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->
 
+<script src="scripts/highstocks.js"></script>
+<script src="scripts/exporting.js"></script>
 <script src="app/views/sensors/controllers/sensorsController.js"></script>
 <script src="app/views/sensors/directives/soilMoisture.js"></script>
 <script src="app/views/sensors/directives/sensorsList.js"></script>

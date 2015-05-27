@@ -4,6 +4,7 @@
 
 
 sensors.service('sensorsDao',['$http',function($http){
+    var sensorTest=[];
     return {
         getSensors:function(){
             var prom;
@@ -14,12 +15,8 @@ sensors.service('sensorsDao',['$http',function($http){
            var data=$http.get("/api/getTemp");
             return data;
         },
-        getRain:function(){
-            var data=$http.get("/api/getRain");
-            return data;
-        },
         getPluvio:function(){
-            var data=$http.get("/api/getTemp");
+            var data=$http.get("/api/getPluvio");
             return data;
         },
         getAir:function(){
@@ -29,7 +26,31 @@ sensors.service('sensorsDao',['$http',function($http){
         getVane:function(){
             var data=$http.get("api/getVane");
             return data;
+        },
+        getTempAll:function(){
+            var data=$http.get('api/getTempAll');
+            return data;
+        },
+        setSensorTest:function(param){
+            sensorTest=param;
+        },
+        getSensorTest:function(){
+            return sensorTest;
+        },
+        getTempSensor:function(){
+            var data=$http.get('api/getTempSensor');
+            return data;
+        },
+        getTempValues:function(param){
+            var data=$http.get('api/getLastTemperatures'+param);
+            return data;
+        },
+        getTempValuesDirect:function(param){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/4/'+param);
+            return data;
         }
+
+
 
     };
 }]);

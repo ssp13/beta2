@@ -21,16 +21,21 @@ sensors.directive("tempWidget", function() {
 			temp: null
 		};
         var last;
-
+        $scope.sensorTest=[];
 		function getTemp() {
 			var promise = sensorsDao.getTemp();
 			promise.then(function success(resp) {
-                last=resp.data.temp;
+
+                $scope.sensorTest.push(resp.data);
+
                 $scope.lastMeasurement=resp.data.insertedOn;
-                console.log($scope.lastMeasurement)
 				$scope.sensor.temp = resp.data.value;
-                if(resp.data.value!=$scope.temperatures[$scope.temperatures.length])
-				$scope.temperatures.push(parseFloat(resp.data.value));
+
+                if(resp.data.insertedOn!=last){
+                    $scope.temperatures.push(parseFloat(resp.data.value));
+                    sensorsDao.setSensorTest( $scope.sensorTest);
+                }
+                last=resp.data.insertedOn;
 				$scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
 			}, function error(error) {
 				console.log(error);
@@ -38,7 +43,7 @@ sensors.directive("tempWidget", function() {
 		}
 
 
-
+        getTemp();
 		//$scope.$watch(function() {
 		//	return $scope.temperatures;
 		//}, function(nV, oV) {
@@ -52,7 +57,7 @@ sensors.directive("tempWidget", function() {
 		$interval(function() {
 			getTemp();
 
-		}, 20000);
+		}, 2000);
 
 		$scope.tempChart = {
 			sparkData: $scope.temperatures,
@@ -65,7 +70,7 @@ sensors.directive("tempWidget", function() {
 			}
 		};
 
-		getTemp();
+
 		$scope.gaugeData = {
 			maxValue: 3e3,
 			animationSpeed: 100,

@@ -70,33 +70,37 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
 //
 sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs','$interval',
     function($scope, $routeParams, sensorsDao,breadcrumbs, $interval) {
-        $scope.tempSensor=[];
-        $scope.sensorTest=sensorsDao.getSensorTest();
 
-        console.log(  $scope.sensorTest);
-        sensorsDao.getTempSensor().then(function(response){
-            $scope.tempSensor=response.data;
-
-        });
         var temperatures=[];
-        sensorsDao.getTempValuesDirect(10).then(function(response){
-            console.log(response);
-            temperatures=_.map(response.data.listOfT,function(elem){
-                return parseFloat(elem.value)
+        var timeStamps;
+        $scope.select="10";
+        var param=parseInt($scope.select);
+
+        function getTempValuesDirect(param){
+            sensorsDao.getTempValuesDirect(param).then(function(response){
+                console.log(response);
+                temperatures=_.map(response.data.listOfT,function(elem){
+                    return parseFloat(elem.value)
+                });
+                timeStamps= _.map(_.pluck(response.data.listOfT,"insertedOn").reverse(),function(elem){
+                    return new Date(elem)
+                });
+                $scope.sensorsTemp=response.data.listOfT;
+                runHighChart();
+                console.log(temperatures)
+            },function error(error){
+                console.log(error);
             });
-            runHighChart();
-            console.log(temperatures)
-        },function error(error){
-            console.log(error);
+        }
+
+        getTempValuesDirect(param);
+        var intr=$interval(function() {
+            getTempValuesDirect(param);
+        }, 20000);
+
+        $scope.$on('$destroy',function(){
+            $interval.cancel(intr);
         })
-        $scope.$watch('sensorTest',function(nV,oV){
-            console.log($scope.sensorTest);
-           if(nV!=oV){
-               var length=$scope.sensorTest.length;
-               $scope.tempSensor.push($scope.sensorTest[length-1]);
-               temperatures.push($scope.sensorTest.value);
-           }
-        },true);
 
         $scope.breadcrumbs = breadcrumbs;
 
@@ -176,7 +180,7 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
                     show: true
                 }
             }];
-         $scope.barChart.options = {
+        $scope.barChart.options = {
             legend: {
                 show: false
             },
@@ -208,15 +212,12 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
 
         $scope.dataSum = [];
         $scope.timeStamps=[];
-        var prom=sensorsDao.getTempAll();
-        prom.then(function success(response){
 
-            $scope.temperatures=response.data;
-            $scope.dataSum = [];
-
-            $scope.dataSum.push( parseFloat(response.data));
-            runHighChart();
-        });
+        $scope.$watch('select',function(){
+            param=parseInt($scope.select);
+            getTempValuesDirect(param);
+        })
+       
         $interval(function() {
             var prom=sensorsDao.getTempAll();
             prom.then(function success(response){
@@ -230,15 +231,16 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
         var runHighChart=function () {
             $('#container').highcharts({
                 title: {
-                    text: '5 minute Temperature',
+                    text: 'Temperatures Chart 5 min interval',
                     x: -20 //center
                 },
+
                 subtitle: {
                     text: 'Source: Temp sensor Id 12',
                     x: -20
                 },
                 xAxis: {
-                    categories:  $scope.timeStamps
+                    categories:  timeStamps
                 },
                 yAxis: {
                     title: {
@@ -261,7 +263,7 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
                 },
                 series: [ {
                     name: 'Sensor ID 12',
-                    data:  temperatures
+                    data:  temperatures.reverse()
                 }]
             });
         };

@@ -35,11 +35,11 @@
                                 <!--</tr>-->
                                 <!--</thead>-->
                                 <tbody>
-                                <tr ng-repeat="sensor in tempSensor.slice().reverse() track by $index" ng-click="" class="selectable">
+                                <tr ng-repeat="sensor in sensorsTemp " ng-click="" class="selectable">
                                     <td><a href="#/sensor/{{sensor.id}}">{{sensor.id}}</a></td>
                                     <td>Sensor ID:{{sensor.moduleID}} </td>
                                     <td><span class="label label-info">{{sensor.status}}LIVE</span></td>
-                                    <td>{{sensor.insertedOn }}</td>
+                                    <td>{{sensor.insertedOn |date:'medium'}}</td>
                                     <td><span class="color-success"><i class="fa fa-level-up"></i></span> change %</td>
                                     <td>{{sensor.value}}</td>
                                     <td>battery level<i class="icon-f-battery-full" style="position:absolute"></i></td>
@@ -74,6 +74,11 @@
             <!--    </zippy>-->
         </div>
     </div>
+    <select ng-model="select">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+    </select>
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
    
 </div

@@ -1,15 +1,15 @@
-<zippy title="Θερμοκρασία" visible="true" link="#/sensor/{{sensor.id}}">
+<zippy title="Θερμοκρασία" visible="true" link="#/sensor/{{sensor.moduleID}}">
     <md-content style="padding:10px;min-height:260px;">
         <!--<a  href="#/sensor/{{sensor.id}}">Sensor ID {{sensor.id}}</a>-->
         <p><i class="pull-right wi wi-thermometer text-large"> </i>
-            <strong  style="font-size:xx-large">{{sensor.temp || "--"}} </strong><sup>°C</sup>
+            <strong  style="font-size:xx-large">{{sensor.temp || "--"}} <sup>°C</sup></strong>
 
             <br>
             min: {{min}}
             <br>
             max: {{max}}
             <br>
-            Τελευταία Μέτρηση:{{lastMeasurement | date:'medium'}}
+            Τελευταία Μέτρηση: {{sensor.insertedOn | date:'medium'}}
             <br>
             Weekly change:
             <svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
@@ -21,8 +21,8 @@
     
             <div class="pull-left">
                 <span data-sparkline
-                    data-spark-data="tempChart.sparkData"
-                    data-spark-options="tempChart.sparkOptions"
+                    data-spark-data="simpleChartTemp.sparkData"
+                    data-spark-options="simpleChartTemp.sparkOptions"
                 ></span>
             </div>
             </div>

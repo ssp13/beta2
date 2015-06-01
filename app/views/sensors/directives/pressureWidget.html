@@ -1,0 +1,29 @@
+
+<zippy title="Pressure" visible="true" link="#/sensor/{{sensor.moduleID}}">
+    <md-content style="padding:10px;min-height:263px;border-bottom: 1px solid rgb(211, 207, 207);">
+        <!--<a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>-->
+        <p>
+            <!--<i class=" wi wi-sprinkles text-large"> </i>-->
+            <!-- Atmospheric Pressure icon by Icons8 -->
+            <img class="icon pull-right icons8-Atmospheric-Pressure"  style="height:15px;width:25px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACKklEQVRoQ+2Z7TXEQBSGn+2ADqgAFaADKkAFqAAVoAJUQAfogApQASrgvGScbCSZO5u5K3Yzf3bOnnfv3GfuxySzI/o9PqzujazCP9LNDIhl/75g+x6RAcSyA33TzG9qhQ5iqSsvbV02JEfEy7kUuwKpbcmW3Q27kLKgl3amQKrp9W9TqxPIBnAL3AOatw0vbdOaSRHxci7F7gBS3oED4BQ4BzRvG17aLBE5Bo6AE0DztuGlrR4DYz5Yz5E7YB3YBm4iIF7aLCBPwBKwDDxHQLy0nVNLAHLupYBp4/DStq1pbr+heK+AXWOh59ZmAQmpYqkPL21nkC3g2phWXtpIEnw/Dce6VtjhPeDSWOS5tZ1BVA8Xxmh4abNcB/UhGp1BvPI9xW4spcYOyKYaUT3sAIfAWcSilzYLSEirNeDBWOS5tZ1Bwun8DixErHlprRDSNbbfkMeWt0EvbRYQr8fwFLtZQFTc+8ZC99JGH0mqgrquFd4nNgHN24aXdi5AqpCNxe61yyl2J64RdR8t9Aa8Fm1Xaaf2q3rRu3oYXtoU58van4iEFqqDT3UhEI3F4lJutXTp4KWdFGLsHNGuKxorxSkuxzUEpvljcbuoaHlps4DISNnBstEyRPjeSzspzK9irzpYB9EEk0trgTH9PxJgZFD3skqnpuGljcGYQEKa6bMNohwZD20MprZrpfyoj1rT5UMfHa/6NID0LUpDRKYZkc7XQdN0tm0tM8gn2X8WEMDy9/wAAAAASUVORK5CYII=" width="50" height="50">
+            <strong  style="font-size:x-large">{{sensor.value}} <sup>kPa</sup></strong>
+            <br>
+            Τελευταία Μέτρηση:{{sensor.insertedOn | date:'medium'}}
+            <br>
+            weekly avg change:<svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
+                <path d="M7 14l5-5 5 5z"/>
+                <path d="M0 0h24v24h-24z" fill="none"/>
+            </svg>
+            <br>
+        <div class="pull-left">
+                <span data-sparkline
+                      data-spark-data="simpleChart.sparkData"
+                      data-spark-options="simpleChart.sparkOptions"
+                        ></span>
+        </div>
+
+        </p>
+    </md-content>
+</zippy>
+
+

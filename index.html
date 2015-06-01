@@ -84,7 +84,7 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3ifuQyPrisdJ16RIRVosG8sk4B3Z3i5A">
 </script>
-<script src="//cdn.jsdelivr.net/sortable/latest/Sortable.min.js"></script>
+<script src="scripts/sortable.js"></script>
 
 <!--Uncomment for deployment using Grunt-->
 <script type="text/javascript" src="dist/js/app.js"></script>
@@ -109,23 +109,18 @@
 <script src="scripts/highstocks.js"></script>
 <script src="scripts/exporting.js"></script>
 <script src="app/views/sensors/controllers/sensorsController.js"></script>
-<script src="app/views/sensors/directives/soilMoisture.js"></script>
+<!--<script src="app/views/sensors/directives/soilMoisture.js"></script>-->
 <script src="app/views/sensors/directives/sensorsList.js"></script>
 <script src="/app/views/sensors/services/sensorsDao.js"></script>
 <script src="app/views/sensors/directives/rainFall.js"></script>
 <script src="app/views/sensors/directives/tempWidget.js"></script>
-<script src="app/views/sensors/directives/humidity.js"></script>
+<script src="app/views/sensors/directives/humidityWidget.js"></script>
+<script src="app/views/sensors/directives/pressureWidget.js"></script>
 <script src="app/views/sensors/directives/sensorDetails.js"></script>
 <script src="app/views/sensors/directives/windWidget.js"></script>
 
 <!--<script src="//code.highcharts.com/stock/highstock.js"></script>-->
 <!--<script src="//code.highcharts.com/stock/modules/exporting.js"></script>-->
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <defs>
-    <filter id="blur">
-      <feGaussianBlur stdDeviation="5"/>
-    </filter>
-  </defs>
-</svg>
+
 </body>
 </html>

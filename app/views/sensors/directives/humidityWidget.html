@@ -3,19 +3,15 @@
     <md-content style="padding:10px;min-height:263px;border-bottom: 1px solid rgb(211, 207, 207);">
         <!--<a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>-->
         <p><i class="pull-right wi wi-sprinkles text-large"> </i>
-            <strong  style="font-size:x-large">0.00 </strong><sup>in</sup>
+            <strong  style="font-size:x-large">{{sensor.value}} <sup>%RH</sup></strong>
             <br>
-            7 day total:
+            Τελευταία Μέτρηση: {{sensor.insertedOn | date:'medium'}}
             <br>
-      weekly avg change:<svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
-            <path d="M7 14l5-5 5 5z"/>
-            <path d="M0 0h24v24h-24z" fill="none"/>
-        </svg>
             <br>
         <div class="pull-left">
                 <span data-sparkline
-                      data-spark-data="simpleChartlong.sparkData"
-                      data-spark-options="simpleChartlong.sparkOptions"
+                      data-spark-data="simpleChart.sparkData"
+                      data-spark-options="simpleChart.sparkOptions"
                         ></span>
         </div>
 

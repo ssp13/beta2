@@ -112,6 +112,9 @@ var app = angular.module("app", ['ng-breadcrumbs',"ngRoute",'ui.bootstrap', "sen
             templateUrl:"app/views/sensors/views/sensorsView.html",
             controller:'sensorsController',
             reloadOnSearch: false
+
+
+
         }).when("/sensor/:id",{
             templateUrl:"app/views/sensors/views/sensorDetails.html",
             controller:'sensorDetailsController',

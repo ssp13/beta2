@@ -16,7 +16,7 @@ sensors.service('sensorsDao',['$http',function($http){
             return data;
         },
         getPluvio:function(){
-            var data=$http.get("/api/getPluvio");
+            var data=$http.get("http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/PLUVIO");
             return data;
         },
         getAir:function(){
@@ -48,7 +48,28 @@ sensors.service('sensorsDao',['$http',function($http){
         getTempValuesDirect:function(param){
             var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/4/'+param);
             return data;
+        },
+        getPressureValuesDirect:function(param){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/7/'+param);
+            return data;
+        },
+        getHumidity:function(){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/HUMIDITY');;
+            return data;
+        },
+        getPressure:function() {
+            var data = $http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/PRESSURE');
+            return data;
         }
+        ,getBattLevel:function(){
+                var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/BAT_LVL');
+                return data;
+        },getBattVolts : function (){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/BAT_VOLT');
+            return data;
+        }
+
+
 
 
 

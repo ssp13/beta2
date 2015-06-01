@@ -236,7 +236,7 @@ angular.module("app.chart.directives", []).directive("gaugeChart", ['$timeout',
                              
                         }
                         
-                    });
+                    },true);
                 }
             };
         }

@@ -3,13 +3,13 @@
     <md-content style="padding:10px;min-height:260px;border-bottom: 1px solid rgb(219, 215, 215);">
         <!--<a style="pull-right" href="#/sensor/rain/{{sensor.id}}">{{sensor.id}} Sensor ID </a>-->
         <p><i class="pull-right wi wi-sprinkles text-large"> </i>
-            <strong  style="font-size:x-large">{{sensor.rain || "--" }} </strong><sup>in</sup>
+            <strong  style="font-size:x-large">{{sensor.rain || "--" }} <sup>in</sup></strong>
             <br>  
             7 day total: 0.00 </strong><sup>in</sup>
             <br>min: {{min}}
             <br>max: {{max}}
             <br>
-            Τελευταία Μέτρηση:{{lastMeasurement | date:'medium'}}
+            Τελευταία Μέτρηση: {{lastMeasurement | date:'medium'}}
             <br>
             Weekly change:
     <svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">

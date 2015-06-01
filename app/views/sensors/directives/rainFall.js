@@ -13,7 +13,6 @@ sensors.directive("rainFall",function(){
         function getRain() {
             var promise = sensorsDao.getPluvio();
             promise.then(function success(resp) {
-                console.log(resp.data)
                 $scope.lastMeasurement=resp.data.insertedOn;
                 $scope.sensor.rain = resp.data.value;
 
@@ -34,10 +33,10 @@ sensors.directive("rainFall",function(){
         };
         getRain();
         $scope.sumRainFall=[0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3,67];
-        $interval(function(){
+       var timer= $interval(function(){
             getRain();
             $scope.simpleChart2danger.sparkData=_.shuffle([0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3,67]);
-        },500000);
+        },50000);
     
     $scope.rainChart = {
         sparkData:  $scope.sumRainFall,
@@ -48,6 +47,10 @@ sensors.directive("rainFall",function(){
             height: "50px"
             }
         };
+        $scope.$on('$destroy',function(){
+            $interval.cancel(timer);
+        });
+
     }
     function Link (scope,elem,attrs){
 

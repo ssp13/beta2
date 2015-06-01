@@ -70,12 +70,11 @@ sensors.directive("windWidget",function(){
         function getAir() {
             var promise = sensorsDao.getAir();
             promise.then(function success(resp) {
-
                 $scope.sensor.speed = resp.data.value;
                 $scope.lastMeasurement=resp.data.insertedOn;
                 $scope.sensor.airSpeeds.push(parseFloat(resp.data.value));
                 $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.speed));
-                if($scope.sensor.speed>0)$scope.beafort=0;
+                if($scope.sensor.speed>=0)$scope.beafort=0;
             }, function error(error) {
                 console.log(error);
             });
@@ -83,9 +82,7 @@ sensors.directive("windWidget",function(){
         function getVane() {
             var promise = sensorsDao.getVane();
             promise.then(function success(resp) {
-
                 $scope.sensor.vane = resp.data.value;
-                console.log($scope.sensor.vane);
                 $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.vane));
             }, function error(error) {
                 console.log(error);
@@ -93,7 +90,7 @@ sensors.directive("windWidget",function(){
         }
 
         $scope.simpleChart2danger = {
-            sparkData: [],
+            sparkData: [2,3,4],
             sparkOptions: {
                 type: "line",
 

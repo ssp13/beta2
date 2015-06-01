@@ -56689,20 +56689,9 @@ var sensors = angular.module("sensors.module",['ngMaterial','ui.bootstrap','ngMa
 
 sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeParams', '$location','$mdDialog','$modal','breadcrumbs',
     function($scope,sensorsDao,$route, $routeParams, $location,$mdDialog,$modal,breadcrumbs){
-
-
         $scope.breadcrumbs = breadcrumbs;
-        $scope.items = ['learn Sortable',
-            'use gn-sortable',
-            'Enjoy'];
-        $scope.stores = {
-            foo: { position:[41, -87], items: [1,2,3,4]},
-            bar:{ position:[41, -83], items: [5,6,7,8]}
-        };
-        $scope.items = ['item1', 'item2', 'item3'];
         $scope.zippyVisible=true;
         $scope.open = function (size) {
-
             var modalInstance = $modal.open({
                 templateUrl: 'myModalContent.html',
                 controller: 'ModalInstanceCtrl',
@@ -56713,269 +56702,69 @@ sensors.controller("sensorsController",['$scope','sensorsDao','$route', '$routeP
                     }
                 }
             });
-
-            modalInstance.result.then(function (selectedItem) {
+        modalInstance.result.then(function (selectedItem) {
                 $scope.selected = selectedItem;
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
         };
-
         $scope.sensors={
             location:{
                 latitude:37.956512,
                 longitude:23.803622
             }
         };
-
         $scope.$route = $route;
         $scope.$location = $location;
         $scope.$routeParams = $routeParams;
-
-       // $scope.sensors = sensorsDao.getSensors();
-
-
-
     }]);
-
-//var phonecatControllers = angular.module('phonecatControllers', []);
-//
-//phonecatControllers.controller('PhoneListCtrl', ['$scope', '$http',
-//    function ($scope, $http) {
-//        $http.get('phones/phones.json').success(function(data) {
-//            $scope.phones = data;
-//        });
-//
-//        $scope.orderProp = 'age';
-//    }]);
-//
 sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensorsDao','breadcrumbs','$interval',
     function($scope, $routeParams, sensorsDao,breadcrumbs, $interval) {
-        $scope.tempSensor=[];
-        $scope.sensorTest=sensorsDao.getSensorTest();
-
-        console.log(  $scope.sensorTest);
-        sensorsDao.getTempSensor().then(function(response){
-            $scope.tempSensor=response.data;
-
-        });
-
-        $scope.$watch('sensorTest',function(nV,oV){
-            console.log($scope.sensorTest);
-           if(nV!=oV){
-               var length=$scope.sensorTest.length;
-               $scope.tempSensor.push($scope.sensorTest[length-1]);
-           }
-        },true);
-        $scope.sensorId = $routeParams.sensorId;
-        $scope.breadcrumbs = breadcrumbs;
-        $scope.sensorDetails=[{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"},{timestamp:"3",name:"weather_1",status:"live",value:"23",battery:"3%"}];
-
-        $scope.barChart = {}, $scope.barChart.data = [
-            {
-                color: '#fbfbfb',
-                label: "Direct Visits",
-                data: [
-                    [3, 2], [4, 5], [5, 4], [6, 11], [7, 12], [8, 11], [9, 8], [10, 14], [11, 12], [12, 16], [13, 9],
-                    [14, 10], [15, 14], [16, 15], [17, 9]
-                ],
-
-                lines: {
-                    show: true,
-                    fill: true,
-                    lineWidth: .1,
-                    fillColor: {
-                        colors: [
-                            {
-                                opacity: 0
-                            }, {
-                                opacity: 0.4
-                            }
-                        ]
-                    }
-                },
-                points: {
-                    show: false
-                },
-                shadowSize: 0
-            },
-            {
-                color: '#fbfbfb',
-                label: "Referral Visits",
-                data: [
-                    [3, 10], [4, 13], [5, 12], [6, 16], [7, 19], [8, 19], [9, 24], [10, 19], [11, 18], [12, 21], [13, 17],
-                    [14, 14], [15, 12], [16, 14], [17, 15]
-                ],
-                bars: {
-                    order: 1,
-                    show: true,
-                    borderWidth: 0,
-                    barWidth: 0.4,
-                    lineWidth: .5,
-                    fillColor: {
-                        colors: [
-                            {
-                                opacity: 0.4
-                            }, {
-                                opacity: 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                color:'#fbfbfb',
-                label: "Search Engines",
-                data: [
-                    [3, 14], [4, 11], [5, 10], [6, 9], [7, 5], [8, 8], [9, 5], [10, 6], [11, 4], [12, 7], [13, 4],
-                    [14, 3], [15, 4], [16, 6], [17, 4]
-                ],
-                lines: {
-                    show: true,
-                    fill: false,
-                    fillColor: {
-                        colors: [
-                            {
-                                opacity: 0.3
-                            }, {
-                                opacity: 0
-                            }
-                        ]
-                    }
-                },
-                points: {
-                    show: true
-                }
-            }];
-         $scope.barChart.options = {
-            legend: {
-                show: false
-            },
-            xaxis: {
-                tickDecimals: 0,
-                color: '#f3f3f3'
-            },
-            yaxis: {
-                min: 0,
-                color: '#f3f3f3',
-                tickFormatter: function(val, axis) {
-                    return "";
-                }
-            },
-            grid: {
-                hoverable: true,
-                clickable: false,
-                borderWidth: 0,
-                aboveData: false,
-                color: '#fbfbfb'
-
-            },
-            tooltip: true,
-            tooltipOpts: {
-                defaultTheme: false,
-                content: " <b>%x May</b> , <b>%s</b> : <span>%y</span>"
-            }
-        }
-
-        $scope.dataSum = [];
-        $scope.timeStamps=[];
-        var prom=sensorsDao.getTempAll();
-        prom.then(function success(response){
-
-            $scope.temperatures=response.data;
-            $scope.dataSum = [];
-
-            $scope.dataSum.push( parseFloat(response.data));
-            runHighChart();
-        });
-        $interval(function() {
-            var prom=sensorsDao.getTempAll();
-            prom.then(function success(response){
-                $scope.temperatures=response.data;
-                $scope.timeStamps.push(response.data.insertedOn);
-
-                $scope.dataSum.push( parseFloat(response.data));
-                runHighChart()
-            })
-        }, 200000);
-        var runHighChart=function () {
-            $('#container').highcharts({
-                title: {
-                    text: '5 minute Temperature',
-                    x: -20 //center
-                },
-                subtitle: {
-                    text: 'Source: Temp sensor Id 12',
-                    x: -20
-                },
-                xAxis: {
-                    categories:  $scope.timeStamps
-                },
-                yAxis: {
-                    title: {
-                        text: 'Temperature (°C)'
-                    },
-                    plotLines: [{
-                        value: 0,
-                        width: 0.5,
-                        color: '#808080'
-                    }]
-                },
-                tooltip: {
-                    valueSuffix: '°C'
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-                },
-                series: [ {
-                    name: 'Sensor ID 12',
-                    data:  $scope.temperatures
-                }]
-            });
-        };
 
 
 
     }]);
 
 ;/**
- * Created by ssp on 16/5/2015.
+ * Created by e76956 on 27/3/2015.
  */
-;/**
- * Created by ssp on 12/4/2015.
+/**
+ * Created by e76956 on 24/3/2015.
  */
-sensors.directive("ifttt",function(){
-    return{
-        restrict: "A",
+sensors.directive("humidityWidget", function() {
+	return {
         scope:{
 
         },
-        templateUrl:"app/views/sensors/directives/ifttt.html",
-        controller:['$scope',Controller],
-        link:Link
-    };
-    function Controller ($scope){
-        $scope.sensors=[{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"}];
+		templateUrl: "app/views/sensors/directives/soilMoisture.html",
+		controller: ['$scope', 'config', 'sensorsDao', Controller],
+		link: Link
+	};
 
-    }
-    function Link (scope,elem,attrs){
-        scope.$watch(attrs.mySlide, function(newValue, oldValue) {
+	function Controller($scope, config, sensorsDao) {
+        function getHumidity() {
+            var promise = sensorsDao.getHumidity();
+            promise.then(function success(resp) {
+                $scope.sensor = resp.data;
+                $scope.tempChart.sparkData.push(parseFloat($scope.sensor.value));
+            }, function error(error) {
+                console.log(error);
+            });
+        }
+        getHumidity();
+        var timer =$interval(function() {
+            getHumidity();
+        }, 20000);
 
-            // This is our logic. If parameter is true slideDown otherwise slideUp.
-            // TODO: This should be transformed into css transition or angular animator if IE family supports it
-            if (newValue) {
-                return element.slideDown();
-            } else {
-                return element.slideUp();
-            }
-        });    }
+        $scope.$on('$destroy',function(){
+            $interval.cancel(timer);
+        });
+	}
+
+	function Link(scope, elem, attrs) {
+
+	}
 });/**
- * Created by ssp on 21/5/2015.
- */
-/**
  * Created by e76956 on 27/3/2015.
  */
 /**
@@ -56986,100 +56775,80 @@ sensors.directive("luminosityWidget", function() {
         scope:{
 
         },
-        templateUrl: "app/views/sensors/directives/luminosityWidget.html",
+        templateUrl: "app/views/sensors/directives/soilMoisture.html",
         controller: ['$scope', 'config', 'sensorsDao', Controller],
         link: Link
     };
 
     function Controller($scope, config, sensorsDao) {
-        $scope.temperatures = [];
-        $scope.sensor = {
-            id: 12,
-            temp: 0
-        };
-
-        function getTemp() {
-            var promise = sensorsDao.getTemp();
+        function getHumidity() {
+            var promise = sensorsDao.getHumidity();
             promise.then(function success(resp) {
-                console.log(resp.data)
-                $scope.sensor.temp = resp.data.value;
-                $scope.temperatures.push(resp.data.value);
-                $scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
+                $scope.sensor = resp.data;
+                $scope.tempChart.sparkData.push(parseFloat($scope.sensor.value));
             }, function error(error) {
                 console.log(error);
             });
         }
+        getHumidity();
+        var timer =$interval(function() {
+            getHumidity();
+        }, 20000);
 
-
-        $scope.simpleChartlong = {
-            sparkData: [1, 3, 2, 5, 4, 2, 1, 7, 1, 8, 4, 3, 5, 2, 4, 5, 1, 7, 1, 8],
-            sparkOptions: {
-                type: "bar",
-                barColor: config.primary_color,
-                width: "250px",
-                height: "60px"
-            }
-        }
-        $scope.$watch(function() {
-            return $scope.temperatures;
-        }, function(nV, oV) {
-            $scope.min = _.min(nV);
-            $scope.max = _.max(nV);
-
-        }, true)
-
-        var counter = 0;
-        window.setInterval(function() {
-            getTemp()
-            counter = counter + 4;
-            $scope.temperatures.push($scope.sensor.temp + counter)
-
-            $scope.tempChart.sparkData = ($scope.temperatures);
-            $scope.$apply();
-        }, 200000)
-
-        $scope.tempChart = {
-            sparkData: [3, 1, 2, 3, 5, 3, 4, 2, 3, 1, 2, 3],
-            sparkOptions: {
-                type: "line",
-                lineColor: config.primary_color,
-                width: "150px",
-                height: "80px"
-            }
-        };
-
-        getTemp();
-        $scope.gaugeData = {
-            maxValue: 3e3,
-            animationSpeed: 100,
-            val: 12
-        }
-        $scope.gaugeOptions = {
-            lines: 12,
-            angle: 0,
-            lineWidth: 0.47,
-            pointer: {
-                length: 0.6,
-                strokeWidth: 0.03,
-                color: "#555555"
-            },
-            limitMax: "true",
-            colorStart: config.primary_color,
-            colorStop: config.primary_color,
-            strokeColor: "#F5F5F5",
-            generateGradient: !0,
-            percentColors: [
-                [0, config.primary_color],
-                [1, config.primary_color]
-            ]
-        }
-
+        $scope.$on('$destroy',function(){
+            $interval.cancel(timer);
+        });
     }
 
     function Link(scope, elem, attrs) {
 
     }
 });/**
+ * Created by ssp on 31/5/2015.
+ */
+/**
+ * Created by e76956 on 27/3/2015.
+ */
+/**
+ * Created by e76956 on 24/3/2015.
+ */
+sensors.directive("pressureWidget", function() {
+    return {
+        scope:{
+
+        },
+        templateUrl: "app/views/sensors/directives/soilMoisture.html",
+        controller: ['$scope', 'config', 'sensorsDao', Controller],
+        link: Link
+    };
+
+    function Controller($scope, config, sensorsDao) {
+        function getPressure() {
+            var promise = sensorsDao.getPressure();
+            promise.then(function success(resp) {
+                $scope.sensor = resp.data;
+                $scope.tempChart.sparkData.push(parseFloat($scope.sensor.value));
+            }, function error(error) {
+                console.log(error);
+            });
+        }
+        getPressure();
+        var timer =$interval(function() {
+            getHumidity();
+        }, 20000);
+
+        $scope.$on('$destroy',function(){
+            $interval.cancel(timer);
+        });
+    }
+
+    function Link(scope, elem, attrs) {
+
+    }
+});/**
+ * Created by ssp on 28/5/2015.
+ */
+;/**
  * Created by ssp on 16/5/2015.
  */
 sensors.directive("rainFall",function(){
@@ -57095,7 +56864,7 @@ sensors.directive("rainFall",function(){
             var promise = sensorsDao.getPluvio();
             promise.then(function success(resp) {
                 console.log(resp.data)
-                $scope.sensor.insertedOn=resp.data.insertedOn;
+                $scope.lastMeasurement=resp.data.insertedOn;
                 $scope.sensor.rain = resp.data.value;
 
                 //$scope.tempChart.sparkData.push(parseFloat($scope.sensor.rain));
@@ -57113,7 +56882,7 @@ sensors.directive("rainFall",function(){
             height: "50px"
             }
         };
-
+        getRain();
         $scope.sumRainFall=[0, 1, 2, 3, 5, 3, 4, 2,3, 1, 2, 3,67];
         $interval(function(){
             getRain();
@@ -57226,110 +56995,6 @@ sensors.directive("sensorsList",function(){
 /**
  * Created by e76956 on 24/3/2015.
  */
-sensors.directive("soilMoisture", function() {
-	return {
-        scope:{
-
-        },
-		templateUrl: "app/views/sensors/directives/soilMoisture.html",
-		controller: ['$scope', 'config', 'sensorsDao', Controller],
-		link: Link
-	};
-
-	function Controller($scope, config, sensorsDao) {
-		$scope.temperatures = [];
-		$scope.sensor = {
-			id: 12,
-			temp: 0
-		};
-
-		function getTemp() {
-			var promise = sensorsDao.getTemp();
-			promise.then(function success(resp) {
-				console.log(resp.data)
-				$scope.sensor.temp = resp.data.value;
-				$scope.temperatures.push(resp.data.value);
-				$scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
-			}, function error(error) {
-				console.log(error);
-			});
-		}
-
-
-        $scope.simpleChartlong = {
-            sparkData: [1, 3, 2, 5, 4, 2, 1, 7, 1, 8, 4, 3, 5, 2, 4, 5, 1, 7, 1, 8],
-            sparkOptions: {
-                type: "bar",
-                barColor: config.primary_color,
-                width: "250px",
-                height: "60px"
-            }
-        }
-		$scope.$watch(function() {
-			return $scope.temperatures;
-		}, function(nV, oV) {
-			$scope.min = _.min(nV);
-			$scope.max = _.max(nV);
-
-		}, true)
-
-		var counter = 0;
-		window.setInterval(function() {
-			getTemp()
-			counter = counter + 4;
-			$scope.temperatures.push($scope.sensor.temp + counter)
-
-			$scope.tempChart.sparkData = ($scope.temperatures);
-			$scope.$apply();
-		}, 500000)
-
-		$scope.tempChart = {
-			sparkData: [3, 1, 2, 3, 5, 3, 4, 2, 3, 1, 2, 3],
-			sparkOptions: {
-				type: "line",
-				lineColor: config.primary_color,
-				width: "150px",
-				height: "80px"
-			}
-		};
-
-		getTemp();
-		$scope.gaugeData = {
-			maxValue: 3e3,
-			animationSpeed: 100,
-			val: 12
-		}
-		$scope.gaugeOptions = {
-			lines: 12,
-			angle: 0,
-			lineWidth: 0.47,
-			pointer: {
-				length: 0.6,
-				strokeWidth: 0.03,
-				color: "#555555"
-			},
-			limitMax: "true",
-			colorStart: config.primary_color,
-			colorStop: config.primary_color,
-			strokeColor: "#F5F5F5",
-			generateGradient: !0,
-			percentColors: [
-				[0, config.primary_color],
-				[1, config.primary_color]
-			]
-		}
-
-	}
-
-	function Link(scope, elem, attrs) {
-
-	}
-});/**
- * Created by e76956 on 27/3/2015.
- */
-/**
- * Created by e76956 on 24/3/2015.
- */
 sensors.directive("soilTemperatureWidget", function() {
 	return {
 
@@ -57419,6 +57084,127 @@ sensors.directive("soilTemperatureWidget", function() {
 
 	}
 });/**
+ * Created by ssp on 28/5/2015.
+ */
+sensors.directive("ifttt",function(){
+    return{
+        restrict: "A",
+        scope:{
+
+        },
+        templateUrl:"app/views/sensors/directives/tempDetails.html",
+        controller:['$scope',Controller],
+        link:Link
+    };
+    function Controller ($scope){
+        $scope.sensors=[{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"},{id:1,name:"weather_1",status:"live"}];
+
+
+    }
+    function Link (scope,elem,attrs){
+        scope.$watch(attrs.mySlide, function(newValue, oldValue) {
+
+            // This is our logic. If parameter is true slideDown otherwise slideUp.
+            // TODO: This should be transformed into css transition or angular animator if IE family supports it
+            if (newValue) {
+                return element.slideDown();
+            } else {
+                return element.slideUp();
+            }
+        });
+    }var temperatures=[];
+    var timeStamps;
+    $scope.select="10";
+    var param=parseInt($scope.select);
+    function getTempValuesDirect(param){
+        sensorsDao.getTempValuesDirect(param).then(function(response){
+            console.log(response);
+            temperatures=_.map(response.data.listOfT,function(elem){
+                return parseFloat(elem.value)
+            });
+            timeStamps= _.map(_.pluck(response.data.listOfT,"insertedOn").reverse(),function(elem){
+                return new Date(elem)
+            });
+            $scope.sensorsTemp=response.data.listOfT;
+            runHighChart();
+            console.log(temperatures)
+        },function error(error){
+            console.log(error);
+        });
+    }
+
+    getTempValuesDirect(param);
+    var intr=$interval(function() {
+        getTempValuesDirect(param);
+    }, 20000);
+
+    $scope.$on('$destroy',function(){
+        $interval.cancel(intr);
+    })
+
+    $scope.breadcrumbs = breadcrumbs;
+
+    $scope.dataSum = [];
+    $scope.timeStamps=[];
+
+    $scope.$watch('select',function(){
+        param=parseInt($scope.select);
+        getTempValuesDirect(param);
+    })
+
+    $interval(function() {
+        var prom=sensorsDao.getTempAll();
+        prom.then(function success(response){
+            $scope.temperatures=response.data;
+            $scope.timeStamps.push(response.data.insertedOn);
+
+            $scope.dataSum.push( parseFloat(response.data));
+            runHighChart()
+        })
+    }, 200000);
+    var runHighChart=function () {
+        $('#container').highcharts({
+            title: {
+                text: 'Temperatures Chart 5 min interval',
+                x: -20 //center
+            },
+
+            subtitle: {
+                text: 'Source: Temp sensor Id 12',
+                x: -20
+            },
+            xAxis: {
+                categories:  timeStamps
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature (°C)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 0.5,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '°C'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [ {
+                name: 'Sensor ID 12',
+                data:  temperatures.reverse()
+            }]
+        });
+    };
+
+})
+;/**
+ *
  * Created by e76956 on 27/3/2015.
  */
 /**
@@ -57427,97 +57213,37 @@ sensors.directive("soilTemperatureWidget", function() {
 sensors.directive("tempWidget", function() {
 	return {
         scope:{
-
         },
 		templateUrl: "app/views/sensors/directives/tempWidget.html",
 		controller: ['$scope', 'config', 'sensorsDao','$interval', Controller],
 		link: Link
 	};
-
 	function Controller($scope, config, sensorsDao,$interval) {
         $scope.temperatures = [0];
-		$scope.sensor = {
-			id: 12,
-			temp: null
-		};
+		$scope.sensor = {};
         var last;
-        $scope.sensorTest=[];
 		function getTemp() {
 			var promise = sensorsDao.getTemp();
 			promise.then(function success(resp) {
-
-                $scope.sensorTest.push(resp.data);
-
                 $scope.lastMeasurement=resp.data.insertedOn;
-				$scope.sensor.temp = resp.data.value;
-
-                if(resp.data.insertedOn!=last){
-                    $scope.temperatures.push(parseFloat(resp.data.value));
-                    sensorsDao.setSensorTest( $scope.sensorTest);
-                }
+                $scope.sensor.temp = resp.data.value;
+                sensorsDao.setSensorTest(resp.data);
                 last=resp.data.insertedOn;
 				$scope.tempChart.sparkData.push(parseFloat($scope.sensor.temp));
 			}, function error(error) {
 				console.log(error);
 			});
 		}
-
-
         getTemp();
-		//$scope.$watch(function() {
-		//	return $scope.temperatures;
-		//}, function(nV, oV) {
-		//	$scope.min = _.min(nV);
-		//	$scope.max = _.max(nV);
-        //
-		//}, true);
-
-		var counter = 0;
-
-		$interval(function() {
+		var timer =$interval(function() {
 			getTemp();
+		}, 20000);
 
-		}, 200000);
-
-		$scope.tempChart = {
-			sparkData: $scope.temperatures,
-			sparkOptions: {
-				type: "line",
-				lineColor: config.primary_color,
-				width: "100px",
-				height: "50px"
-
-			}
-		};
-
-
-		$scope.gaugeData = {
-			maxValue: 3e3,
-			animationSpeed: 100,
-			val: 12
-		}
-		$scope.gaugeOptions = {
-			lines: 12,
-			angle: 0,
-			lineWidth: 0.47,
-			pointer: {
-				length: 0.6,
-				strokeWidth: 0.03,
-				color: "#555555"
-			},
-			limitMax: "true",
-			colorStart: config.primary_color,
-			colorStop: config.primary_color,
-			strokeColor: "#F5F5F5",
-			generateGradient: !0,
-			percentColors: [
-				[0, config.primary_color],
-				[1, config.primary_color]
-			]
-		}
+        $scope.$on('$destroy',function(){
+            $interval.cancel(timer);
+        });
 
 	}
-
 	function Link(scope, elem, attrs) {
 
 	}
@@ -57708,7 +57434,24 @@ sensors.service('sensorsDao',['$http',function($http){
         getTempSensor:function(){
             var data=$http.get('api/getTempSensor');
             return data;
-        }
+        },
+        getTempValues:function(param){
+            var data=$http.get('api/getLastTemperatures'+param);
+            return data;
+        },
+        getTempValuesDirect:function(param){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/4/'+param);
+            return data;
+        },
+        getHumidity:function(){
+            var data;
+            return data;
+        },
+        getPressure:function(){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/4/');
+            return data;
+        },
+
 
 
     };

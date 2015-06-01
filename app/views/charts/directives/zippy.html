@@ -18,15 +18,17 @@
 
     <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right"  class="fa fa-cog" alt="android" ng-click="open()"></md-icon>
 
-    <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right" data-toggle="dropdown"  class="fa fa-bars" alt="android" ></md-icon>
-    <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right"  class="fa fa-arrows drag" alt="android" ng-click="visible=false"></md-icon>
+    <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right" data-toggle="dropdown"  class="fa fa-bars dropdown" alt="android" >
 
-    <ul class="dropdown-menu" role="menu">
+
+    </md-icon>
+    <md-icon style="cursor:pointer;color:black;margin-right:4px;float:right"  class="fa fa-arrows drag" alt="android" ></md-icon>
+
+    <ul class="dropdown-menu dropdown-menu-right" role="menu">
         <li><a href="{{link}}">Sensor Details</a></li>
-        <!--<li><a href="#">Another action</a></li>-->
-        <li class="divider"></li>
-    </ul>
 
+
+    </ul>
 
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">

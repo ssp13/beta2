@@ -36,8 +36,13 @@ sensors.directive("humidityWidget", function() {
         getHumidity();
         var timer =$interval(function() {
             getHumidity();
-        }, 20000);
+        }, 50000);
+        sensorsDao.getHumidityValuesDirect(288).then(function(resp){
+            var x =_.map(resp.data.listOfT,function (elem){ return parseFloat(elem.value)});
 
+            $scope.min=_.min(x);
+            $scope.max=_.max(x);
+        });
         $scope.$on('$destroy',function(){
             $interval.cancel(timer);
         });

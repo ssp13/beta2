@@ -1,331 +1,157 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/home/ubuntu/.nvm/v0.10.35/bin/node',
-1 verbose cli   '/home/ubuntu/.nvm/v0.10.35/bin/npm',
-1 verbose cli   'install' ]
-2 info using npm@1.4.28
-3 info using node@v0.10.35
-4 verbose readDependencies using package.json deps
-5 verbose install where, deps [ '/home/ubuntu/workspace',
-5 verbose install   [ 'express',
-5 verbose install     'karma',
-5 verbose install     'protractor',
-5 verbose install     'http-server',
-5 verbose install     'bower',
-5 verbose install     'shelljs',
-5 verbose install     'karma-junit-reporter' ] ]
-6 info preinstall angular-seed@0.0.0
-7 verbose readDependencies using package.json deps
-8 verbose already installed skipping express@^4.12.3 /home/ubuntu/workspace
-9 verbose already installed skipping karma@~0.10 /home/ubuntu/workspace
-10 verbose already installed skipping protractor@^1.1.1 /home/ubuntu/workspace
-11 verbose already installed skipping http-server@^0.6.1 /home/ubuntu/workspace
-12 verbose already installed skipping bower@^1.3.1 /home/ubuntu/workspace
-13 verbose already installed skipping shelljs@^0.2.6 /home/ubuntu/workspace
-14 verbose already installed skipping karma-junit-reporter@^0.2.2 /home/ubuntu/workspace
-15 silly resolved []
-16 info build /home/ubuntu/workspace
-17 verbose linkStuff [ false, false, false, '/home/ubuntu' ]
-18 info linkStuff angular-seed@0.0.0
-19 verbose linkBins angular-seed@0.0.0
-20 verbose linkMans angular-seed@0.0.0
-21 verbose rebuildBundles angular-seed@0.0.0
-22 verbose rebuildBundles [ '.bin',
-22 verbose rebuildBundles   'bower',
-22 verbose rebuildBundles   'express',
-22 verbose rebuildBundles   'grunt',
-22 verbose rebuildBundles   'grunt-bower-task',
-22 verbose rebuildBundles   'grunt-cli',
-22 verbose rebuildBundles   'grunt-contrib-clean',
-22 verbose rebuildBundles   'grunt-contrib-compress',
-22 verbose rebuildBundles   'grunt-contrib-concat',
-22 verbose rebuildBundles   'grunt-contrib-connect',
-22 verbose rebuildBundles   'grunt-contrib-copy',
-22 verbose rebuildBundles   'grunt-contrib-cssmin',
-22 verbose rebuildBundles   'grunt-contrib-jshint',
-22 verbose rebuildBundles   'grunt-contrib-uglify',
-22 verbose rebuildBundles   'grunt-contrib-watch',
-22 verbose rebuildBundles   'grunt-file-blocks',
-22 verbose rebuildBundles   'grunt-html2js',
-22 verbose rebuildBundles   'grunt-include-source',
-22 verbose rebuildBundles   'grunt-karma',
-22 verbose rebuildBundles   'http-server',
-22 verbose rebuildBundles   'karma',
-22 verbose rebuildBundles   'karma-jasmine',
-22 verbose rebuildBundles   'karma-junit-reporter',
-22 verbose rebuildBundles   'karma-ng-html2js-preprocessor',
-22 verbose rebuildBundles   'karma-phantomjs-launcher',
-22 verbose rebuildBundles   'less',
-22 verbose rebuildBundles   'protractor',
-22 verbose rebuildBundles   'shelljs' ]
-23 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt
-24 info build /home/ubuntu/workspace/node_modules/grunt
-25 info preinstall grunt@0.4.5
-26 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-27 info linkStuff grunt@0.4.5
-28 verbose linkBins grunt@0.4.5
-29 verbose linkMans grunt@0.4.5
-30 verbose rebuildBundles grunt@0.4.5
-31 verbose rebuildBundles [ '.bin',
-31 verbose rebuildBundles   'async',
-31 verbose rebuildBundles   'coffee-script',
-31 verbose rebuildBundles   'colors',
-31 verbose rebuildBundles   'dateformat',
-31 verbose rebuildBundles   'eventemitter2',
-31 verbose rebuildBundles   'exit',
-31 verbose rebuildBundles   'findup-sync',
-31 verbose rebuildBundles   'getobject',
-31 verbose rebuildBundles   'glob',
-31 verbose rebuildBundles   'grunt-legacy-log',
-31 verbose rebuildBundles   'grunt-legacy-util',
-31 verbose rebuildBundles   'hooker',
-31 verbose rebuildBundles   'iconv-lite',
-31 verbose rebuildBundles   'js-yaml',
-31 verbose rebuildBundles   'lodash',
-31 verbose rebuildBundles   'minimatch',
-31 verbose rebuildBundles   'nopt',
-31 verbose rebuildBundles   'rimraf',
-31 verbose rebuildBundles   'underscore.string',
-31 verbose rebuildBundles   'which' ]
-32 info install grunt@0.4.5
-33 info postinstall grunt@0.4.5
-34 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-bower-task
-35 info build /home/ubuntu/workspace/node_modules/grunt-bower-task
-36 info preinstall grunt-bower-task@0.3.4
-37 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-38 info linkStuff grunt-bower-task@0.3.4
-39 verbose linkBins grunt-bower-task@0.3.4
-40 verbose linkMans grunt-bower-task@0.3.4
-41 verbose rebuildBundles grunt-bower-task@0.3.4
-42 verbose rebuildBundles [ '.bin', 'async', 'bower', 'colors', 'lodash', 'rimraf', 'wrench' ]
-43 info install grunt-bower-task@0.3.4
-44 info postinstall grunt-bower-task@0.3.4
-45 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-cli
-46 info build /home/ubuntu/workspace/node_modules/grunt-cli
-47 info preinstall grunt-cli@0.1.13
-48 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-49 info linkStuff grunt-cli@0.1.13
-50 warn prefer global grunt-cli@0.1.13 should be installed with -g
-51 verbose linkBins grunt-cli@0.1.13
-52 verbose link bins [ { grunt: 'bin/grunt' },
-52 verbose link bins   '/home/ubuntu/workspace/node_modules/.bin',
-52 verbose link bins   false ]
-53 verbose linkMans grunt-cli@0.1.13
-54 verbose rebuildBundles grunt-cli@0.1.13
-55 verbose rebuildBundles [ '.bin', 'findup-sync', 'nopt', 'resolve' ]
-56 info install grunt-cli@0.1.13
-57 info postinstall grunt-cli@0.1.13
-58 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-clean
-59 info build /home/ubuntu/workspace/node_modules/grunt-contrib-clean
-60 info preinstall grunt-contrib-clean@0.5.0
-61 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-62 info linkStuff grunt-contrib-clean@0.5.0
-63 verbose linkBins grunt-contrib-clean@0.5.0
-64 verbose linkMans grunt-contrib-clean@0.5.0
-65 verbose rebuildBundles grunt-contrib-clean@0.5.0
-66 verbose rebuildBundles [ '.bin', 'rimraf' ]
-67 info install grunt-contrib-clean@0.5.0
-68 info postinstall grunt-contrib-clean@0.5.0
-69 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-compress
-70 info build /home/ubuntu/workspace/node_modules/grunt-contrib-compress
-71 info preinstall grunt-contrib-compress@0.9.1
-72 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-73 info linkStuff grunt-contrib-compress@0.9.1
-74 verbose linkBins grunt-contrib-compress@0.9.1
-75 verbose linkMans grunt-contrib-compress@0.9.1
-76 verbose rebuildBundles grunt-contrib-compress@0.9.1
-77 verbose rebuildBundles [ 'archiver', 'prettysize' ]
-78 info install grunt-contrib-compress@0.9.1
-79 info postinstall grunt-contrib-compress@0.9.1
-80 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-concat
-81 info build /home/ubuntu/workspace/node_modules/grunt-contrib-concat
-82 info preinstall grunt-contrib-concat@0.4.0
-83 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-84 info linkStuff grunt-contrib-concat@0.4.0
-85 verbose linkBins grunt-contrib-concat@0.4.0
-86 verbose linkMans grunt-contrib-concat@0.4.0
-87 verbose rebuildBundles grunt-contrib-concat@0.4.0
-88 verbose rebuildBundles [ 'chalk' ]
-89 info install grunt-contrib-concat@0.4.0
-90 info postinstall grunt-contrib-concat@0.4.0
-91 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-connect
-92 info build /home/ubuntu/workspace/node_modules/grunt-contrib-connect
-93 info preinstall grunt-contrib-connect@0.8.0
-94 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-95 info linkStuff grunt-contrib-connect@0.8.0
-96 verbose linkBins grunt-contrib-connect@0.8.0
-97 verbose linkMans grunt-contrib-connect@0.8.0
-98 verbose rebuildBundles grunt-contrib-connect@0.8.0
-99 verbose rebuildBundles [ 'async', 'connect', 'connect-livereload', 'open', 'portscanner' ]
-100 info install grunt-contrib-connect@0.8.0
-101 info postinstall grunt-contrib-connect@0.8.0
-102 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-copy
-103 info build /home/ubuntu/workspace/node_modules/grunt-contrib-copy
-104 info preinstall grunt-contrib-copy@0.8.0
-105 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-106 info linkStuff grunt-contrib-copy@0.8.0
-107 verbose linkBins grunt-contrib-copy@0.8.0
-108 verbose linkMans grunt-contrib-copy@0.8.0
-109 verbose rebuildBundles grunt-contrib-copy@0.8.0
-110 verbose rebuildBundles [ 'chalk', 'file-sync-cmp' ]
-111 info install grunt-contrib-copy@0.8.0
-112 info postinstall grunt-contrib-copy@0.8.0
-113 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-cssmin
-114 info build /home/ubuntu/workspace/node_modules/grunt-contrib-cssmin
-115 info preinstall grunt-contrib-cssmin@0.10.0
-116 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-117 info linkStuff grunt-contrib-cssmin@0.10.0
-118 verbose linkBins grunt-contrib-cssmin@0.10.0
-119 verbose linkMans grunt-contrib-cssmin@0.10.0
-120 verbose rebuildBundles grunt-contrib-cssmin@0.10.0
-121 verbose rebuildBundles [ '.bin', 'chalk', 'clean-css', 'maxmin' ]
-122 info install grunt-contrib-cssmin@0.10.0
-123 info postinstall grunt-contrib-cssmin@0.10.0
-124 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-jshint
-125 info build /home/ubuntu/workspace/node_modules/grunt-contrib-jshint
-126 info preinstall grunt-contrib-jshint@0.10.0
-127 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-128 info linkStuff grunt-contrib-jshint@0.10.0
-129 verbose linkBins grunt-contrib-jshint@0.10.0
-130 verbose linkMans grunt-contrib-jshint@0.10.0
-131 verbose rebuildBundles grunt-contrib-jshint@0.10.0
-132 verbose rebuildBundles [ '.bin', 'hooker', 'jshint' ]
-133 info install grunt-contrib-jshint@0.10.0
-134 info postinstall grunt-contrib-jshint@0.10.0
-135 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-uglify
-136 info build /home/ubuntu/workspace/node_modules/grunt-contrib-uglify
-137 info preinstall grunt-contrib-uglify@0.5.1
-138 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-139 info linkStuff grunt-contrib-uglify@0.5.1
-140 verbose linkBins grunt-contrib-uglify@0.5.1
-141 verbose linkMans grunt-contrib-uglify@0.5.1
-142 verbose rebuildBundles grunt-contrib-uglify@0.5.1
-143 verbose rebuildBundles [ '.bin', 'chalk', 'lodash', 'maxmin', 'uglify-js' ]
-144 info install grunt-contrib-uglify@0.5.1
-145 info postinstall grunt-contrib-uglify@0.5.1
-146 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-contrib-watch
-147 info build /home/ubuntu/workspace/node_modules/grunt-contrib-watch
-148 info preinstall grunt-contrib-watch@0.6.1
-149 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-150 info linkStuff grunt-contrib-watch@0.6.1
-151 verbose linkBins grunt-contrib-watch@0.6.1
-152 verbose linkMans grunt-contrib-watch@0.6.1
-153 verbose rebuildBundles grunt-contrib-watch@0.6.1
-154 verbose rebuildBundles [ '.bin', 'async', 'gaze', 'lodash', 'tiny-lr-fork' ]
-155 info install grunt-contrib-watch@0.6.1
-156 info postinstall grunt-contrib-watch@0.6.1
-157 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-file-blocks
-158 info build /home/ubuntu/workspace/node_modules/grunt-file-blocks
-159 info preinstall grunt-file-blocks@0.3.3
-160 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-161 info linkStuff grunt-file-blocks@0.3.3
-162 verbose linkBins grunt-file-blocks@0.3.3
-163 verbose linkMans grunt-file-blocks@0.3.3
-164 verbose rebuildBundles grunt-file-blocks@0.3.3
-165 verbose rebuildBundles [ 'lodash' ]
-166 info install grunt-file-blocks@0.3.3
-167 info postinstall grunt-file-blocks@0.3.3
-168 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-html2js
-169 info build /home/ubuntu/workspace/node_modules/grunt-html2js
-170 info preinstall grunt-html2js@0.2.9
-171 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-172 info linkStuff grunt-html2js@0.2.9
-173 verbose linkBins grunt-html2js@0.2.9
-174 verbose linkMans grunt-html2js@0.2.9
-175 verbose rebuildBundles grunt-html2js@0.2.9
-176 verbose rebuildBundles [ '.bin', 'html-minifier', 'jade' ]
-177 info install grunt-html2js@0.2.9
-178 info postinstall grunt-html2js@0.2.9
-179 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-include-source
-180 info build /home/ubuntu/workspace/node_modules/grunt-include-source
-181 info preinstall grunt-include-source@0.5.1
-182 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-183 info linkStuff grunt-include-source@0.5.1
-184 verbose linkBins grunt-include-source@0.5.1
-185 verbose linkMans grunt-include-source@0.5.1
-186 verbose rebuildBundles grunt-include-source@0.5.1
-187 verbose rebuildBundles [ 'extendr' ]
-188 info install grunt-include-source@0.5.1
-189 info postinstall grunt-include-source@0.5.1
-190 verbose rebuild bundle /home/ubuntu/workspace/node_modules/grunt-karma
-191 info build /home/ubuntu/workspace/node_modules/grunt-karma
-192 info preinstall grunt-karma@0.8.3
-193 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-194 info linkStuff grunt-karma@0.8.3
-195 verbose linkBins grunt-karma@0.8.3
-196 verbose linkMans grunt-karma@0.8.3
-197 verbose rebuildBundles grunt-karma@0.8.3
-198 verbose rebuildBundles [ 'lodash' ]
-199 info install grunt-karma@0.8.3
-200 info postinstall grunt-karma@0.8.3
-201 verbose rebuild bundle /home/ubuntu/workspace/node_modules/karma-jasmine
-202 info build /home/ubuntu/workspace/node_modules/karma-jasmine
-203 info preinstall karma-jasmine@0.1.5
-204 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-205 info linkStuff karma-jasmine@0.1.5
-206 verbose linkBins karma-jasmine@0.1.5
-207 verbose linkMans karma-jasmine@0.1.5
-208 verbose rebuildBundles karma-jasmine@0.1.5
-209 info install karma-jasmine@0.1.5
-210 info postinstall karma-jasmine@0.1.5
-211 verbose rebuild bundle /home/ubuntu/workspace/node_modules/karma-ng-html2js-preprocessor
-212 info build /home/ubuntu/workspace/node_modules/karma-ng-html2js-preprocessor
-213 info preinstall karma-ng-html2js-preprocessor@0.1.2
-214 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-215 info linkStuff karma-ng-html2js-preprocessor@0.1.2
-216 verbose linkBins karma-ng-html2js-preprocessor@0.1.2
-217 verbose linkMans karma-ng-html2js-preprocessor@0.1.2
-218 verbose rebuildBundles karma-ng-html2js-preprocessor@0.1.2
-219 info install karma-ng-html2js-preprocessor@0.1.2
-220 info postinstall karma-ng-html2js-preprocessor@0.1.2
-221 verbose rebuild bundle /home/ubuntu/workspace/node_modules/karma-phantomjs-launcher
-222 info build /home/ubuntu/workspace/node_modules/karma-phantomjs-launcher
-223 info preinstall karma-phantomjs-launcher@0.1.4
-224 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-225 info linkStuff karma-phantomjs-launcher@0.1.4
-226 verbose linkBins karma-phantomjs-launcher@0.1.4
-227 verbose linkMans karma-phantomjs-launcher@0.1.4
-228 verbose rebuildBundles karma-phantomjs-launcher@0.1.4
-229 verbose rebuildBundles [ '.bin', 'phantomjs' ]
-230 info install karma-phantomjs-launcher@0.1.4
-231 info postinstall karma-phantomjs-launcher@0.1.4
-232 verbose rebuild bundle /home/ubuntu/workspace/node_modules/less
-233 info build /home/ubuntu/workspace/node_modules/less
-234 info preinstall less@2.4.0
-235 verbose linkStuff [ false, false, false, '/home/ubuntu/workspace/node_modules' ]
-236 info linkStuff less@2.4.0
-237 verbose linkBins less@2.4.0
-238 verbose link bins [ { lessc: './bin/lessc' },
-238 verbose link bins   '/home/ubuntu/workspace/node_modules/.bin',
-238 verbose link bins   false ]
-239 verbose linkMans less@2.4.0
-240 verbose rebuildBundles less@2.4.0
-241 verbose rebuildBundles [ '.bin',
-241 verbose rebuildBundles   'errno',
-241 verbose rebuildBundles   'graceful-fs',
-241 verbose rebuildBundles   'image-size',
-241 verbose rebuildBundles   'mime',
-241 verbose rebuildBundles   'mkdirp',
-241 verbose rebuildBundles   'promise',
-241 verbose rebuildBundles   'request',
-241 verbose rebuildBundles   'source-map' ]
-242 info install less@2.4.0
-243 info postinstall less@2.4.0
-244 info install angular-seed@0.0.0
-245 info postinstall angular-seed@0.0.0
-246 info prepublish angular-seed@0.0.0
-247 warn unmet dependency /home/ubuntu/workspace/node_modules/karma/node_modules/http-proxy requires optimist@'0.6.x' but will load
-247 warn unmet dependency /home/ubuntu/workspace/node_modules/karma/node_modules/optimist,
-247 warn unmet dependency which is version 0.3.7
-248 error peerinvalid The package karma does not satisfy its siblings' peerDependencies requirements!
-248 error peerinvalid Peer karma-junit-reporter@0.2.2 wants karma@>=0.9
-248 error peerinvalid Peer karma-ng-html2js-preprocessor@0.1.2 wants karma@>=0.9
-248 error peerinvalid Peer karma-jasmine@0.1.5 wants karma@>=0.9
-248 error peerinvalid Peer grunt-karma@0.8.3 wants karma@~0.12.0
-248 error peerinvalid Peer karma-phantomjs-launcher@0.1.4 wants karma@>=0.9
-249 error System Linux 3.14.13-c9
-250 error command "/home/ubuntu/.nvm/v0.10.35/bin/node" "/home/ubuntu/.nvm/v0.10.35/bin/npm" "install"
-251 error cwd /home/ubuntu/workspace
-252 error node -v v0.10.35
-253 error npm -v 1.4.28
-254 error code EPEERINVALID
-255 verbose exit [ 1, true ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'foscam' ]
+2 info using npm@2.7.4
+3 info using node@v0.10.25
+4 verbose node symlink /usr/local/bin/node
+5 warn package.json http@0.0.0 http is also the name of a node core module.
+6 warn package.json http@0.0.0 No description
+7 warn package.json http@0.0.0 No repository field.
+8 warn package.json http@0.0.0 No README data
+9 silly cache add args [ 'foscam', null ]
+10 verbose cache add spec foscam
+11 silly cache add parsed spec { raw: 'foscam',
+11 silly cache add   scope: null,
+11 silly cache add   name: 'foscam',
+11 silly cache add   rawSpec: '',
+11 silly cache add   spec: '*',
+11 silly cache add   type: 'range' }
+12 verbose addNamed foscam@*
+13 silly addNamed semver.valid null
+14 silly addNamed semver.validRange *
+15 silly addNameRange { name: 'foscam', range: '*', hasData: false }
+16 silly mapToRegistry name foscam
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/foscam
+20 verbose addNameRange registry:https://registry.npmjs.org/foscam not in flight; fetching
+21 verbose request uri https://registry.npmjs.org/foscam
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 04:11:49
+24 verbose request id b35568fec00ff5e2
+25 http request GET https://registry.npmjs.org/foscam
+26 http 200 https://registry.npmjs.org/foscam
+27 silly get cb [ 200,
+27 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly get     etag: '"9LSDOAEA6C5CXO2SC6FBHRBNF"',
+27 silly get     'content-type': 'application/json',
+27 silly get     'cache-control': 'max-age=60',
+27 silly get     'content-length': '28181',
+27 silly get     'accept-ranges': 'bytes',
+27 silly get     date: 'Sat, 04 Jul 2015 01:12:02 GMT',
+27 silly get     via: '1.1 varnish',
+27 silly get     age: '6',
+27 silly get     connection: 'keep-alive',
+27 silly get     'x-served-by': 'cache-ams4132-AMS',
+27 silly get     'x-cache': 'HIT',
+27 silly get     'x-cache-hits': '1',
+27 silly get     'x-timer': 'S1435972322.952203,VS0,VE0',
+27 silly get     vary: 'Accept' } ]
+28 verbose get saving foscam to /home/ssp/.npm/registry.npmjs.org/foscam/.cache.json
+29 silly addNameRange number 2 { name: 'foscam', range: '*', hasData: true }
+30 silly addNameRange versions [ 'foscam', [ '0.1.0', '0.1.1', '0.2.0', '0.2.1', '0.2.2' ] ]
+31 verbose addNamed foscam@0.2.2
+32 silly addNamed semver.valid 0.2.2
+33 silly addNamed semver.validRange 0.2.2
+34 silly mapToRegistry name foscam
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/foscam
+38 verbose addRemoteTarball https://registry.npmjs.org/foscam/-/foscam-0.2.2.tgz not in flight; adding
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/foscam/-/foscam-0.2.2.tgz',
+39 verbose addRemoteTarball   '737facd16c255c14dd8513584bed8b911043bce3' ]
+40 info retry fetch attempt 1 at 04:11:50
+41 info attempt registry request try #1 at 04:11:50
+42 http fetch GET https://registry.npmjs.org/foscam/-/foscam-0.2.2.tgz
+43 http fetch 200 https://registry.npmjs.org/foscam/-/foscam-0.2.2.tgz
+44 silly fetchAndShaCheck shasum 737facd16c255c14dd8513584bed8b911043bce3
+45 verbose addTmpTarball /tmp/npm-17687-878bc08c/registry.npmjs.org/foscam/-/foscam-0.2.2.tgz not in flight; adding
+46 verbose addTmpTarball already have metadata; skipping unpack for foscam@0.2.2
+47 silly cache afterAdd foscam@0.2.2
+48 verbose afterAdd /home/ssp/.npm/foscam/0.2.2/package/package.json not in flight; writing
+49 verbose afterAdd /home/ssp/.npm/foscam/0.2.2/package/package.json written
+50 silly install resolved [ { author:
+50 silly install resolved      { name: 'Franklin van de Meent',
+50 silly install resolved        email: 'fr@nkl.in',
+50 silly install resolved        url: 'http://frankl.in' },
+50 silly install resolved     name: 'foscam',
+50 silly install resolved     description: 'Remote control, view and config a Foscam/Tenvis IP camera',
+50 silly install resolved     version: '0.2.2',
+50 silly install resolved     repository: { type: 'git', url: 'git://github.com/fvdm/nodejs-foscam.git' },
+50 silly install resolved     main: 'foscam.js',
+50 silly install resolved     dependencies: {},
+50 silly install resolved     devDependencies: {},
+50 silly install resolved     optionalDependencies: {},
+50 silly install resolved     engines: { node: '*' },
+50 silly install resolved     bugs: { url: 'https://github.com/fvdm/nodejs-foscam/issues' },
+50 silly install resolved     keywords: [ 'foscam', 'tenvis', 'camera', 'ipcam', 'webcam' ],
+50 silly install resolved     readme: '# nodejs-foscam\r\n\r\nRemote control, view and config a Foscam/Tenvis IP camera.\r\n\r\nAll included methods are based on Foscam\'s (fragmented) API documentation. Some features may not be supported by non-pan/tilt, older cameras or old firmware. So make sure you keep a backup of your camera settings, just in case.\r\n\r\n# Usage\r\n\r\nThe installation and loading are simple with [NPM](https://npmjs.org/).\r\n\r\n```sh\r\nnpm install foscam\r\n```\r\n\r\n```js\r\nvar cam = require(\'foscam\')\r\n\r\ncam.setup({\r\n  host: \'mycamera.lan\',\r\n  port: 81,\r\n  user: \'admin\'\r\n  pass: \'\'\r\n})\r\n\r\n// start rotating left\r\ncam.control.decoder( \'left\', function() {\r\n  \r\n  // stop rotation\r\n  cam.control.decoder( \'stop left\', function() {\r\n    \r\n    // take a picture and store it on your computer\r\n    cam.snapshot( \'/path/to/save.jpg\', console.log )\r\n  \r\n  })\r\n  \r\n})\r\n```\r\n\r\n### Or directly from Github\r\n\r\n```sh\r\ngit clone https://github.com/fvdm/nodejs-foscam.git\r\n```\r\n```js\r\nvar cam = require(\'./nodejs-foscam\')\r\n```\r\n\r\n# Methods\r\n\r\nEvery method takes a `callback` function as last parameter. The callbacks are the only way to procedural scripting.\r\n\r\n**NOTE:** Some methods require a certain access-level, i.e. *admins* can do everything, but a *visitor* can only view.\r\n\r\n## Basic\r\n\r\n## setup\r\n### ( properties, [callback] )\r\n\r\nIn order to connect to the camera you first need to provide its access details. You can either do this by setting the properties below directly in `cam.settings`, but better is to use `cam.setup()`. When the `callback` function is provided, `setup()` will attempt to connect to the camera and retrieve its status, returned as object to the callback. When it fails the callback gets **false**.\r\n\r\n<table>\r\n\t<th>setting</th>\r\n\t<th>description</th>\r\n\t<th>default</th>\r\n\t<tr>\r\n\t\t<td>host</td>\r\n\t\t<td>IP-address or hostname</td>\r\n\t\t<td>192.168.1.239</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>port</td>\r\n\t\t<td>port number</td>\r\n\t\t<td>81</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>user</td>\r\n\t\t<td>username</td>\r\n\t\t<td>admin</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>pass</td>\r\n\t\t<td>password</td>\r\n\t\t<td>[empty]</td>\r\n\t</tr>\r\n</table>\r\n\r\n```js\r\ncam.setup(\r\n\t{\r\n\t\thost: \'mycamera.lan\',\r\n\t\tport: 81,\r\n\t\tuser: \'admin\'\r\n\t\tpass: \'\'\r\n\t},\r\n\tfunction( status ) {\r\n\t\tif( !status ) {\r\n\t\t\tconsole.error( \'ERROR: can\\\'t connect\' )\r\n\t\t} else {\r\n\t\t\tconsole.log( status )\r\n\t\t}\r\n\t}\r\n)\r\n```\r\n\r\n## status\r\n### ( callback )\r\n**Permission: everyone**\r\n\r\nGet basic details from the camera.\r\n\r\n```js\r\ncam.status( console.log )\r\n```\r\n```js\r\n{ id: \'001A11A00A0B\',\r\n  sys_ver: \'0.37.2.36\',\r\n  app_ver: \'3.2.2.18\',\r\n  alias: \'Cam1\',\r\n  now: \'1343304558\',\r\n  tz: \'-3600\',\r\n  alarm_status: \'0\',\r\n  ddns_status: \'0\',\r\n  ddns_host: \'\',\r\n  oray_type: \'0\',\r\n  upnp_status: \'0\',\r\n  p2p_status: \'0\',\r\n  p2p_local_port: \'23505\',\r\n  msn_status: \'0\',\r\n  alarm_status_str: \'no alarm\',\r\n  ddns_status_str: \'No Action\',\r\n  upnp_status_str: \'No Action\' }\r\n```\r\n\r\n## camera_params\r\n### ( callback )\r\n\r\n**Permission: visitor**\r\n\r\nGet camera sensor settings.\r\n\r\n```js\r\ncam.camera_params( console.log )\r\n```\r\n```js\r\n{ resolution: 32,\r\n  brightness: 96,\r\n  contrast: 4,\r\n  mode: 1,\r\n  flip: 0,\r\n  fps: 0 }\r\n```\r\n\r\n## Camera\r\n\r\n## snapshot\r\n### ( [filename], callback )\r\n\r\nTake a snapshot. Either receive the **binary JPEG** in the `callback` or specify a `filename` to store it on your computer.\r\n\r\nWhen a `filename` is provided the callback will return either the *filename* on success or *false* on faillure.\r\n\r\n```js\r\n// custom processing\r\ncam.snapshot( function( jpeg ) {\r\n\t// add binary processing here\r\n})\r\n\r\n// store locally\r\ncam.snapshot( \'./my_view.jpg\', console.log )\r\n```\r\n\r\n## preset.set\r\n### ( id, [cb] )\r\n\r\nSave current camera position in preset #`id`. You can set presets 1 to 16.\r\n\r\n```js\r\ncam.preset.set( 3, console.log )\r\n```\r\n\r\n## preset.go\r\n### ( id, [cb] )\r\n\r\nMove camera to the position as stored in preset #`id`. You can use presets 1 to 16.\r\n\r\n```js\r\ncam.preset.go( 3, console.log )\r\n```\r\n\r\n## control.decoder\r\n### ( command, [callback] )\r\n\r\nControl camera movement, like pan and tilt.\r\n\r\n**command** - The command to execute. This can be a string (see below) or number.\r\n\r\n###### Commands\r\n\r\n<table>\r\n\t<th>command</th>\r\n\t<th>api id</th>\r\n\t<th>description</th>\r\n\t<tr>\r\n\t\t<td>up</td>\r\n\t\t<td>0</td>\r\n\t\t<td>start moving upwards</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>stop up</td>\r\n\t\t<td>1</td>\r\n\t\t<td>stop moving upwards</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>down</td>\r\n\t\t<td>2</td>\r\n\t\t<td>start moving downwards</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>stop down</td>\r\n\t\t<td>3</td>\r\n\t\t<td>stop moving downwards</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>left</td>\r\n\t\t<td>4</td>\r\n\t\t<td>start moving left</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>stop left</td>\r\n\t\t<td>5</td>\r\n\t\t<td>stop moving left</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>right</td>\r\n\t\t<td>6</td>\r\n\t\t<td>start moving right</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>stop right</td>\r\n\t\t<td>7</td>\r\n\t\t<td>stop moving right</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>center</td>\r\n\t\t<td>25</td>\r\n\t\t<td>move to center</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>vertical patrol</td>\r\n\t\t<td>26</td>\r\n\t\t<td>start moving vertical (y-axis)</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>stop vertical patrol</td>\r\n\t\t<td>27</td>\r\n\t\t<td>stop moving vertical (y-axis)</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>horizontal patrol</td>\r\n\t\t<td>28</td>\r\n\t\t<td>start moving horizontal (x-axis)</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>stop horizontal patrol</td>\r\n\t\t<td>29</td>\r\n\t\t<td>stop moving horizontal (x-axis)</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>io output high</td>\r\n\t\t<td>94</td>\r\n\t\t<td>iR on *(some cameras)*</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>io output low</td>\r\n\t\t<td>95</td>\r\n\t\t<td>iR off *(some cameras)*</td>\r\n\t</tr>\r\n</table>\r\n\r\n## control.camera\r\n### ( name, value, [callback] )\r\n\r\nChange a camera (sensor) setting.\r\n\r\n**name** - the parameter *name* or *id*.\r\n**value** - its replacement value.\r\n\r\n###### Parameters\r\n\r\n<table>\r\n\t<th>name</th>\r\n\t<th>id</th>\r\n\t<th>values</th>\r\n\t<tr>\r\n\t\t<td>brightness</td>\r\n\t\t<td>1</td>\r\n\t\t<td>0-255</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>contrast</td>\r\n\t\t<td>2</td>\r\n\t\t<td>0-6</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>resolution</td>\r\n\t\t<td>0</td>\r\n\t\t<td>\r\n\t\t\t<table>\r\n\t\t\t\t<th>value (aliases)</th>\r\n\t\t\t\t<th>id</th>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>320, 320x240, 320*240</td>\r\n\t\t\t\t\t<td>8</td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>640, 640x480, 640*480</td>\r\n\t\t\t\t\t<td>32</td>\r\n\t\t\t\t</tr>\r\n\t\t\t</table>\r\n\t\t</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>mode</td>\r\n\t\t<td>3</td>\r\n\t\t<td>\r\n\t\t\t<table>\r\n\t\t\t\t<th>value (aliases)</th>\r\n\t\t\t\t<th>id</th>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>50, 50hz, 50 hz</td>\r\n\t\t\t\t\t<td>0</td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>60, 60hz, 60 hz</td>\r\n\t\t\t\t\t<td>1</td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>outdoor, outside</td>\r\n\t\t\t\t\t<td>2</td>\r\n\t\t\t\t</tr>\r\n\t\t\t</table>\r\n\t\t</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>flipmirror</td>\r\n\t\t<td>5</td>\r\n\t\t<td>\r\n\t\t\t<table>\r\n\t\t\t\t<th>value (aliases)</th>\r\n\t\t\t\t<th>id</th>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>default</td>\r\n\t\t\t\t\t<td>0</td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>flip</td>\r\n\t\t\t\t\t<td>1</td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>mirror</td>\r\n\t\t\t\t\t<td>2</td>\r\n\t\t\t\t</tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td>flipmirror, flip+mirror</td>\r\n\t\t\t\t\t<td>3</td>\r\n\t\t\t\t</tr>\r\n\t\t\t</table>\r\n\t\t</td>\r\n\t</tr>\r\n</table>\r\n\r\n## System\r\n\r\n## reboot\r\n### ( [callback ] )\r\n\r\nReboot the device\r\n\r\n## restore_factory\r\n### ( [callback ] )\r\n\r\nReset all settings back to their factory values.\r\n\r\n## talk\r\n### ( propsObject )\r\n\r\nDirectly communicate with the device.\r\n\r\n###### properties\r\n\r\n<table>\r\n\t<th>name</th>\r\n\t<th>required</th>\r\n\t<th>description</th>\r\n\t<th>value</th>\r\n\t<th>default</th>\r\n\t<tr>\r\n\t\t<td>path</td>\r\n\t\t<td>required</td>\r\n\t\t<td>the method path</td>\r\n\t\t<td>ie. `get_params.cgi`</td>\r\n\t\t<td></td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>fields</td>\r\n\t\t<td>optional</td>\r\n\t\t<td>object with method parameters</td>\r\n\t\t<td>ie. {ntp_enable: 1, ntp_svr: \'ntp.xs4all.nl\'}\r\n\t\t<td>{}</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>encoding</td>\r\n\t\t<td>optional</td>\r\n\t\t<td>response encoding to expect</td>\r\n\t\t<td>ie. `utf8` or `binary`</td>\r\n\t\t<td></td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>callback</td>\r\n\t\t<td>optional</td>\r\n\t\t<td>(trimmed) output will be send to the callback *function*</td>\r\n\t\t<td></td>\r\n\t\t<td></td>\r\n\t</tr>\r\n</table>\r\n\r\n# Unlicense\r\n\r\nThis is free and unencumbered software released into the public domain.\r\n\r\nAnyone is free to copy, modify, publish, use, compile, sell, or\r\ndistribute this software, either in source code form or as a compiled\r\nbinary, for any purpose, commercial or non-commercial, and by any\r\nmeans.\r\n\r\nIn jurisdictions that recognize copyright laws, the author or authors\r\nof this software dedicate any and all copyright interest in the\r\nsoftware to the public domain. We make this dedication for the benefit\r\nof the public at large and to the detriment of our heirs and\r\nsuccessors. We intend this dedication to be an overt act of\r\nrelinquishment in perpetuity of all present and future rights to this\r\nsoftware under copyright law.\r\n\r\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,\r\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\r\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\r\nIN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR\r\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,\r\nARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\r\nOTHER DEALINGS IN THE SOFTWARE.\r\n\r\nFor more information, please refer to <http://unlicense.org/>\r\n',
+50 silly install resolved     _id: 'foscam@0.2.2',
+50 silly install resolved     dist:
+50 silly install resolved      { shasum: '737facd16c255c14dd8513584bed8b911043bce3',
+50 silly install resolved        tarball: 'http://registry.npmjs.org/foscam/-/foscam-0.2.2.tgz' },
+50 silly install resolved     maintainers: [ [Object] ],
+50 silly install resolved     directories: {},
+50 silly install resolved     _shasum: '737facd16c255c14dd8513584bed8b911043bce3',
+50 silly install resolved     _resolved: 'https://registry.npmjs.org/foscam/-/foscam-0.2.2.tgz',
+50 silly install resolved     _from: 'foscam@*' } ]
+51 info install foscam@0.2.2 into /home/ssp/Development/beta2
+52 info installOne foscam@0.2.2
+53 verbose installOne of foscam to /home/ssp/Development/beta2 not in flight; installing
+54 verbose lock using /home/ssp/.npm/_locks/foscam-b2d8e72d20e144ce.lock for /home/ssp/Development/beta2/node_modules/foscam
+55 silly install write writing foscam 0.2.2 to /home/ssp/Development/beta2/node_modules/foscam
+56 silly cache addNamed cb foscam@0.2.2
+57 verbose unbuild node_modules/foscam
+58 silly gentlyRm /home/ssp/Development/beta2/node_modules/foscam is being purged from base /home/ssp/Development/beta2
+59 verbose gentlyRm don't care about contents; nuking /home/ssp/Development/beta2/node_modules/foscam
+60 verbose tar unpack /home/ssp/.npm/foscam/0.2.2/package.tgz
+61 verbose tar unpacking to /home/ssp/Development/beta2/node_modules/foscam
+62 silly gentlyRm /home/ssp/Development/beta2/node_modules/foscam is being purged
+63 verbose gentlyRm don't care about contents; nuking /home/ssp/Development/beta2/node_modules/foscam
+64 silly gunzTarPerm modes [ '755', '644' ]
+65 silly gunzTarPerm extractEntry package.json
+66 silly gunzTarPerm extractEntry README.md
+67 silly gunzTarPerm extractEntry foscam.js
+68 silly gunzTarPerm extractEntry UNLICENSE
+69 info preinstall foscam@0.2.2
+70 silly install resolved []
+71 verbose about to build /home/ssp/Development/beta2/node_modules/foscam
+72 info build /home/ssp/Development/beta2/node_modules/foscam
+73 verbose linkStuff [ false,
+73 verbose linkStuff   false,
+73 verbose linkStuff   false,
+73 verbose linkStuff   '/home/ssp/Development/beta2/node_modules' ]
+74 info linkStuff foscam@0.2.2
+75 verbose linkBins foscam@0.2.2
+76 verbose linkMans foscam@0.2.2
+77 verbose rebuildBundles foscam@0.2.2
+78 info install foscam@0.2.2
+79 info postinstall foscam@0.2.2
+80 verbose unlock done using /home/ssp/.npm/_locks/foscam-b2d8e72d20e144ce.lock for /home/ssp/Development/beta2/node_modules/foscam
+81 verbose stack Error: The package karma does not satisfy its siblings' peerDependencies requirements!
+81 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+81 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:264:7
+81 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
+81 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+81 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+81 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+81 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+81 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+81 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+81 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+82 verbose cwd /home/ssp/Development/beta2
+83 error Linux 3.13.0-48-generic
+84 error argv "node" "/usr/local/bin/npm" "install" "foscam"
+85 error node v0.10.25
+86 error npm  v2.7.4
+87 error code EPEERINVALID
+88 error peerinvalid The package karma does not satisfy its siblings' peerDependencies requirements!
+88 error peerinvalid Peer karma-html2js-preprocessor@0.1.0 wants karma@>=0.9
+88 error peerinvalid Peer karma-jasmine@0.1.5 wants karma@>=0.9
+88 error peerinvalid Peer karma-ng-html2js-preprocessor@0.1.2 wants karma@>=0.9
+88 error peerinvalid Peer karma-requirejs@0.2.2 wants karma@>=0.9
+88 error peerinvalid Peer karma-script-launcher@0.1.0 wants karma@>=0.9
+88 error peerinvalid Peer grunt-karma@0.8.3 wants karma@~0.12.0
+88 error peerinvalid Peer karma-junit-reporter@0.2.2 wants karma@>=0.9
+88 error peerinvalid Peer karma-coffee-preprocessor@0.1.3 wants karma@>=0.9
+88 error peerinvalid Peer karma-phantomjs-launcher@0.1.4 wants karma@>=0.9
+89 verbose exit [ 1, true ]

@@ -78,40 +78,47 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
         var first;
         runHighChart();
         $scope.resolved=false;
-        var promise,chartName,text;
-        console.log($routeParams);
-        $scope.sensorId=$routeParams.id;
-        switch($routeParams.id){
-            case "7": promise= sensorsDao.getPressureValuesDirect(param) ;chartName="Pressure";text="Pressue (kPa)"
-                break;
-            case "4": promise= sensorsDao.getTempValuesDirect(param);chartName="Temperatures" ;text='Temperature (°C)'
-                break;
+        var promise,chartName,text,suffix;
 
-        }
+        $scope.sensorId=$routeParams.id;
+var lol=[]
         function getValues(param) {
+            switch($routeParams.id){
+                case "7": promise= sensorsDao.getPressureValuesDirect(param) ;chartName="Pressure";text="Pressure (kPa)";suffix="kPa";
+                    break;
+                case "4": promise= sensorsDao.getTempValuesDirect(param);chartName="Temperatures" ;text='Temperature (°C)';suffix='°C';
+                    break;
+                case "8": promise= sensorsDao.getHumidityValuesDirect(param);chartName="Humidity" ;text='Humidity (%RH)';suffix="$RH";
+                    break;
+            }
             sensorsDao.getBattVolts().then(function (response) {
                 $scope.battVolts = response.data.value;
             });
             sensorsDao.getBattLevel().then(function (response) {
                 $scope.battLevel = response.data.value;
             });
+            var a=[];
             promise.then(function (response) {
                 $scope.response = response.data;
                 $scope.resolved = true;
                 temperatures = _.map(response.data.listOfT, function (elem) {
                     return parseFloat(elem.value)
                 });
+
                 timeStamps = _.map(_.pluck(response.data.listOfT, "insertedOn").reverse(), function (elem) {
                     return new Date(elem)
                 });
+                var i=0;
+                var time=_.pluck(response.data.listOfT, "insertedOn")
+
+
+
 
                 $scope.sensorsTemp = response.data.listOfT;
             }, function error(error) {
                 console.log(error);
             });
         }
-
-
 
         function getTempValuesDirect(param){
             sensorsDao.getBattVolts().then(function(response){
@@ -120,15 +127,20 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
             sensorsDao.getBattLevel().then(function(response){
                 $scope.battLevel=response.data.value;
             });
+
             sensorsDao.getTempValuesDirect(param).then(function(response){
                 $scope.response=response.data;
                 $scope.resolved=true;
                 temperatures=_.map(response.data.listOfT,function(elem){
+
+                    a[0]=parseFloat(elem.value);
                     return parseFloat(elem.value)
                 });
                 timeStamps= _.map(_.pluck(response.data.listOfT,"insertedOn").reverse(),function(elem){
-                    return new Date(elem)
+                    a[1]=elem;
+                    return new Date(elem);
                 });
+
 
                 $scope.sensorsTemp=response.data.listOfT;
 
@@ -136,8 +148,13 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
                 console.log(error);
             });
         }
+
+
+
         $scope.$watch('response',function(nV,oV){
+
             if(nV!=oV){
+
                 runHighChart();
             }
         },true);
@@ -262,21 +279,13 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
         $scope.dataSum = [];
         $scope.timeStamps=[];
 
-        //$scope.$watch('select',function(){
-        //    param=parseInt($scope.select);
-        //    getTempValuesDirect(param);
-        //    runHighChart();
-        //});
-       
-        //$interval(function() {
-        //    var prom=sensorsDao.getTempAll();
-        //    prom.then(function success(response){
-        //        $scope.temperatures=response.data;
-        //        $scope.timeStamps.push(response.data.insertedOn);
-        //        $scope.dataSum.push( parseFloat(response.data));
-        //        runHighChart()
-        //    })
-        //}, 200000);
+        $scope.$watch('select',function(){
+            param=parseInt($scope.select);
+            getValues(param);
+            runHighChart();
+        });
+
+
        function runHighChart() {
             $('#container').highcharts({
                 title: {
@@ -302,7 +311,7 @@ sensors.controller('sensorDetailsController', ['$scope', '$routeParams','sensors
                     }]
                 },
                 tooltip: {
-                    valueSuffix: '°C'
+                    valueSuffix: suffix
                 },
                 legend: {
                     layout: 'vertical',

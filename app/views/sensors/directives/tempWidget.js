@@ -20,6 +20,7 @@ sensors.directive("tempWidget", function() {
             sparkOptions: {
                 type: "line",
                 barColor: config.danger_color,
+                chartRangeMin:[-20],
                 width: "120px",
                 height: "50px"
             }
@@ -32,6 +33,7 @@ sensors.directive("tempWidget", function() {
                 $scope.sensor=resp.data;
                 $scope.lastMeasurement=resp.data.insertedOn;
                 $scope.sensor.temp = resp.data.value;
+                $scope.resolved=true;
                 sensorsDao.setSensorTest(resp.data);
                 last=resp.data.insertedOn;
 
@@ -40,20 +42,32 @@ sensors.directive("tempWidget", function() {
 			});
 		}
         getTemp();
-		var timer =$interval(function() {
-			getTemp();
-		}, 20000);
 
         $scope.$on('$destroy',function(){
             $interval.cancel(timer);
         });
-
         $scope.$watch('sensor',function(nV,oV){
 
-            if(nV!=oV)$scope.simpleChartTemp.sparkData.push(parseFloat($scope.sensor.temp));
+            if(nV!=oV && $scope.resolved){
+                console.log(nV)
+                $scope.sensor.temp && $scope.simpleChartTemp.sparkData.push(parseFloat($scope.sensor.temp));
+            }
+        });
+        sensorsDao.getTempValuesDirect(288).then(function(resp){
+            var x =_.map(resp.data.listOfT,function (elem){ return parseFloat(elem.value)});
 
-        },true)
-
+            $scope.min=_.min(x);
+            $scope.max=_.max(x);
+        });
+        sensorsDao.getTempValuesDirect(1000).then(function(resp){
+            var x =_.map(resp.data.listOfT,function (elem){ return parseFloat(elem.value)});
+            var s=(x[0]-x[x.length-1])/x[x.length-1];
+            console.log(x);
+            $scope.change=s*100;
+        });
+        var timer =$interval(function() {
+            getTemp();
+        }, 50000);
 	}
 	function Link(scope, elem, attrs) {
 

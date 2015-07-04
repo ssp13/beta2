@@ -51,7 +51,13 @@ app.get('/api/getTempSensor',function(req,res){
 
 });
 
-
+app.get('/api/snapshot',function(req,res){
+    request('http://91.138.155.253:4001/snapshot', function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          res.send(response);
+        }
+    })
+});
 app.get('/api/getAir',function(req,res){
     request('http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/AIRSPEED', function (error, response, body) {
         if (!error && response.statusCode == 200) {

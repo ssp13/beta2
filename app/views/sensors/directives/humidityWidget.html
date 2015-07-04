@@ -1,9 +1,14 @@
 
-<zippy title="Humidity" visible="true" link="#/sensor/{{sensor.id}}">
+<zippy title="Humidity" visible="true" link="#/sensor/{{sensor.moduleID}}">
     <md-content style="padding:10px;min-height:263px;border-bottom: 1px solid rgb(211, 207, 207);">
         <!--<a href="#/sensor/{{sensor.id}}">{{sensor.id}} Sensor ID </a>-->
         <p><i class="pull-right wi wi-sprinkles text-large"> </i>
             <strong  style="font-size:x-large">{{sensor.value}} <sup>%RH</sup></strong>
+            <br>
+            Day min: {{min}} <sup>%RH</sup>
+            <br>
+            max: {{max}} <sup>%RH</sup>
+            <br>
             <br>
             Τελευταία Μέτρηση: {{sensor.insertedOn | date:'medium'}}
             <br>

@@ -40,8 +40,19 @@ sensors.directive("pressureWidget", function() {
         getPressure();
         var timer =$interval(function() {
             getPressure();
-        }, 20000);
+        }, 50000);
+        sensorsDao.getPressureValuesDirect(288).then(function(resp){
+            var x =_.map(resp.data.listOfT,function (elem){ return parseFloat(elem.value)});
 
+            $scope.min=_.min(x);
+            $scope.max=_.max(x);
+        });
+        sensorsDao.getPressureValuesDirect(500).then(function(resp){
+            var x =_.map(resp.data.listOfT,function (elem){ return parseFloat(elem.value)});
+            var s=(x[0]-x[x.length-1])/x[x.length-1];
+
+            $scope.change=s*100;
+        });
         $scope.$on('$destroy',function(){
             $interval.cancel(timer);
         });

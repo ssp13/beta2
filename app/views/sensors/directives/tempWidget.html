@@ -5,13 +5,13 @@
             <strong  style="font-size:xx-large">{{sensor.temp || "--"}} <sup>°C</sup></strong>
 
             <br>
-            min: {{min}}
+            Day min: {{min}} °C
             <br>
-            max: {{max}}
+            max: {{max}} °C
             <br>
             Τελευταία Μέτρηση: {{sensor.insertedOn | date:'medium'}}
             <br>
-            Weekly change:
+            Weekly change: {{change | number : 2}} %
             <svg xmlns="http://www.w3.org/2000/svg"   height="24" style="position:absolute;width:20px;fill:cornflowerblue" viewBox="0 0 24 24">
                 <path d="M7 14l5-5 5 5z"/>
                 <path d="M0 0h24v24h-24z" fill="none"/>

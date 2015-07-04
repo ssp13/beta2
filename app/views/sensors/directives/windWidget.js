@@ -83,7 +83,7 @@ sensors.directive("windWidget",function(){
             var promise = sensorsDao.getVane();
             promise.then(function success(resp) {
                 $scope.sensor.vane = resp.data.value;
-                $scope.simpleChart2danger.sparkData.push(parseFloat($scope.sensor.vane));
+
             }, function error(error) {
                 console.log(error);
             });
@@ -108,7 +108,7 @@ sensors.directive("windWidget",function(){
         $interval(function() {
             getAir();
             getVane();
-        }, 500000);
+        }, 50000);
 
 
         //$scope.gaugeData= {

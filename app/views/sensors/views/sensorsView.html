@@ -47,7 +47,7 @@
 
                 </div>
                 <div class="col-md-6" my-handle>
-                    <div luminosity-widget></div>
+                    <!--<div luminosity-widget></div>-->
                 </div>
             </div>
         </div>
@@ -85,10 +85,16 @@
 
 
 <zippy title="Κάμερες">
-    <img height="410" width="415" style="z-index:100;width:715px;height:400px;left:800px" src="http://194.248.190.92/mjpg/video.mjpg">
+    <!--<img height="410" width="415" style="z-index:100;width:715px;height:400px;left:800px" src="http://194.248.190.92/mjpg/video.mjpg">-->
+
+    <img  height="410" width="415"  style="z-index:100;width:715px;height:400px;left:800px" src="data:image/jpg;base64,">
 </zippy>
 </div>
 <script>
+    $.get("http://91.138.155.253:4001/snapshot",function(data){
+        $(img).src("data:image/jpg;base64,"+data);
+       console.log(data);
+    });
     $('.sortable').each(function () {
         var options = {
             group: 'widgets',

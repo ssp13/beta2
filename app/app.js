@@ -6,7 +6,7 @@
  Initialize the Angular App
  **************************/
 
-var app = angular.module("app", ['ng-breadcrumbs',"ngRoute",'ui.bootstrap', "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "easypiechart","app.material", "mgo-angular-wizard","ui.tree",  "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.task", "app.chart.ctrls", "app.chart.directives","countTo","app.music"]).run(["$rootScope", "$location",
+var app = angular.module("app", ['ng-breadcrumbs',"ngRoute",'ui.bootstrap', "sensors.module", "ngAnimate","ngAria","ngMessages","ngMaterial","app.config", "ui.bootstrap", "app.material",  "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.custom", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "app.chart.ctrls", "app.chart.directives","countTo"]).run(["$rootScope", "$location",
     function ($rootScope, $location) {
 
 

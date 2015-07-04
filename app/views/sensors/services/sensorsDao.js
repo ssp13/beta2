@@ -12,7 +12,7 @@ sensors.service('sensorsDao',['$http',function($http){
             return data;
         },
         getTemp:function(){
-           var data=$http.get("/api/getTemp");
+           var data=$http.get("http://mtp.doeyetea.eu:8080/gmswar/gms/getLastMeasurements/2/TEMP");
             return data;
         },
         getPluvio:function(){
@@ -51,6 +51,10 @@ sensors.service('sensorsDao',['$http',function($http){
         },
         getPressureValuesDirect:function(param){
             var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/7/'+param);
+            return data;
+        },
+        getHumidityValuesDirect:function(param){
+            var data=$http.get('http://mtp.doeyetea.eu:8080/gmswar/gms/getMeasurementsByModule/8/'+param);
             return data;
         },
         getHumidity:function(){

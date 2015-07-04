@@ -112,17 +112,17 @@ module.exports = function(grunt) {
             }
         },
 
-        //uglify: {
-        //    dist: {
-        //        files: {
-        //            'dist/js/app.js': [ 'dist/js/app.js' ]
-        //        },
-        //        options: {
-        //            mangle: false,
-        //            preserveComments: 'some'
-        //        }
-        //    }
-        //},
+        uglify: {
+            dist: {
+                files: {
+                    'dist/js/app.js': [ 'dist/js/app.js' ]
+                },
+                options: {
+                    mangle: false,
+                    preserveComments: 'some'
+                }
+            }
+        },
         cssmin: {
             combine: {
                 files: {
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
 
         html2js: {
             dist: {
-                src: [ 'app/views/*.html','app/views/charts/*.html','app/views/forms/*.html','app/views/mail/*.html','app/views/maps/*.html','app/views/pages/*.html','app/views/tables/*.html','app/views/tables/*.html','app/views/tasks/*.html','app/views/ui_elements/*.html' ],
+                src: [ 'app/views/*.html','app/views/charts/*.html'],
                 dest: 'tmp/views.js'
             }
         },
@@ -177,31 +177,13 @@ module.exports = function(grunt) {
                     'bower_components/underscore/underscore-min.js',
                     'bower_components/raphael/raphael-min.js',
                     'bower_components/morrisjs/morris.min.js',
-                    'bower_components/flot/jquery.flot.js',
-                    'bower_components/flot/jquery.flot.canvas.js',
-                    'bower_components/flot/jquery.flot.categories.js',
-                    'bower_components/flot/jquery.flot.crosshair.js',
-                    'bower_components/flot/jquery.flot.image.js',
-                    'bower_components/flot/jquery.flot.navigate.js',
-                    'bower_components/flot/jquery.flot.time.js',
-                    'bower_components/flot/jquery.flot.pie.js',
-                    'bower_components/flot/jquery.flot.resize.js',
-                    'bower_components/flot/jquery.flot.selection.js',
-                    'bower_components/flot/jquery.flot.stack.js',
-                    'bower_components/flot.curvedlines/curvedLines.js',
-                    'bower_components/chartjs/Chart.min.js',
-                    'bower_components/easypie/dist/angular.easypiechart.min.js',
-                    'bower_components/angular-wizard/dist/angular-wizard.js',
-                    'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
+
                     'bower_components/jqvmap/jqvmap/jquery.vmap.min.js',
                     'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-                    'scripts/other_charts.js',
-                    'scripts/extras.js',
-                    'scripts/audio.min.js',
-                    'scripts/audio_widget.js',
                     'app/views/charts/directives/sparkDanger.js',
                     'app/views/charts/flotCharts/directives/*.js',
-                    'app/**/*.js' ],
+                    'app/*.js',
+                    'app/views/sensors/**/*.js'],
                 dest: 'dist/js/app.js'
             }
         },
@@ -226,52 +208,52 @@ module.exports = function(grunt) {
                 options: {
                     atBegin: true
                 }
+            },
+            min: {
+                files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss' ],
+                tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp', 'uglify:dist','cssmin' ],
+                options: {
+                    atBegin: true
+                }
             }
-            //min: {
-            //    files: [ 'Gruntfile.js', 'app/*.js', '*.html','styles/*.scss' ],
-            //    tasks: [ 'jshint','html2js:dist','copy:main', 'concat:dist', 'clean:temp', 'uglify:dist','cssmin' ],
-            //    options: {
-            //        atBegin: true
-            //    }
-            //}
-        }
+        },
 
-        //compress: {
-        //    dist: {
-        //        options: {
-        //            archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.zip'
-        //        },
-        //        files: [{
-        //            src: [ 'index.html' ],
-        //            dest: '/'
-        //        }, {
-        //            src: [ 'app/**' ],
-        //            dest: 'app/'
-        //        }, {
-        //            src: [ 'app/**' ],
-        //            dest: 'app/'
-        //        }, {
-        //            src: [ 'app/**' ],
-        //            dest: 'app/'
-        //        }]
-        //    }
-        //}
+        compress: {
+            dist: {
+                options: {
+                    archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.zip'
+                },
+                files: [{
+                    src: [ 'index.html' ],
+                    dest: '/'
+                }, {
+                    src: [ 'app/**' ],
+                    dest: 'app/'
+                }, {
+                    src: [ 'app/**' ],
+                    dest: 'app/'
+                }, {
+                    src: [ 'app/**' ],
+                    dest: 'app/'
+                }]
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    //grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-bower-task');
 
     grunt.registerTask('dev', [ 'bower', 'connect:server', 'watch:dev' ]);
     grunt.registerTask('test', [ 'bower', 'jshint' ]);
-    //grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
+    grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
     grunt.registerTask('copy-icons', [ 'copy:copyicons' ]);
 };
